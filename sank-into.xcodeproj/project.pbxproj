@@ -11,12 +11,12 @@
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C6009D0951E00EBEB88 /* GLUT.framework */; };
-		626D51CB120766E600900F40 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626D51CA120766E600900F40 /* main.cpp */; };
-		626D51D3120766EF00900F40 /* CGfxOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626D51CE120766EF00900F40 /* CGfxOpenGL.cpp */; };
-		626D51D4120766EF00900F40 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626D51CF120766EF00900F40 /* handleEvents.cpp */; };
-		626D51D5120766EF00900F40 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 626D51D2120766EF00900F40 /* handleScreen.cpp */; };
-		626D51E81207671800900F40 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 626D51E61207671800900F40 /* SDLMain.m */; };
-		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		62D791AD12077B9900DED8D3 /* CGfxOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */; };
+		62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A612077B9900DED8D3 /* handleEvents.cpp */; };
+		62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A712077B9900DED8D3 /* handleScreen.cpp */; };
+		62D791B012077B9900DED8D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A912077B9900DED8D3 /* main.cpp */; };
+		62D791B112077B9900DED8D3 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D791AB12077B9900DED8D3 /* SDLMain.m */; };
+		62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62D791C012077BC800DED8D3 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,21 +38,21 @@
 		002F39F909D0881F00EBEB88 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
 		002F3C0009D093BD00EBEB88 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		002F3C6009D0951E00EBEB88 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = SOURCE_ROOT; };
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		32CA4F630368D1EE00C91783 /* sank-into_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sank-into_Prefix.pch"; sourceTree = "<group>"; };
-		626D51CA120766E600900F40 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		626D51CD120766EF00900F40 /* CGfxOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGfxOpenGL.h; sourceTree = "<group>"; };
-		626D51CE120766EF00900F40 /* CGfxOpenGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGfxOpenGL.cpp; sourceTree = "<group>"; };
-		626D51CF120766EF00900F40 /* handleEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handleEvents.cpp; sourceTree = "<group>"; };
-		626D51D0120766EF00900F40 /* handleEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleEvents.h; sourceTree = "<group>"; };
-		626D51D1120766EF00900F40 /* handleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleScreen.h; sourceTree = "<group>"; };
-		626D51D2120766EF00900F40 /* handleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handleScreen.cpp; sourceTree = "<group>"; };
-		626D51E61207671800900F40 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
-		626D51E71207671800900F40 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CGfxOpenGL.cpp; path = src/CGfxOpenGL.cpp; sourceTree = "<group>"; };
+		62D791A412077B9900DED8D3 /* CGfxOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGfxOpenGL.h; path = src/CGfxOpenGL.h; sourceTree = "<group>"; };
+		62D791A512077B9900DED8D3 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general.h; path = src/general.h; sourceTree = "<group>"; };
+		62D791A612077B9900DED8D3 /* handleEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleEvents.cpp; path = src/handleEvents.cpp; sourceTree = "<group>"; };
+		62D791A712077B9900DED8D3 /* handleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleScreen.cpp; path = src/handleScreen.cpp; sourceTree = "<group>"; };
+		62D791A812077B9900DED8D3 /* handleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = handleScreen.h; path = src/handleScreen.h; sourceTree = "<group>"; };
+		62D791A912077B9900DED8D3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		62D791AA12077B9900DED8D3 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLMain.h; path = src/SDLMain.h; sourceTree = "<group>"; };
+		62D791AB12077B9900DED8D3 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLMain.m; path = src/SDLMain.m; sourceTree = "<group>"; };
+		62D791AC12077B9900DED8D3 /* handleEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = handleEvents.h; path = src/handleEvents.h; sourceTree = "<group>"; };
+		62D791C112077BC800DED8D3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		62D791D412077C0C00DED8D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,21 +71,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				626D51E61207671800900F40 /* SDLMain.m */,
-				626D51E71207671800900F40 /* SDLMain.h */,
-				626D51CD120766EF00900F40 /* CGfxOpenGL.h */,
-				626D51CE120766EF00900F40 /* CGfxOpenGL.cpp */,
-				626D51CF120766EF00900F40 /* handleEvents.cpp */,
-				626D51D0120766EF00900F40 /* handleEvents.h */,
-				626D51D1120766EF00900F40 /* handleScreen.h */,
-				626D51D2120766EF00900F40 /* handleScreen.cpp */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +102,6 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -129,8 +113,16 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				626D51CA120766E600900F40 /* main.cpp */,
-				32CA4F630368D1EE00C91783 /* sank-into_Prefix.pch */,
+				62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */,
+				62D791A412077B9900DED8D3 /* CGfxOpenGL.h */,
+				62D791A512077B9900DED8D3 /* general.h */,
+				62D791A612077B9900DED8D3 /* handleEvents.cpp */,
+				62D791A712077B9900DED8D3 /* handleScreen.cpp */,
+				62D791A812077B9900DED8D3 /* handleScreen.h */,
+				62D791A912077B9900DED8D3 /* main.cpp */,
+				62D791AA12077B9900DED8D3 /* SDLMain.h */,
+				62D791AB12077B9900DED8D3 /* SDLMain.m */,
+				62D791AC12077B9900DED8D3 /* handleEvents.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -138,8 +130,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107310486CEB800E47090 /* Info.plist */,
-				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				62D791D412077C0C00DED8D3 /* Info.plist */,
+				62D791BF12077BC800DED8D3 /* English.lproj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -151,6 +143,15 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62D791BF12077BC800DED8D3 /* English.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				62D791C012077BC800DED8D3 /* InfoPlist.strings */,
+			);
+			name = English.lproj;
+			path = resource/English.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,21 +209,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				626D51CB120766E600900F40 /* main.cpp in Sources */,
-				626D51D3120766EF00900F40 /* CGfxOpenGL.cpp in Sources */,
-				626D51D4120766EF00900F40 /* handleEvents.cpp in Sources */,
-				626D51D5120766EF00900F40 /* handleScreen.cpp in Sources */,
-				626D51E81207671800900F40 /* SDLMain.m in Sources */,
+				62D791AD12077B9900DED8D3 /* CGfxOpenGL.cpp in Sources */,
+				62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */,
+				62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */,
+				62D791B012077B9900DED8D3 /* main.cpp in Sources */,
+				62D791B112077B9900DED8D3 /* SDLMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+		62D791C012077BC800DED8D3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C165DFE840E0CC02AAC07 /* English */,
+				62D791C112077BC800DED8D3 /* English */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

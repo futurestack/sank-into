@@ -21,25 +21,25 @@ endif
 all : $(target)
 
 APPLE : $(objects)
-	g++ $(objects) $(applelib) -o main
+	g++ $(objects) $(applelib) -o sankinto
 
 LINUX : $(objects)
-	g++ $(objects) $(linlib) -o main
+	g++ $(objects) $(linlib) -o sankinto
 
 WINDOWS : $(objects)
-	g++ $(objects) $(winlib) -o main.exe
+	g++ $(objects) $(winlib) -o sankinto.exe
 
-main.o : main.cpp general.h CGfxOpenGL.h
-	g++ -c main.cpp -o main.o
+main.o : src/main.cpp src/general.h src/CGfxOpenGL.h
+	g++ -c src/main.cpp -o main.o
 
-CGfxOpenGL.o : CGfxOpenGL.cpp general.h CGfxOpenGL.h
-	g++ -c CGfxOpenGL.cpp -o CGfxOpenGL.o
+CGfxOpenGL.o : src/CGfxOpenGL.cpp src/general.h src/CGfxOpenGL.h
+	g++ -c src/CGfxOpenGL.cpp -o CGfxOpenGL.o
 
-handleScreen.o : handleScreen.cpp handleScreen.h general.h
-	g++ -c handleScreen.cpp -o handleScreen.o
+handleScreen.o : src/handleScreen.cpp src/handleScreen.h src/general.h
+	g++ -c src/handleScreen.cpp -o handleScreen.o
 
-handleEvents.o: handleEvents.cpp handleEvents.h general.h
-	g++ -c handleEvents.cpp -o handleEvents.o
+handleEvents.o: src/handleEvents.cpp src/handleEvents.h src/general.h
+	g++ -c src/handleEvents.cpp -o handleEvents.o
 
 clean : $(cleantarget)
 
