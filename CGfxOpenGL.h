@@ -32,21 +32,21 @@
 class CGfxOpenGL
 {
 private:
-	int windowWidth;
-	int windowHeight;
+    int windowWidth;
+    int windowHeight;
 
 public:
-	CGfxOpenGL();
-	virtual ~CGfxOpenGL();
+    CGfxOpenGL();
+    virtual ~CGfxOpenGL();
 
-	bool init();
-	bool initGL();
-	bool shutdown();
+    bool init();
+    bool initGL();
+    bool shutdown();
 
-	void setupProjection(int width, int height);
+    void setupProjection(int width, int height);
 
-	void update(float dt);
-	void render();
+    void update(float dt);
+    void render();
 };
 
 #endif
