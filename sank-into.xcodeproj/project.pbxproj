@@ -11,13 +11,13 @@
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C6009D0951E00EBEB88 /* GLUT.framework */; };
-		62D791AD12077B9900DED8D3 /* CGfxOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */; };
 		62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A612077B9900DED8D3 /* handleEvents.cpp */; };
 		62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A712077B9900DED8D3 /* handleScreen.cpp */; };
 		62D791B012077B9900DED8D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A912077B9900DED8D3 /* main.cpp */; };
 		62D791B112077B9900DED8D3 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D791AB12077B9900DED8D3 /* SDLMain.m */; };
 		62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62D791C012077BC800DED8D3 /* InfoPlist.strings */; };
 		62D7929E1208CBA000DED8D3 /* fsRendererGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */; };
+		62D792A91208D1D400DED8D3 /* glContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D792A71208D1D400DED8D3 /* glContext.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +42,6 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CGfxOpenGL.cpp; path = src/CGfxOpenGL.cpp; sourceTree = "<group>"; };
-		62D791A412077B9900DED8D3 /* CGfxOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGfxOpenGL.h; path = src/CGfxOpenGL.h; sourceTree = "<group>"; };
 		62D791A512077B9900DED8D3 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general.h; path = src/general.h; sourceTree = "<group>"; };
 		62D791A612077B9900DED8D3 /* handleEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleEvents.cpp; path = src/handleEvents.cpp; sourceTree = "<group>"; };
 		62D791A712077B9900DED8D3 /* handleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleScreen.cpp; path = src/handleScreen.cpp; sourceTree = "<group>"; };
@@ -56,6 +54,8 @@
 		62D791D412077C0C00DED8D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62D7929C1208CBA000DED8D3 /* fsRendererGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fsRendererGL.h; path = src/fsRendererGL.h; sourceTree = "<group>"; };
 		62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fsRendererGL.cpp; path = src/fsRendererGL.cpp; sourceTree = "<group>"; };
+		62D792A71208D1D400DED8D3 /* glContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = glContext.cpp; path = src/glContext.cpp; sourceTree = "<group>"; };
+		62D792A81208D1D400DED8D3 /* glContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glContext.h; path = src/glContext.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,10 +116,10 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				62D792A71208D1D400DED8D3 /* glContext.cpp */,
+				62D792A81208D1D400DED8D3 /* glContext.h */,
 				62D7929C1208CBA000DED8D3 /* fsRendererGL.h */,
 				62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */,
-				62D791A312077B9900DED8D3 /* CGfxOpenGL.cpp */,
-				62D791A412077B9900DED8D3 /* CGfxOpenGL.h */,
 				62D791A512077B9900DED8D3 /* general.h */,
 				62D791A612077B9900DED8D3 /* handleEvents.cpp */,
 				62D791A712077B9900DED8D3 /* handleScreen.cpp */,
@@ -214,12 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62D791AD12077B9900DED8D3 /* CGfxOpenGL.cpp in Sources */,
 				62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */,
 				62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */,
 				62D791B012077B9900DED8D3 /* main.cpp in Sources */,
 				62D791B112077B9900DED8D3 /* SDLMain.m in Sources */,
 				62D7929E1208CBA000DED8D3 /* fsRendererGL.cpp in Sources */,
+				62D792A91208D1D400DED8D3 /* glContext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

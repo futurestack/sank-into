@@ -28,7 +28,7 @@
 #include "handleScreen.h"
 #include "handleEvents.h"
 
-CGfxOpenGL *renderer;
+glContext *renderer;
 
 bool done = false;
 bool isActive = false;
@@ -80,7 +80,7 @@ void init() {
   // whether or not the window is active
   isActive = true;
   period = 1000 / 80;
-  renderer = new CGfxOpenGL;
+  renderer = new glContext;
 
   // initialise SDL
   if(SDL_Init(SDL_INIT_VIDEO) < 0) {

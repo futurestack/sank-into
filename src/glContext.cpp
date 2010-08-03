@@ -1,4 +1,4 @@
-// File:   CGfxOpenGL.h
+// File:   glContext.cpp
 /****************************************************************************
  * Copyright (c) 2008 Gareth Morgan.                                        *
  *                                                                          *
@@ -22,31 +22,99 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.                               *
  ****************************************************************************/
 
-#ifndef CGFXOPENGL_H
-#define CGFXOPENGL_H
+#include <math.h>
+#include "glContext.h"
+#include "general.h"
 
-#define PI 3.14159
-#define TWO_PI PI*2.0
-#define HALF_PI PI/2.0
-
-class CGfxOpenGL
+glContext::glContext()
 {
-private:
-    int windowWidth;
-    int windowHeight;
+}
 
-public:
-    CGfxOpenGL();
-    virtual ~CGfxOpenGL();
+glContext::~glContext()
+{
+}
 
-    bool init();
-    bool initGL();
-    bool shutdown();
+bool glContext::init() {   
+  //class initialisation
+  
+  initGL();
+  return true;
+}
 
-    void setupProjection(int width, int height);
+bool glContext::initGL() {
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+    return true;
+}
 
-    void update(float dt);
-    void render();
-};
+bool glContext::shutdown()
+{
+    return true;
+}
 
-#endif
+void glContext::setupProjection(int width, int height)
+{
+    if (height == 0) {
+        height = 1;                 
+    }
+
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    gluPerspective(52.0f,(GLfloat)width/(GLfloat)height,1.0f,1000.0f);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    windowWidth = width;
+    windowHeight = height;
+}
+
+void glContext::update(float dt)
+{
+}
+
+void glContext::render()
+{
+  float lineWidth = 0.5;
+
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glLoadIdentity();
+  gluLookAt(0.0, 10.0, 0.1, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+
+  float line;
+  for(line = 0.0; line < 7.0; line += 0.5) {
+    glLineWidth(lineWidth);
+
+    glBegin(GL_LINES);
+      glVertex3f(-5.0, 0.0,line - 3.0f);
+      glVertex3f(-1.0, 0.0, line - 3.0f);
+    glEnd();
+
+    lineWidth += 1.0;
+  }
+
+  lineWidth = 0.5;
+
+  glEnable(GL_LINE_STIPPLE);
+
+  // 0xAAAA = 1010 1010 1010 1010
+  short stipplePattern = 0xAAAA;
+
+  glLineStipple(2, stipplePattern);
+
+  for(line = 0.0; line < 7.0; line += 0.5) {
+    glLineWidth(lineWidth);
+
+    glBegin(GL_LINES);
+      glVertex3f(1.0f, 0.0f, line - 3.0f);
+      glVertex3f(5.0f, 0.0f, line - 3.0f);
+    glEnd();
+    
+    lineWidth += 1.0;
+  }
+  glDisable(GL_LINE_STIPPLE);
+}
+

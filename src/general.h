@@ -35,7 +35,7 @@
 #endif
 
 #include <SDL/SDL.h>
-#include "CGfxOpenGL.h"
+#include "glContext.h"
 
 #define SCREEN_WIDTH  800  
 #define SCREEN_HEIGHT 335
@@ -46,7 +46,7 @@
 
 void Quit(int returnCode);
 
-extern CGfxOpenGL *renderer;
+extern glContext *renderer;
 extern bool done;
 extern bool isActive;
 
