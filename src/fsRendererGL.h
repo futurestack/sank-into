@@ -11,6 +11,7 @@
 #define FS_RENDERER_GL_H_
 
 #include <vector>
+#include <string>
 
 class fsPoint2i;
 class fsPoint2f;
