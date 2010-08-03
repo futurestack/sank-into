@@ -1,0 +1,5 @@
+#xcode stuff
+*.DS_Store
+*.mode*
+*.pbxuser
+*.o
