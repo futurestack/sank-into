@@ -28,10 +28,19 @@
 #include "general.h"
 #include "handleScreen.h"
 
-void handleKeyPress( SDL_keysym *keysym );
-void handleMouseMotion( int x, int y );
-void handleMouseUp( int x, int y  );
-void handleMouseDown( int x, int y );
-void handleEvents();
+class eventHandler
+    {
+    public:
+        
+        eventHandler();
+        ~eventHandler();
+        void handleKeyPress( SDL_keysym *keysym );
+        void handleMouseMotion( int x, int y );
+        void handleMouseUp( int x, int y  );
+        void handleMouseDown( int x, int y );
+        void handleEvents();
+        
+        gameController* pController;
+    };
 
 #endif

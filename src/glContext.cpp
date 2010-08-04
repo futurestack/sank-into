@@ -26,25 +26,66 @@
 #include "glContext.h"
 #include "general.h"
 
+#include "gameController.h"
+#include "gameObject.h"
+#include "gameEntity.h"
+
 glContext::glContext()
 {
+    pController = gameController::getRef();
+    
 }
 
 glContext::~glContext()
 {
 }
 
-bool glContext::init() {   
+bool glContext::init() 
+{   
   //class initialisation
   
   initGL();
   return true;
 }
 
-bool glContext::initGL() {
+bool glContext::initGL() 
+{
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
+    
+    
+    
+    
+	//proper transparency setting
+	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+	
+	// no good : text setting glBlendFunc( GL_ONE, GL_ONE_MINUS_SRC_ALPHA );
+	glAlphaFunc(GL_GREATER,0.1f);
+	glEnable(GL_ALPHA_TEST);
+	
+	glEnable( GL_BLEND );
+	
+	GLint viewport[4];
+	glGetIntegerv(GL_VIEWPORT,viewport);
+	double zSpace = (double)viewport[3];
+	glOrtho( 0.0,(double)viewport[2],(double)viewport[3],0.0,-1*zSpace,zSpace );
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glDisable(GL_DEPTH_TEST);
+	glDisable (GL_LINE_SMOOTH);				// Initially Disable Line Smoothing
+    
+	glEnable(GL_TEXTURE_2D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, 
+					GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, 
+					GL_NEAREST);
+	
+	glEnableClientState( GL_VERTEX_ARRAY );
+
+    
+    
+    
     return true;
 }
 
@@ -54,7 +95,14 @@ bool glContext::shutdown()
 }
 
 void glContext::setupProjection(int width, int height)
-{
+{	
+    glOrtho( 0, width, height , 0, 1, -1 );
+	glMatrixMode(GL_PROJECTION);
+	glColorMask(true, true, true, true);        
+	glLoadIdentity();
+	init();
+    /*
+     
     if (height == 0) {
         height = 1;                 
     }
@@ -70,14 +118,35 @@ void glContext::setupProjection(int width, int height)
 
     windowWidth = width;
     windowHeight = height;
+    */
 }
 
 void glContext::update(float dt)
 {
 }
 
+void glContext::renderObject(const gameObject& obj )
+{
+    
+    
+    fsPoint2i p = obj.loc;
+    
+    renderer.pushMatrix();
+    renderer.translate(p.x,p.y,0);
+    renderer.renderSquare (20 );
+    renderer.popMatrix();
+}
+
 void glContext::render()
 {
+    renderer.clear(1.0,1.0,1.0,1.0);
+    
+    renderer.setColor(0.0,0.0,0.0,1.0);
+    renderObject( pController->mouseLoc );
+    renderObject( pController->player) ;
+    
+    
+    /*
   float lineWidth = 0.5;
 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -116,5 +185,9 @@ void glContext::render()
     lineWidth += 1.0;
   }
   glDisable(GL_LINE_STIPPLE);
+     */
+    
+    
+    
 }
 

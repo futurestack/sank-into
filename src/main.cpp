@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 
 
     scriptInterpreter interpreter;
-    
+    eventHandler handler;
 
     init();
 
@@ -116,7 +116,7 @@ int main(int argc, char **argv)
       update(updatePeriod);
       render();
     }
-    handleEvents();
+    handler.handleEvents();
 
     after = SDL_GetTicks();
     diff = after - before + overWait;

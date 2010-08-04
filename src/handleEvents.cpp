@@ -27,8 +27,22 @@
 
 #include <iostream>
 
+#include "gameController.h"
 
-void handleKeyPress(SDL_keysym *keysym) 
+eventHandler::eventHandler()
+{
+    pController = gameController::getRef();
+    
+}
+
+eventHandler::~eventHandler()
+{
+    
+    
+}
+
+
+void eventHandler::handleKeyPress(SDL_keysym *keysym) 
 { // function to handle key press events
     switch (keysym->sym) 
     {
@@ -61,23 +75,24 @@ void handleKeyPress(SDL_keysym *keysym)
     return;
 }
 
-void handleMouseUp( int x, int y)
+void eventHandler::handleMouseUp( int x, int y)
+{
+    pController->player.loc = pController->mouseLoc.loc;
+
+}
+
+void eventHandler::handleMouseDown( int x, int y)
 {
 
 }
 
-void handleMouseDown( int x, int y)
+void eventHandler::handleMouseMotion( int x, int y)
 {
-
-}
-
-void handleMouseMotion( int x, int y)
-{
-
+    pController->mouseLoc.loc = fsPoint2i(x,y);
 }
 
 
-void handleEvents() 
+void eventHandler::handleEvents() 
 {
     static SDL_Event event;
 

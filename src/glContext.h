@@ -25,6 +25,11 @@
 #ifndef CGFXOPENGL_H
 #define CGFXOPENGL_H
 
+#include "fsRendererGL.h"
+class gameController;
+class gameEntity;
+class gameObject;
+
 #define PI 3.14159
 #define TWO_PI PI*2.0
 #define HALF_PI PI/2.0
@@ -34,7 +39,7 @@ class glContext
 private:
     int windowWidth;
     int windowHeight;
-
+    fsRendererGL renderer;
 public:
     glContext();
     virtual ~glContext();
@@ -47,6 +52,9 @@ public:
 
     void update(float dt);
     void render();
+    void renderObject(const gameObject& obj );
+    
+    gameController* pController;
 };
 
 #endif
