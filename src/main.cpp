@@ -28,6 +28,8 @@
 #include "handleScreen.h"
 #include "handleEvents.h"
 
+#include "scriptInterpreter.h"
+
 glContext *renderer;
 
 bool done = false;
@@ -95,12 +97,17 @@ void init() {
   
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
   Uint32 before, after, diff, wait, overWait = 0, updatePeriod = 0;
 
-  init();
 
-  gameStart = SDL_GetTicks();
+    scriptInterpreter interpreter;
+    
+
+    init();
+
+    gameStart = SDL_GetTicks();
   before = gameStart;
 
   while(!done) { 

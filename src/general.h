@@ -24,7 +24,7 @@
 
 
 #ifndef _GENERAL_H
-#define	_GENERAL_H
+#define    _GENERAL_H
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -50,5 +50,5 @@ extern glContext *renderer;
 extern bool done;
 extern bool isActive;
 
-#endif	/* _GENERAL_H */
+#endif    /* _GENERAL_H */
 

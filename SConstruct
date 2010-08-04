@@ -9,11 +9,11 @@ flags = '-Wall -pedantic -g'
 
 if sys.platform == 'win32':          #win
     Tool('mingw')(env)
-    env.Append(LIBS = ['mingw32','SDLmain', 'SDL', 'OpenGL32', 'GLU32'])
+    env.Append(LIBS = ['mingw32','SDLmain', 'SDL', 'OpenGL32', 'GLU32', 'Python'])
 elif (sys.platform == 'darwin'):     #mac
-    env['FRAMEWORKS'] = ['OpenGL', 'Cocoa', 'SDL'] 
+    env['FRAMEWORKS'] = ['OpenGL', 'Cocoa', 'SDL', 'Python'] 
 else:                                #linux
-    env.Append(LIBS = ['SDL','GL', 'GLU'])
+    env.Append(LIBS = ['SDL','GL', 'GLU', 'Python'])
 
 if (sys.platform == 'darwin' ):
 	Object('src/SDLMain.o', 'src/SDLMain.m', FRAMEWORKS=env['FRAMEWORKS'])

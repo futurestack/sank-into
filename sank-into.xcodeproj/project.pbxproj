@@ -18,6 +18,8 @@
 		62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62D791C012077BC800DED8D3 /* InfoPlist.strings */; };
 		62D7929E1208CBA000DED8D3 /* fsRendererGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */; };
 		62D792A91208D1D400DED8D3 /* glContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D792A71208D1D400DED8D3 /* glContext.cpp */; };
+		62D792C31208E64A00DED8D3 /* scriptInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D792C21208E64A00DED8D3 /* scriptInterpreter.cpp */; };
+		62D792FD1208E83600DED8D3 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D792FC1208E83600DED8D3 /* Python.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,9 @@
 		62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fsRendererGL.cpp; path = src/fsRendererGL.cpp; sourceTree = "<group>"; };
 		62D792A71208D1D400DED8D3 /* glContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = glContext.cpp; path = src/glContext.cpp; sourceTree = "<group>"; };
 		62D792A81208D1D400DED8D3 /* glContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glContext.h; path = src/glContext.h; sourceTree = "<group>"; };
+		62D792C11208E64A00DED8D3 /* scriptInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scriptInterpreter.h; path = src/scriptInterpreter.h; sourceTree = "<group>"; };
+		62D792C21208E64A00DED8D3 /* scriptInterpreter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scriptInterpreter.cpp; path = src/scriptInterpreter.cpp; sourceTree = "<group>"; };
+		62D792FC1208E83600DED8D3 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,6 +73,7 @@
 				002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */,
+				62D792FD1208E83600DED8D3 /* Python.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +111,7 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
+				62D792FC1208E83600DED8D3 /* Python.framework */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -118,6 +125,8 @@
 			children = (
 				62D792A71208D1D400DED8D3 /* glContext.cpp */,
 				62D792A81208D1D400DED8D3 /* glContext.h */,
+				62D792C11208E64A00DED8D3 /* scriptInterpreter.h */,
+				62D792C21208E64A00DED8D3 /* scriptInterpreter.cpp */,
 				62D7929C1208CBA000DED8D3 /* fsRendererGL.h */,
 				62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */,
 				62D791A512077B9900DED8D3 /* general.h */,
@@ -220,6 +229,7 @@
 				62D791B112077B9900DED8D3 /* SDLMain.m in Sources */,
 				62D7929E1208CBA000DED8D3 /* fsRendererGL.cpp in Sources */,
 				62D792A91208D1D400DED8D3 /* glContext.cpp in Sources */,
+				62D792C31208E64A00DED8D3 /* scriptInterpreter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
