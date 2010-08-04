@@ -103,6 +103,8 @@ int main(int argc, char **argv)
 
 
     scriptInterpreter interpreter;
+    interpreter.runTest();
+    
     eventHandler handler;
 
     init();
