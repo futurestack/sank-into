@@ -10,12 +10,17 @@
 #ifndef SCRIPT_INTERPRETER_H_
 #define SCRIPT_INTERPRETER_H_
 
+#ifdef __APPLE__
 extern "C" {
 #include <lua.hpp>
 #include <lauxlib.h>
 #include <lualib.h>
 }
-
+#else
+#include "lua.hpp"
+#include "lauxlib.h"
+#include "lualib.h"
+#endif
 
 class scriptInterpreter
 {

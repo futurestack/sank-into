@@ -25,6 +25,7 @@
 		62D793481208EAFA00DED8D3 /* fsPoint2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793461208EAFA00DED8D3 /* fsPoint2i.cpp */; };
 		62D7935A1208EBB100DED8D3 /* gameEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793561208EBB100DED8D3 /* gameEntity.cpp */; };
 		62D7935B1208EBB100DED8D3 /* gameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793571208EBB100DED8D3 /* gameObject.cpp */; };
+		62D79637120A164200DED8D3 /* SConstruct in Resources */ = {isa = PBXBuildFile; fileRef = 62D79636120A164200DED8D3 /* SConstruct */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		62D793571208EBB100DED8D3 /* gameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gameObject.cpp; path = src/gameObject.cpp; sourceTree = "<group>"; };
 		62D793581208EBB100DED8D3 /* gameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameObject.h; path = src/gameObject.h; sourceTree = "<group>"; };
 		62D793591208EBB100DED8D3 /* gameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameEntity.h; path = src/gameEntity.h; sourceTree = "<group>"; };
+		62D79636120A164200DED8D3 /* SConstruct */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
+				62D79636120A164200DED8D3 /* SConstruct */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */,
+				62D79637120A164200DED8D3 /* SConstruct in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
