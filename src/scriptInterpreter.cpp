@@ -8,20 +8,23 @@
  */
 
 #include "scriptInterpreter.h"
+#include <string>
 
 scriptInterpreter::scriptInterpreter()
 {
-    Py_Initialize();
-    PyRun_SimpleString("from time import time,ctime\n"
-                       "print 'Testing python embedding.  Today is',ctime(time())\n");
+	L = lua_open();
+	
+	std::string str = "print('Hello World')";
+	luaL_dostring (L,str.c_str());
 
 }
 
 scriptInterpreter::~scriptInterpreter()
 {
 
-    Py_Finalize();
 
+	
+	lua_close(L);
 
 }
 

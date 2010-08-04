@@ -11,6 +11,7 @@
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C6009D0951E00EBEB88 /* GLUT.framework */; };
+		2259B3C61209393D00087F35 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2259B3C51209393D00087F35 /* liblua.a */; };
 		62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A612077B9900DED8D3 /* handleEvents.cpp */; };
 		62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A712077B9900DED8D3 /* handleScreen.cpp */; };
 		62D791B012077B9900DED8D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A912077B9900DED8D3 /* main.cpp */; };
@@ -19,13 +20,11 @@
 		62D7929E1208CBA000DED8D3 /* fsRendererGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D7929D1208CBA000DED8D3 /* fsRendererGL.cpp */; };
 		62D792A91208D1D400DED8D3 /* glContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D792A71208D1D400DED8D3 /* glContext.cpp */; };
 		62D792C31208E64A00DED8D3 /* scriptInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D792C21208E64A00DED8D3 /* scriptInterpreter.cpp */; };
-		62D792FD1208E83600DED8D3 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D792FC1208E83600DED8D3 /* Python.framework */; };
 		62D793361208EA7600DED8D3 /* gameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793351208EA7600DED8D3 /* gameController.cpp */; };
 		62D793471208EAFA00DED8D3 /* fsPoint2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793441208EAFA00DED8D3 /* fsPoint2f.cpp */; };
 		62D793481208EAFA00DED8D3 /* fsPoint2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793461208EAFA00DED8D3 /* fsPoint2i.cpp */; };
 		62D7935A1208EBB100DED8D3 /* gameEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793561208EBB100DED8D3 /* gameEntity.cpp */; };
 		62D7935B1208EBB100DED8D3 /* gameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D793571208EBB100DED8D3 /* gameObject.cpp */; };
-		62D795891208F49C00DED8D3 /* quadTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D795881208F49C00DED8D3 /* quadTree.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +47,7 @@
 		002F3C0009D093BD00EBEB88 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		002F3C6009D0951E00EBEB88 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = SOURCE_ROOT; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2259B3C51209393D00087F35 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = /opt/local/lib/liblua.a; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		62D791A512077B9900DED8D3 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general.h; path = src/general.h; sourceTree = "<group>"; };
@@ -66,7 +66,6 @@
 		62D792A81208D1D400DED8D3 /* glContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glContext.h; path = src/glContext.h; sourceTree = "<group>"; };
 		62D792C11208E64A00DED8D3 /* scriptInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scriptInterpreter.h; path = src/scriptInterpreter.h; sourceTree = "<group>"; };
 		62D792C21208E64A00DED8D3 /* scriptInterpreter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scriptInterpreter.cpp; path = src/scriptInterpreter.cpp; sourceTree = "<group>"; };
-		62D792FC1208E83600DED8D3 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		62D793341208EA7600DED8D3 /* gameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameController.h; path = src/gameController.h; sourceTree = "<group>"; };
 		62D793351208EA7600DED8D3 /* gameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gameController.cpp; path = src/gameController.cpp; sourceTree = "<group>"; };
 		62D793431208EAFA00DED8D3 /* fsPoint2i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fsPoint2i.h; path = src/fsPoint2i.h; sourceTree = "<group>"; };
@@ -77,8 +76,6 @@
 		62D793571208EBB100DED8D3 /* gameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gameObject.cpp; path = src/gameObject.cpp; sourceTree = "<group>"; };
 		62D793581208EBB100DED8D3 /* gameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameObject.h; path = src/gameObject.h; sourceTree = "<group>"; };
 		62D793591208EBB100DED8D3 /* gameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameEntity.h; path = src/gameEntity.h; sourceTree = "<group>"; };
-		62D795871208F49C00DED8D3 /* quadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quadTree.h; sourceTree = "<group>"; };
-		62D795881208F49C00DED8D3 /* quadTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quadTree.cpp; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,7 +88,7 @@
 				002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */,
-				62D792FD1208E83600DED8D3 /* Python.framework in Frameworks */,
+				2259B3C61209393D00087F35 /* liblua.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +98,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2259B3C51209393D00087F35 /* liblua.a */,
 				002F39F909D0881F00EBEB88 /* SDL.framework */,
 				002F3C6009D0951E00EBEB88 /* GLUT.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -129,7 +127,6 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
-				62D792FC1208E83600DED8D3 /* Python.framework */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -165,8 +162,6 @@
 				62D791A912077B9900DED8D3 /* main.cpp */,
 				62D791AA12077B9900DED8D3 /* SDLMain.h */,
 				62D791AB12077B9900DED8D3 /* SDLMain.m */,
-				62D795871208F49C00DED8D3 /* quadTree.h */,
-				62D795881208F49C00DED8D3 /* quadTree.cpp */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -265,7 +260,6 @@
 				62D793481208EAFA00DED8D3 /* fsPoint2i.cpp in Sources */,
 				62D7935A1208EBB100DED8D3 /* gameEntity.cpp in Sources */,
 				62D7935B1208EBB100DED8D3 /* gameObject.cpp in Sources */,
-				62D795891208F49C00DED8D3 /* quadTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +287,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = "sank-into";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -310,6 +308,10 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = "sank-into";
 				WRAPPER_EXTENSION = app;
 			};
@@ -326,10 +328,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					/opt/local/include,
 					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
 					/Library/Frameworks/SDL.framework/Headers,
 					"$(HEADER_SEARCH_PATHS)",
 				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};

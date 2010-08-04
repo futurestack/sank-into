@@ -3,3 +3,6 @@
 *.mode*
 *.pbxuser
 *.o
+sank-into.xcodeproj/*.mode2v3
+sank-into.xcodeproj/*.pbxuser
+

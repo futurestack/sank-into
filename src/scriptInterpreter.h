@@ -10,11 +10,12 @@
 #ifndef SCRIPT_INTERPRETER_H_
 #define SCRIPT_INTERPRETER_H_
 
-#ifdef __APPLE__
-#include <Python/Python.h>
-#else
-#include <Python.h>
-#endif
+extern "C" {
+#include <lua.hpp>
+#include <lauxlib.h>
+#include <lualib.h>
+}
+
 
 class scriptInterpreter
 {
@@ -22,6 +23,7 @@ public:
     
     scriptInterpreter();
     ~scriptInterpreter();
+	lua_State* L;
 
 };
 
