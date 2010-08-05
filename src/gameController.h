@@ -13,6 +13,9 @@
 #include "gameObject.h"
 #include "gameEntity.h"
 
+#include "quadtree.h"
+
+
 class gameController
     {
     public:

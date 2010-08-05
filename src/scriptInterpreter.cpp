@@ -19,6 +19,7 @@
 scriptInterpreter::scriptInterpreter()
 {
 	L = lua_open();
+    luaL_openlibs(L);
 }
 
 scriptInterpreter::~scriptInterpreter()

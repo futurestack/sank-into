@@ -11,7 +11,7 @@
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C6009D0951E00EBEB88 /* GLUT.framework */; };
-		2259B3C61209393D00087F35 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2259B3C51209393D00087F35 /* liblua.a */; };
+		62B0510D120A3E45002D363C /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B0510C120A3E45002D363C /* Lua.framework */; };
 		62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A612077B9900DED8D3 /* handleEvents.cpp */; };
 		62D791AF12077B9900DED8D3 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A712077B9900DED8D3 /* handleScreen.cpp */; };
 		62D791B012077B9900DED8D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A912077B9900DED8D3 /* main.cpp */; };
@@ -49,9 +49,9 @@
 		002F3C0009D093BD00EBEB88 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		002F3C6009D0951E00EBEB88 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = SOURCE_ROOT; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2259B3C51209393D00087F35 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = /opt/local/lib/liblua.a; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		62B0510C120A3E45002D363C /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = lib/Lua.framework; sourceTree = "<group>"; };
 		62D791A512077B9900DED8D3 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general.h; path = src/general.h; sourceTree = "<group>"; };
 		62D791A612077B9900DED8D3 /* handleEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleEvents.cpp; path = src/handleEvents.cpp; sourceTree = "<group>"; };
 		62D791A712077B9900DED8D3 /* handleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = handleScreen.cpp; path = src/handleScreen.cpp; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */,
-				2259B3C61209393D00087F35 /* liblua.a in Frameworks */,
+				62B0510D120A3E45002D363C /* Lua.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2259B3C51209393D00087F35 /* liblua.a */,
+				62B0510C120A3E45002D363C /* Lua.framework */,
 				002F39F909D0881F00EBEB88 /* SDL.framework */,
 				002F3C6009D0951E00EBEB88 /* GLUT.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -289,6 +289,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/lib\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -312,6 +317,11 @@
 					ppc,
 					i386,
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/lib\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
@@ -341,10 +351,22 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					"$(HEADER_SEARCH_PATHS)",
 				);
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = (
+					"-mmacosx-version-min=10.4",
+					"-isysroot",
+					/Developer/SDKs/MacOSX10.4u.sdk,
+					"-arch",
+					ppc,
+					"-arch",
+					i386,
+				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.3.9.sdk;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Werror",
+				);
 			};
 			name = Debug;
 		};
@@ -363,8 +385,22 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					"$(HEADER_SEARCH_PATHS)",
 				);
+				OTHER_CFLAGS = (
+					"-mmacosx-version-min=10.4",
+					"-isysroot",
+					/Developer/SDKs/MacOSX10.4u.sdk,
+					"-arch",
+					ppc,
+					"-arch",
+					i386,
+				);
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.3.9.sdk;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Werror",
+				);
 			};
 			name = Release;
 		};
