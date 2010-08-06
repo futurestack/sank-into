@@ -12,12 +12,23 @@
 
 #include <string>
 
+//#define USE_FRAMEWORK
 #ifdef __APPLE__
 extern "C" 
 {
-#include <lua.hpp>
-#include <lauxlib.h>
-#include <lualib.h>
+    
+#ifdef USE_FRAMEWORK
+    //framework
+    #include <Lua/lua.hpp>
+    #include <Lua/lauxlib.h>
+    #include <Lua/lualib.h>
+#else
+    //lib
+    #include <lua.hpp>
+    #include <lauxlib.h>
+    #include <lualib.h>
+#endif
+     
 }
 #else
 extern "C" 

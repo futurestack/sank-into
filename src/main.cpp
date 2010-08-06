@@ -30,6 +30,11 @@
 
 #include "scriptInterpreter.h"
 
+#ifdef PANTS
+#error pants!
+
+#endif
+
 glContext *renderer;
 
 bool done = false;

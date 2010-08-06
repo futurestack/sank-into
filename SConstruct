@@ -3,13 +3,14 @@ import sys
 from SCons.Script.SConscript import SConsEnvironment
 env = Environment(ENV = {'PATH' : os.environ['PATH']})
 env = Environment(CPPPATH='src')
-env.Append(CPPPATH = ['/usr/include/lua5.1/'])
 print sys.platform
 
-flags = '-Wall -pedantic -g'
-ldflags = '-lSDL -lLua'
+flags = '-Wall -pedantic -g '
+ldflags = '-lSDL -lLua '
+use_lua_framework = True;
 
 #os specific stuff
+
 
 if sys.platform == 'win32':         #win
     Tool('mingw')(env)
@@ -17,10 +18,17 @@ if sys.platform == 'win32':         #win
     
 if sys.platform == 'darwin':        #mac
     env['FRAMEWORKS'] = ['OpenGL', 'Cocoa', 'SDL']
-    env.Append(LIBS = ['Lua']);
-    
+    env.Append(CPPPATH = ['/opt/local/include/'])
+    if use_lua_framework == 'true': 
+        flags += " -DUSE_FRAMEWORK"
+        env.Append(FRAMEWORKS = ['Lua'])
+    else:
+        env.Append(LIBS = ['Lua']);
+
 if sys.platform == 'linux2':        #linux
     env.Append(LIBS = ['SDL','GL', 'GLU', 'lua5.1'])
+    env.Append(CPPPATH = ['/usr/include/'])
+    env.Append(CPPPATH = ['/usr/include/lua5.1'])
 
 if sys.platform == 'darwin':
     Object( 'src/SDLMain.o', 'src/SDLMain.m', FRAMEWORKS=env['FRAMEWORKS'] )
