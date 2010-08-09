@@ -22,12 +22,20 @@ gameController::~gameController()
     
 }
 
-gameController* gameController::getRef()
+gameController* gameController::Instance()
 {
     if ( pInstance == 0 )
         pInstance = new gameController();
         
     return pInstance;
+
+}
+
+void gameController::update()
+{
+    player.update();
+    mouseLoc.update();
+
 
 }
 

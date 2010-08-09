@@ -11,6 +11,7 @@
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		002F3C6109D0951E00EBEB88 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C6009D0951E00EBEB88 /* GLUT.framework */; };
+		221D473E120FA441002DDB9E /* gameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 221D473C120FA441002DDB9E /* gameLevel.cpp */; };
 		22E0468B120CA42D00C18C23 /* scripts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62D79674120A202400DED8D3 /* scripts */; };
 		22E046CE120CA89400C18C23 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E046CD120CA89400C18C23 /* Lua.framework */; };
 		62D791AE12077B9900DED8D3 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D791A612077B9900DED8D3 /* handleEvents.cpp */; };
@@ -60,6 +61,8 @@
 		002F3C0009D093BD00EBEB88 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		002F3C6009D0951E00EBEB88 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = SOURCE_ROOT; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		221D473C120FA441002DDB9E /* gameLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gameLevel.cpp; path = src/gameLevel.cpp; sourceTree = "<group>"; };
+		221D473D120FA441002DDB9E /* gameLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gameLevel.h; path = src/gameLevel.h; sourceTree = "<group>"; };
 		22E046CD120CA89400C18C23 /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = /Library/Frameworks/Lua.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -165,6 +168,8 @@
 				62D793581208EBB100DED8D3 /* gameObject.h */,
 				62D793341208EA7600DED8D3 /* gameController.h */,
 				62D793351208EA7600DED8D3 /* gameController.cpp */,
+				221D473C120FA441002DDB9E /* gameLevel.cpp */,
+				221D473D120FA441002DDB9E /* gameLevel.h */,
 				62D792A71208D1D400DED8D3 /* glContext.cpp */,
 				62D792A81208D1D400DED8D3 /* glContext.h */,
 				62D792C11208E64A00DED8D3 /* scriptInterpreter.h */,
@@ -280,6 +285,7 @@
 				62D793481208EAFA00DED8D3 /* fsPoint2i.cpp in Sources */,
 				62D7935A1208EBB100DED8D3 /* gameEntity.cpp in Sources */,
 				62D7935B1208EBB100DED8D3 /* gameObject.cpp in Sources */,
+				221D473E120FA441002DDB9E /* gameLevel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

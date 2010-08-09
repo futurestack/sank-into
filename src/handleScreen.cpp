@@ -98,8 +98,14 @@ int initGL() { // general OpenGL initialization function
 void initGeneral() {
      // Fetch the video info
     videoInfo = SDL_GetVideoInfo();
-
-    if(!videoInfo) {
+    
+#ifdef __FS_ENABLE_VSYNC__
+	GLint swap = 1;
+	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
+#endif
+    
+    if(!videoInfo) 
+    {
         fprintf(stderr, "Video query failed: %s\n",
                         SDL_GetError());
         Quit(1);

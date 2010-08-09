@@ -10,7 +10,7 @@
 #ifndef GAME_OBJECT_H_
 #define GAME_OBJECT_H_
 
-#include "fsPoint2i.h"
+#include "fsPoint2f.h"
 
 class gameObject
     {
@@ -18,9 +18,11 @@ class gameObject
         gameObject();
         virtual ~gameObject();
         
+        void update();
+        void draw();
         
-        fsPoint2i loc;        
-        fsPoint2i vel;
+        fsPoint2f loc;        
+        fsPoint2f vel;
 
         
     };

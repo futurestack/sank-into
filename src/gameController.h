@@ -20,13 +20,14 @@ class gameController
     {
     public:
         
-
+        void update();
+        void draw();
         
         gameEntity player;
         gameObject mouseLoc;
         
         
-        static gameController* getRef();
+        static gameController* Instance();
     private:
         gameController();
         ~gameController();

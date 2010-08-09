@@ -31,7 +31,7 @@
 
 eventHandler::eventHandler()
 {
-    pController = gameController::getRef();
+    pController = gameController::Instance();
     
 }
 
@@ -43,7 +43,9 @@ eventHandler::~eventHandler()
 
 
 void eventHandler::handleKeyPress(SDL_keysym *keysym) 
-{ // function to handle key press events
+{ 
+    // function to handle key press events
+    static const float keyVel = 5.0f;
     switch (keysym->sym) 
     {
         case SDLK_ESCAPE:
@@ -58,12 +60,16 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             toggleFullscreen();
             break;
         case SDLK_LEFT:
+            pController->player.vel.x -= keyVel;
             break;
         case SDLK_RIGHT:
+            pController->player.vel.x += keyVel;
             break;
         case SDLK_UP:
+            pController->player.vel.y -= keyVel;
             break;
         case SDLK_DOWN:
+            pController->player.vel.y += keyVel;
             break;
         case SDLK_TAB:
             toggleFullscreen();
@@ -88,7 +94,7 @@ void eventHandler::handleMouseDown( int x, int y)
 
 void eventHandler::handleMouseMotion( int x, int y)
 {
-    pController->mouseLoc.loc = fsPoint2i(x,y);
+    pController->mouseLoc.loc = fsPoint2f(x,y);
 }
 
 

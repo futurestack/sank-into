@@ -30,11 +30,11 @@
 
 #include "scriptInterpreter.h"
 
-#ifdef PANTS
-#error pants!
 
-#endif
+#include "gameController.h"
 
+
+gameController* controller;
 glContext *renderer;
 
 bool done = false;
@@ -66,11 +66,11 @@ void getStats(Uint32 updatePeriod) {
 }
 
 int update(Uint32 updatePeriod) {
-  float frameTime = updatePeriod / 1000.0;
+    float frameTime = updatePeriod / 1000.0;
 
-  renderer->update(frameTime);
-
-  return(TRUE);
+    renderer->update(frameTime);
+    controller->update();
+    return(TRUE);
 }
 
 
@@ -81,8 +81,10 @@ int render() { // Here goes our drawing code
   return(TRUE);
 }
 
-void init() {
-  // main loop variable
+void init() 
+{
+    controller = gameController::Instance();
+    // main loop variable
   done = false;
   // whether or not the window is active
   isActive = true;

@@ -20,3 +20,12 @@ gameObject::~gameObject()
 
 
 }
+
+void gameObject::update()
+{
+
+    loc += vel;
+    static float dampen = .9;
+    vel *= dampen;
+    
+}

@@ -32,7 +32,7 @@
 
 glContext::glContext()
 {
-    pController = gameController::getRef();
+    pController = gameController::Instance();
     
 }
 
@@ -129,7 +129,7 @@ void glContext::renderObject(const gameObject& obj )
 {
     
     
-    fsPoint2i p = obj.loc;
+    fsPoint2f p = obj.loc;
     
     renderer.pushMatrix();
     renderer.translate(p.x,p.y,0);
