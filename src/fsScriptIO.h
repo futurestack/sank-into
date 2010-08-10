@@ -14,7 +14,13 @@
 #define FS_SCRIPT_IO_H_
 
 #include "fsScript.h"
+
+#include <stdlib.h>
+
+extern "C"
+{
 #include "IoState.h"
+}
 
 class fsScriptIO : public fsScript
     {

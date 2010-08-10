@@ -32,6 +32,7 @@
 		22E0468B120CA42D00C18C23 /* scripts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62D79674120A202400DED8D3 /* scripts */; };
 		22E046CE120CA89400C18C23 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E046CD120CA89400C18C23 /* Lua.framework */; };
 		6246C80C1210ADC4002FEF43 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6246C80B1210ADC4002FEF43 /* Python.framework */; };
+		62BE5ECB1211D2ED0007C25C /* libiovmall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BE5ECA1211D2EC0007C25C /* libiovmall.a */; };
 		62D791C212077BC800DED8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62D791C012077BC800DED8D3 /* InfoPlist.strings */; };
 		62D79637120A164200DED8D3 /* SConstruct in Resources */ = {isa = PBXBuildFile; fileRef = 62D79636120A164200DED8D3 /* SConstruct */; };
 		62D79676120A202400DED8D3 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = 62D79674120A202400DED8D3 /* scripts */; };
@@ -116,112 +117,113 @@
 		22E046CD120CA89400C18C23 /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = /Library/Frameworks/Lua.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		6246C4BF12109A13002FEF43 /* 386-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "386-ucontext.h"; sourceTree = "<group>"; };
-		6246C4C012109A13002FEF43 /* amd64-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "amd64-ucontext.h"; sourceTree = "<group>"; };
-		6246C4C112109A13002FEF43 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		6246C4C212109A13002FEF43 /* BStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BStream.h; sourceTree = "<group>"; };
-		6246C4C312109A13002FEF43 /* BStreamTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BStreamTag.h; sourceTree = "<group>"; };
-		6246C4C412109A13002FEF43 /* cdecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdecode.h; sourceTree = "<group>"; };
-		6246C4C512109A13002FEF43 /* cencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cencode.h; sourceTree = "<group>"; };
-		6246C4C612109A13002FEF43 /* CHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHash.h; sourceTree = "<group>"; };
-		6246C4C712109A13002FEF43 /* CHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHash_inline.h; sourceTree = "<group>"; };
-		6246C4C812109A13002FEF43 /* Collector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collector.h; sourceTree = "<group>"; };
-		6246C4C912109A13002FEF43 /* Collector_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collector_inline.h; sourceTree = "<group>"; };
-		6246C4CA12109A13002FEF43 /* CollectorMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectorMarker.h; sourceTree = "<group>"; };
-		6246C4CB12109A13002FEF43 /* CollectorMarker_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectorMarker_inline.h; sourceTree = "<group>"; };
-		6246C4CC12109A13002FEF43 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		6246C4CD12109A13002FEF43 /* Common_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common_inline.h; sourceTree = "<group>"; };
-		6246C4CE12109A13002FEF43 /* Coro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coro.h; sourceTree = "<group>"; };
-		6246C4CF12109A13002FEF43 /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
-		6246C4D012109A13002FEF43 /* Duration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Duration.h; sourceTree = "<group>"; };
-		6246C4D112109A13002FEF43 /* DynLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynLib.h; sourceTree = "<group>"; };
-		6246C4D212109A13002FEF43 /* Hash_fnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hash_fnv.h; sourceTree = "<group>"; };
-		6246C4D312109A13002FEF43 /* Hash_murmur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hash_murmur.h; sourceTree = "<group>"; };
-		6246C4D412109A13002FEF43 /* Hash_superfast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hash_superfast.h; sourceTree = "<group>"; };
-		6246C4D512109A13002FEF43 /* IoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoBlock.h; sourceTree = "<group>"; };
-		6246C4D612109A13002FEF43 /* IoCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoCall.h; sourceTree = "<group>"; };
-		6246C4D712109A13002FEF43 /* IoCFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoCFunction.h; sourceTree = "<group>"; };
-		6246C4D812109A13002FEF43 /* IoCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoCollector.h; sourceTree = "<group>"; };
-		6246C4D912109A13002FEF43 /* IoCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoCompiler.h; sourceTree = "<group>"; };
-		6246C4DA12109A13002FEF43 /* IoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoConfig.h; sourceTree = "<group>"; };
-		6246C4DB12109A13002FEF43 /* IoContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoContext.h; sourceTree = "<group>"; };
-		6246C4DC12109A13002FEF43 /* IoCoroutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoCoroutine.h; sourceTree = "<group>"; };
-		6246C4DD12109A13002FEF43 /* IoDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoDate.h; sourceTree = "<group>"; };
-		6246C4DE12109A13002FEF43 /* IoDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoDebugger.h; sourceTree = "<group>"; };
-		6246C4DF12109A13002FEF43 /* IoDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoDirectory.h; sourceTree = "<group>"; };
-		6246C4E012109A13002FEF43 /* IoDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoDuration.h; sourceTree = "<group>"; };
-		6246C4E112109A13002FEF43 /* IoDynLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoDynLib.h; sourceTree = "<group>"; };
-		6246C4E212109A13002FEF43 /* IoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoError.h; sourceTree = "<group>"; };
-		6246C4E312109A13002FEF43 /* IoFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoFile.h; sourceTree = "<group>"; };
-		6246C4E412109A13002FEF43 /* IoFile_stat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoFile_stat.h; sourceTree = "<group>"; };
-		6246C4E512109A13002FEF43 /* IoLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoLexer.h; sourceTree = "<group>"; };
-		6246C4E612109A13002FEF43 /* IoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoList.h; sourceTree = "<group>"; };
-		6246C4E712109A13002FEF43 /* IoMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoMap.h; sourceTree = "<group>"; };
-		6246C4E812109A13002FEF43 /* IoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoMessage.h; sourceTree = "<group>"; };
-		6246C4E912109A13002FEF43 /* IoMessage_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoMessage_inline.h; sourceTree = "<group>"; };
-		6246C4EA12109A13002FEF43 /* IoMessage_opShuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoMessage_opShuffle.h; sourceTree = "<group>"; };
-		6246C4EB12109A13002FEF43 /* IoMessage_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoMessage_parser.h; sourceTree = "<group>"; };
-		6246C4EC12109A13002FEF43 /* IoNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoNumber.h; sourceTree = "<group>"; };
-		6246C4ED12109A13002FEF43 /* IoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoObject.h; sourceTree = "<group>"; };
-		6246C4EE12109A13002FEF43 /* IoObject_flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoObject_flow.h; sourceTree = "<group>"; };
-		6246C4EF12109A13002FEF43 /* IoObject_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoObject_inline.h; sourceTree = "<group>"; };
-		6246C4F012109A13002FEF43 /* IoObject_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoObject_struct.h; sourceTree = "<group>"; };
-		6246C4F112109A13002FEF43 /* IoSandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSandbox.h; sourceTree = "<group>"; };
-		6246C4F212109A13002FEF43 /* IoSeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSeq.h; sourceTree = "<group>"; };
-		6246C4F312109A13002FEF43 /* IoSeq_immutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSeq_immutable.h; sourceTree = "<group>"; };
-		6246C4F412109A13002FEF43 /* IoSeq_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSeq_inline.h; sourceTree = "<group>"; };
-		6246C4F512109A13002FEF43 /* IoSeq_mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSeq_mutable.h; sourceTree = "<group>"; };
-		6246C4F612109A13002FEF43 /* IoSeq_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSeq_vector.h; sourceTree = "<group>"; };
-		6246C4F712109A13002FEF43 /* IoState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState.h; sourceTree = "<group>"; };
-		6246C4F812109A13002FEF43 /* IoState_callbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_callbacks.h; sourceTree = "<group>"; };
-		6246C4F912109A13002FEF43 /* IoState_coros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_coros.h; sourceTree = "<group>"; };
-		6246C4FA12109A13002FEF43 /* IoState_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_debug.h; sourceTree = "<group>"; };
-		6246C4FB12109A13002FEF43 /* IoState_eval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_eval.h; sourceTree = "<group>"; };
-		6246C4FC12109A13002FEF43 /* IoState_exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_exceptions.h; sourceTree = "<group>"; };
-		6246C4FD12109A13002FEF43 /* IoState_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_inline.h; sourceTree = "<group>"; };
-		6246C4FE12109A13002FEF43 /* IoState_symbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoState_symbols.h; sourceTree = "<group>"; };
-		6246C4FF12109A13002FEF43 /* IoSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoSystem.h; sourceTree = "<group>"; };
-		6246C50012109A13002FEF43 /* IoTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoTag.h; sourceTree = "<group>"; };
-		6246C50112109A13002FEF43 /* IoTag_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoTag_inline.h; sourceTree = "<group>"; };
-		6246C50212109A13002FEF43 /* IoToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoToken.h; sourceTree = "<group>"; };
-		6246C50312109A13002FEF43 /* IoVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoVersion.h; sourceTree = "<group>"; };
-		6246C50412109A13002FEF43 /* IoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoVM.h; sourceTree = "<group>"; };
-		6246C50512109A13002FEF43 /* IoVMApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoVMApi.h; sourceTree = "<group>"; };
-		6246C50612109A13002FEF43 /* IoWeakLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoWeakLink.h; sourceTree = "<group>"; };
-		6246C50812109A13002FEF43 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		6246C50912109A13002FEF43 /* List_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List_inline.h; sourceTree = "<group>"; };
-		6246C50A12109A13002FEF43 /* MainArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainArgs.h; sourceTree = "<group>"; };
-		6246C50B12109A13002FEF43 /* PHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHash.h; sourceTree = "<group>"; };
-		6246C50C12109A13002FEF43 /* PHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHash_inline.h; sourceTree = "<group>"; };
-		6246C50D12109A13002FEF43 /* PHash_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHash_struct.h; sourceTree = "<group>"; };
-		6246C50E12109A13002FEF43 /* PointerHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerHash.h; sourceTree = "<group>"; };
-		6246C50F12109A13002FEF43 /* PointerHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerHash_inline.h; sourceTree = "<group>"; };
-		6246C51012109A13002FEF43 /* PointerHash_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerHash_struct.h; sourceTree = "<group>"; };
-		6246C51112109A13002FEF43 /* PortableGettimeofday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableGettimeofday.h; sourceTree = "<group>"; };
-		6246C51212109A13002FEF43 /* PortableSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableSorting.h; sourceTree = "<group>"; };
-		6246C51312109A13002FEF43 /* PortableStdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableStdint.h; sourceTree = "<group>"; };
-		6246C51412109A13002FEF43 /* PortableStrlcpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableStrlcpy.h; sourceTree = "<group>"; };
-		6246C51512109A13002FEF43 /* PortableStrptime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableStrptime.h; sourceTree = "<group>"; };
-		6246C51612109A13002FEF43 /* PortableTruncate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableTruncate.h; sourceTree = "<group>"; };
-		6246C51712109A13002FEF43 /* PortableUsleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortableUsleep.h; sourceTree = "<group>"; };
-		6246C51812109A13002FEF43 /* power-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "power-ucontext.h"; sourceTree = "<group>"; };
-		6246C51912109A13002FEF43 /* RandomGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomGen.h; sourceTree = "<group>"; };
-		6246C51A12109A13002FEF43 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
-		6246C51B12109A13002FEF43 /* Stack_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack_inline.h; sourceTree = "<group>"; };
-		6246C51C12109A13002FEF43 /* taskimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskimpl.h; sourceTree = "<group>"; };
-		6246C51D12109A13002FEF43 /* UArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray.h; sourceTree = "<group>"; };
-		6246C51E12109A13002FEF43 /* UArray_character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_character.h; sourceTree = "<group>"; };
-		6246C51F12109A13002FEF43 /* UArray_format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_format.h; sourceTree = "<group>"; };
-		6246C52012109A13002FEF43 /* UArray_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_math.h; sourceTree = "<group>"; };
-		6246C52112109A13002FEF43 /* UArray_path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_path.h; sourceTree = "<group>"; };
-		6246C52212109A13002FEF43 /* UArray_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_stream.h; sourceTree = "<group>"; };
-		6246C52312109A13002FEF43 /* UArray_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_string.h; sourceTree = "<group>"; };
-		6246C52412109A13002FEF43 /* UArray_utf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UArray_utf.h; sourceTree = "<group>"; };
-		6246C52512109A13002FEF43 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
-		6246C52612109A13002FEF43 /* utf8internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8internal.h; sourceTree = "<group>"; };
-		6246C52712109A13002FEF43 /* utf_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf_convert.h; sourceTree = "<group>"; };
 		6246C80B1210ADC4002FEF43 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		6246C8C41210B32C002FEF43 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		62BE5ECA1211D2EC0007C25C /* libiovmall.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiovmall.a; path = /opt/local/lib/libiovmall.a; sourceTree = "<absolute>"; };
+		62BE5ECE1211D2F70007C25C /* 386-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "386-ucontext.h"; path = "/opt/local/include/io/386-ucontext.h"; sourceTree = "<absolute>"; };
+		62BE5ECF1211D2F70007C25C /* amd64-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "amd64-ucontext.h"; path = "/opt/local/include/io/amd64-ucontext.h"; sourceTree = "<absolute>"; };
+		62BE5ED01211D2F70007C25C /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base.h; path = /opt/local/include/io/Base.h; sourceTree = "<absolute>"; };
+		62BE5ED11211D2F70007C25C /* BStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BStream.h; path = /opt/local/include/io/BStream.h; sourceTree = "<absolute>"; };
+		62BE5ED21211D2F70007C25C /* BStreamTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BStreamTag.h; path = /opt/local/include/io/BStreamTag.h; sourceTree = "<absolute>"; };
+		62BE5ED31211D2F70007C25C /* cdecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cdecode.h; path = /opt/local/include/io/cdecode.h; sourceTree = "<absolute>"; };
+		62BE5ED41211D2F70007C25C /* cencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cencode.h; path = /opt/local/include/io/cencode.h; sourceTree = "<absolute>"; };
+		62BE5ED51211D2F70007C25C /* CHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHash.h; path = /opt/local/include/io/CHash.h; sourceTree = "<absolute>"; };
+		62BE5ED61211D2F70007C25C /* CHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHash_inline.h; path = /opt/local/include/io/CHash_inline.h; sourceTree = "<absolute>"; };
+		62BE5ED71211D2F70007C25C /* Collector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collector.h; path = /opt/local/include/io/Collector.h; sourceTree = "<absolute>"; };
+		62BE5ED81211D2F70007C25C /* Collector_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collector_inline.h; path = /opt/local/include/io/Collector_inline.h; sourceTree = "<absolute>"; };
+		62BE5ED91211D2F70007C25C /* CollectorMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectorMarker.h; path = /opt/local/include/io/CollectorMarker.h; sourceTree = "<absolute>"; };
+		62BE5EDA1211D2F70007C25C /* CollectorMarker_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectorMarker_inline.h; path = /opt/local/include/io/CollectorMarker_inline.h; sourceTree = "<absolute>"; };
+		62BE5EDB1211D2F70007C25C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = /opt/local/include/io/Common.h; sourceTree = "<absolute>"; };
+		62BE5EDC1211D2F70007C25C /* Common_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common_inline.h; path = /opt/local/include/io/Common_inline.h; sourceTree = "<absolute>"; };
+		62BE5EDD1211D2F70007C25C /* Coro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coro.h; path = /opt/local/include/io/Coro.h; sourceTree = "<absolute>"; };
+		62BE5EDE1211D2F70007C25C /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Date.h; path = /opt/local/include/io/Date.h; sourceTree = "<absolute>"; };
+		62BE5EDF1211D2F70007C25C /* Duration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Duration.h; path = /opt/local/include/io/Duration.h; sourceTree = "<absolute>"; };
+		62BE5EE01211D2F70007C25C /* DynLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynLib.h; path = /opt/local/include/io/DynLib.h; sourceTree = "<absolute>"; };
+		62BE5EE11211D2F70007C25C /* Hash_fnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash_fnv.h; path = /opt/local/include/io/Hash_fnv.h; sourceTree = "<absolute>"; };
+		62BE5EE21211D2F70007C25C /* Hash_murmur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash_murmur.h; path = /opt/local/include/io/Hash_murmur.h; sourceTree = "<absolute>"; };
+		62BE5EE31211D2F70007C25C /* Hash_superfast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash_superfast.h; path = /opt/local/include/io/Hash_superfast.h; sourceTree = "<absolute>"; };
+		62BE5EE41211D2F70007C25C /* IoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoBlock.h; path = /opt/local/include/io/IoBlock.h; sourceTree = "<absolute>"; };
+		62BE5EE51211D2F70007C25C /* IoCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoCall.h; path = /opt/local/include/io/IoCall.h; sourceTree = "<absolute>"; };
+		62BE5EE61211D2F70007C25C /* IoCFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoCFunction.h; path = /opt/local/include/io/IoCFunction.h; sourceTree = "<absolute>"; };
+		62BE5EE71211D2F70007C25C /* IoCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoCollector.h; path = /opt/local/include/io/IoCollector.h; sourceTree = "<absolute>"; };
+		62BE5EE81211D2F70007C25C /* IoCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoCompiler.h; path = /opt/local/include/io/IoCompiler.h; sourceTree = "<absolute>"; };
+		62BE5EE91211D2F70007C25C /* IoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoConfig.h; path = /opt/local/include/io/IoConfig.h; sourceTree = "<absolute>"; };
+		62BE5EEA1211D2F70007C25C /* IoContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoContext.h; path = /opt/local/include/io/IoContext.h; sourceTree = "<absolute>"; };
+		62BE5EEB1211D2F70007C25C /* IoCoroutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoCoroutine.h; path = /opt/local/include/io/IoCoroutine.h; sourceTree = "<absolute>"; };
+		62BE5EEC1211D2F70007C25C /* IoDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoDate.h; path = /opt/local/include/io/IoDate.h; sourceTree = "<absolute>"; };
+		62BE5EED1211D2F70007C25C /* IoDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoDebugger.h; path = /opt/local/include/io/IoDebugger.h; sourceTree = "<absolute>"; };
+		62BE5EEE1211D2F70007C25C /* IoDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoDirectory.h; path = /opt/local/include/io/IoDirectory.h; sourceTree = "<absolute>"; };
+		62BE5EEF1211D2F70007C25C /* IoDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoDuration.h; path = /opt/local/include/io/IoDuration.h; sourceTree = "<absolute>"; };
+		62BE5EF01211D2F70007C25C /* IoDynLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoDynLib.h; path = /opt/local/include/io/IoDynLib.h; sourceTree = "<absolute>"; };
+		62BE5EF11211D2F70007C25C /* IoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoError.h; path = /opt/local/include/io/IoError.h; sourceTree = "<absolute>"; };
+		62BE5EF21211D2F70007C25C /* IoFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoFile.h; path = /opt/local/include/io/IoFile.h; sourceTree = "<absolute>"; };
+		62BE5EF31211D2F70007C25C /* IoFile_stat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoFile_stat.h; path = /opt/local/include/io/IoFile_stat.h; sourceTree = "<absolute>"; };
+		62BE5EF41211D2F70007C25C /* IoLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoLexer.h; path = /opt/local/include/io/IoLexer.h; sourceTree = "<absolute>"; };
+		62BE5EF51211D2F70007C25C /* IoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoList.h; path = /opt/local/include/io/IoList.h; sourceTree = "<absolute>"; };
+		62BE5EF61211D2F70007C25C /* IoMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoMap.h; path = /opt/local/include/io/IoMap.h; sourceTree = "<absolute>"; };
+		62BE5EF71211D2F70007C25C /* IoMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoMessage.h; path = /opt/local/include/io/IoMessage.h; sourceTree = "<absolute>"; };
+		62BE5EF81211D2F70007C25C /* IoMessage_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoMessage_inline.h; path = /opt/local/include/io/IoMessage_inline.h; sourceTree = "<absolute>"; };
+		62BE5EF91211D2F70007C25C /* IoMessage_opShuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoMessage_opShuffle.h; path = /opt/local/include/io/IoMessage_opShuffle.h; sourceTree = "<absolute>"; };
+		62BE5EFA1211D2F70007C25C /* IoMessage_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoMessage_parser.h; path = /opt/local/include/io/IoMessage_parser.h; sourceTree = "<absolute>"; };
+		62BE5EFB1211D2F70007C25C /* IoNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoNumber.h; path = /opt/local/include/io/IoNumber.h; sourceTree = "<absolute>"; };
+		62BE5EFC1211D2F70007C25C /* IoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoObject.h; path = /opt/local/include/io/IoObject.h; sourceTree = "<absolute>"; };
+		62BE5EFD1211D2F70007C25C /* IoObject_flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoObject_flow.h; path = /opt/local/include/io/IoObject_flow.h; sourceTree = "<absolute>"; };
+		62BE5EFE1211D2F70007C25C /* IoObject_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoObject_inline.h; path = /opt/local/include/io/IoObject_inline.h; sourceTree = "<absolute>"; };
+		62BE5EFF1211D2F70007C25C /* IoObject_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoObject_struct.h; path = /opt/local/include/io/IoObject_struct.h; sourceTree = "<absolute>"; };
+		62BE5F001211D2F70007C25C /* IoSandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSandbox.h; path = /opt/local/include/io/IoSandbox.h; sourceTree = "<absolute>"; };
+		62BE5F011211D2F70007C25C /* IoSeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSeq.h; path = /opt/local/include/io/IoSeq.h; sourceTree = "<absolute>"; };
+		62BE5F021211D2F70007C25C /* IoSeq_immutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSeq_immutable.h; path = /opt/local/include/io/IoSeq_immutable.h; sourceTree = "<absolute>"; };
+		62BE5F031211D2F70007C25C /* IoSeq_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSeq_inline.h; path = /opt/local/include/io/IoSeq_inline.h; sourceTree = "<absolute>"; };
+		62BE5F041211D2F70007C25C /* IoSeq_mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSeq_mutable.h; path = /opt/local/include/io/IoSeq_mutable.h; sourceTree = "<absolute>"; };
+		62BE5F051211D2F70007C25C /* IoSeq_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSeq_vector.h; path = /opt/local/include/io/IoSeq_vector.h; sourceTree = "<absolute>"; };
+		62BE5F061211D2F70007C25C /* IoState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState.h; path = /opt/local/include/io/IoState.h; sourceTree = "<absolute>"; };
+		62BE5F071211D2F70007C25C /* IoState_callbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_callbacks.h; path = /opt/local/include/io/IoState_callbacks.h; sourceTree = "<absolute>"; };
+		62BE5F081211D2F70007C25C /* IoState_coros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_coros.h; path = /opt/local/include/io/IoState_coros.h; sourceTree = "<absolute>"; };
+		62BE5F091211D2F70007C25C /* IoState_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_debug.h; path = /opt/local/include/io/IoState_debug.h; sourceTree = "<absolute>"; };
+		62BE5F0A1211D2F70007C25C /* IoState_eval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_eval.h; path = /opt/local/include/io/IoState_eval.h; sourceTree = "<absolute>"; };
+		62BE5F0B1211D2F70007C25C /* IoState_exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_exceptions.h; path = /opt/local/include/io/IoState_exceptions.h; sourceTree = "<absolute>"; };
+		62BE5F0C1211D2F70007C25C /* IoState_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_inline.h; path = /opt/local/include/io/IoState_inline.h; sourceTree = "<absolute>"; };
+		62BE5F0D1211D2F70007C25C /* IoState_symbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoState_symbols.h; path = /opt/local/include/io/IoState_symbols.h; sourceTree = "<absolute>"; };
+		62BE5F0E1211D2F70007C25C /* IoSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoSystem.h; path = /opt/local/include/io/IoSystem.h; sourceTree = "<absolute>"; };
+		62BE5F0F1211D2F70007C25C /* IoTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoTag.h; path = /opt/local/include/io/IoTag.h; sourceTree = "<absolute>"; };
+		62BE5F101211D2F70007C25C /* IoTag_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoTag_inline.h; path = /opt/local/include/io/IoTag_inline.h; sourceTree = "<absolute>"; };
+		62BE5F111211D2F70007C25C /* IoToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoToken.h; path = /opt/local/include/io/IoToken.h; sourceTree = "<absolute>"; };
+		62BE5F121211D2F70007C25C /* IoVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoVersion.h; path = /opt/local/include/io/IoVersion.h; sourceTree = "<absolute>"; };
+		62BE5F131211D2F70007C25C /* IoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoVM.h; path = /opt/local/include/io/IoVM.h; sourceTree = "<absolute>"; };
+		62BE5F141211D2F70007C25C /* IoVMApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoVMApi.h; path = /opt/local/include/io/IoVMApi.h; sourceTree = "<absolute>"; };
+		62BE5F151211D2F70007C25C /* IoWeakLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoWeakLink.h; path = /opt/local/include/io/IoWeakLink.h; sourceTree = "<absolute>"; };
+		62BE5F161211D2F70007C25C /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = /opt/local/include/io/List.h; sourceTree = "<absolute>"; };
+		62BE5F171211D2F70007C25C /* List_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List_inline.h; path = /opt/local/include/io/List_inline.h; sourceTree = "<absolute>"; };
+		62BE5F181211D2F70007C25C /* MainArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainArgs.h; path = /opt/local/include/io/MainArgs.h; sourceTree = "<absolute>"; };
+		62BE5F191211D2F70007C25C /* PHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHash.h; path = /opt/local/include/io/PHash.h; sourceTree = "<absolute>"; };
+		62BE5F1A1211D2F70007C25C /* PHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHash_inline.h; path = /opt/local/include/io/PHash_inline.h; sourceTree = "<absolute>"; };
+		62BE5F1B1211D2F70007C25C /* PHash_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PHash_struct.h; path = /opt/local/include/io/PHash_struct.h; sourceTree = "<absolute>"; };
+		62BE5F1C1211D2F70007C25C /* PointerHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointerHash.h; path = /opt/local/include/io/PointerHash.h; sourceTree = "<absolute>"; };
+		62BE5F1D1211D2F70007C25C /* PointerHash_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointerHash_inline.h; path = /opt/local/include/io/PointerHash_inline.h; sourceTree = "<absolute>"; };
+		62BE5F1E1211D2F70007C25C /* PointerHash_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointerHash_struct.h; path = /opt/local/include/io/PointerHash_struct.h; sourceTree = "<absolute>"; };
+		62BE5F1F1211D2F70007C25C /* PortableGettimeofday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableGettimeofday.h; path = /opt/local/include/io/PortableGettimeofday.h; sourceTree = "<absolute>"; };
+		62BE5F201211D2F70007C25C /* PortableSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableSorting.h; path = /opt/local/include/io/PortableSorting.h; sourceTree = "<absolute>"; };
+		62BE5F211211D2F70007C25C /* PortableStdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableStdint.h; path = /opt/local/include/io/PortableStdint.h; sourceTree = "<absolute>"; };
+		62BE5F221211D2F70007C25C /* PortableStrlcpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableStrlcpy.h; path = /opt/local/include/io/PortableStrlcpy.h; sourceTree = "<absolute>"; };
+		62BE5F231211D2F70007C25C /* PortableStrptime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableStrptime.h; path = /opt/local/include/io/PortableStrptime.h; sourceTree = "<absolute>"; };
+		62BE5F241211D2F70007C25C /* PortableTruncate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableTruncate.h; path = /opt/local/include/io/PortableTruncate.h; sourceTree = "<absolute>"; };
+		62BE5F251211D2F70007C25C /* PortableUsleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PortableUsleep.h; path = /opt/local/include/io/PortableUsleep.h; sourceTree = "<absolute>"; };
+		62BE5F261211D2F70007C25C /* power-ucontext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "power-ucontext.h"; path = "/opt/local/include/io/power-ucontext.h"; sourceTree = "<absolute>"; };
+		62BE5F271211D2F70007C25C /* RandomGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomGen.h; path = /opt/local/include/io/RandomGen.h; sourceTree = "<absolute>"; };
+		62BE5F281211D2F70007C25C /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = /opt/local/include/io/Stack.h; sourceTree = "<absolute>"; };
+		62BE5F291211D2F70007C25C /* Stack_inline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack_inline.h; path = /opt/local/include/io/Stack_inline.h; sourceTree = "<absolute>"; };
+		62BE5F2A1211D2F70007C25C /* taskimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = taskimpl.h; path = /opt/local/include/io/taskimpl.h; sourceTree = "<absolute>"; };
+		62BE5F2B1211D2F70007C25C /* UArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray.h; path = /opt/local/include/io/UArray.h; sourceTree = "<absolute>"; };
+		62BE5F2C1211D2F70007C25C /* UArray_character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_character.h; path = /opt/local/include/io/UArray_character.h; sourceTree = "<absolute>"; };
+		62BE5F2D1211D2F70007C25C /* UArray_format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_format.h; path = /opt/local/include/io/UArray_format.h; sourceTree = "<absolute>"; };
+		62BE5F2E1211D2F70007C25C /* UArray_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_math.h; path = /opt/local/include/io/UArray_math.h; sourceTree = "<absolute>"; };
+		62BE5F2F1211D2F70007C25C /* UArray_path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_path.h; path = /opt/local/include/io/UArray_path.h; sourceTree = "<absolute>"; };
+		62BE5F301211D2F70007C25C /* UArray_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_stream.h; path = /opt/local/include/io/UArray_stream.h; sourceTree = "<absolute>"; };
+		62BE5F311211D2F70007C25C /* UArray_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_string.h; path = /opt/local/include/io/UArray_string.h; sourceTree = "<absolute>"; };
+		62BE5F321211D2F70007C25C /* UArray_utf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UArray_utf.h; path = /opt/local/include/io/UArray_utf.h; sourceTree = "<absolute>"; };
+		62BE5F331211D2F70007C25C /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utf8.h; path = /opt/local/include/io/utf8.h; sourceTree = "<absolute>"; };
+		62BE5F341211D2F70007C25C /* utf8internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utf8internal.h; path = /opt/local/include/io/utf8internal.h; sourceTree = "<absolute>"; };
+		62BE5F351211D2F70007C25C /* utf_convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utf_convert.h; path = /opt/local/include/io/utf_convert.h; sourceTree = "<absolute>"; };
 		62D791C112077BC800DED8D3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		62D791D412077C0C00DED8D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62D79636120A164200DED8D3 /* SConstruct */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */,
 				22E046CE120CA89400C18C23 /* Lua.framework in Frameworks */,
 				6246C80C1210ADC4002FEF43 /* Python.framework in Frameworks */,
+				62BE5ECB1211D2ED0007C25C /* libiovmall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,10 +327,11 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
+				62BE5ECA1211D2EC0007C25C /* libiovmall.a */,
+				62BE5ECD1211D2F70007C25C /* io */,
 				221D48A8120FA87D002DDB9E /* src */,
 				62D79674120A202400DED8D3 /* scripts */,
 				62D79636120A164200DED8D3 /* SConstruct */,
-				6246C4B712109A06002FEF43 /* bundled_libs */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -353,125 +357,117 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6246C4B712109A06002FEF43 /* bundled_libs */ = {
+		62BE5ECD1211D2F70007C25C /* io */ = {
 			isa = PBXGroup;
 			children = (
-				6246C4BE12109A13002FEF43 /* osx */,
+				62BE5ECE1211D2F70007C25C /* 386-ucontext.h */,
+				62BE5ECF1211D2F70007C25C /* amd64-ucontext.h */,
+				62BE5ED01211D2F70007C25C /* Base.h */,
+				62BE5ED11211D2F70007C25C /* BStream.h */,
+				62BE5ED21211D2F70007C25C /* BStreamTag.h */,
+				62BE5ED31211D2F70007C25C /* cdecode.h */,
+				62BE5ED41211D2F70007C25C /* cencode.h */,
+				62BE5ED51211D2F70007C25C /* CHash.h */,
+				62BE5ED61211D2F70007C25C /* CHash_inline.h */,
+				62BE5ED71211D2F70007C25C /* Collector.h */,
+				62BE5ED81211D2F70007C25C /* Collector_inline.h */,
+				62BE5ED91211D2F70007C25C /* CollectorMarker.h */,
+				62BE5EDA1211D2F70007C25C /* CollectorMarker_inline.h */,
+				62BE5EDB1211D2F70007C25C /* Common.h */,
+				62BE5EDC1211D2F70007C25C /* Common_inline.h */,
+				62BE5EDD1211D2F70007C25C /* Coro.h */,
+				62BE5EDE1211D2F70007C25C /* Date.h */,
+				62BE5EDF1211D2F70007C25C /* Duration.h */,
+				62BE5EE01211D2F70007C25C /* DynLib.h */,
+				62BE5EE11211D2F70007C25C /* Hash_fnv.h */,
+				62BE5EE21211D2F70007C25C /* Hash_murmur.h */,
+				62BE5EE31211D2F70007C25C /* Hash_superfast.h */,
+				62BE5EE41211D2F70007C25C /* IoBlock.h */,
+				62BE5EE51211D2F70007C25C /* IoCall.h */,
+				62BE5EE61211D2F70007C25C /* IoCFunction.h */,
+				62BE5EE71211D2F70007C25C /* IoCollector.h */,
+				62BE5EE81211D2F70007C25C /* IoCompiler.h */,
+				62BE5EE91211D2F70007C25C /* IoConfig.h */,
+				62BE5EEA1211D2F70007C25C /* IoContext.h */,
+				62BE5EEB1211D2F70007C25C /* IoCoroutine.h */,
+				62BE5EEC1211D2F70007C25C /* IoDate.h */,
+				62BE5EED1211D2F70007C25C /* IoDebugger.h */,
+				62BE5EEE1211D2F70007C25C /* IoDirectory.h */,
+				62BE5EEF1211D2F70007C25C /* IoDuration.h */,
+				62BE5EF01211D2F70007C25C /* IoDynLib.h */,
+				62BE5EF11211D2F70007C25C /* IoError.h */,
+				62BE5EF21211D2F70007C25C /* IoFile.h */,
+				62BE5EF31211D2F70007C25C /* IoFile_stat.h */,
+				62BE5EF41211D2F70007C25C /* IoLexer.h */,
+				62BE5EF51211D2F70007C25C /* IoList.h */,
+				62BE5EF61211D2F70007C25C /* IoMap.h */,
+				62BE5EF71211D2F70007C25C /* IoMessage.h */,
+				62BE5EF81211D2F70007C25C /* IoMessage_inline.h */,
+				62BE5EF91211D2F70007C25C /* IoMessage_opShuffle.h */,
+				62BE5EFA1211D2F70007C25C /* IoMessage_parser.h */,
+				62BE5EFB1211D2F70007C25C /* IoNumber.h */,
+				62BE5EFC1211D2F70007C25C /* IoObject.h */,
+				62BE5EFD1211D2F70007C25C /* IoObject_flow.h */,
+				62BE5EFE1211D2F70007C25C /* IoObject_inline.h */,
+				62BE5EFF1211D2F70007C25C /* IoObject_struct.h */,
+				62BE5F001211D2F70007C25C /* IoSandbox.h */,
+				62BE5F011211D2F70007C25C /* IoSeq.h */,
+				62BE5F021211D2F70007C25C /* IoSeq_immutable.h */,
+				62BE5F031211D2F70007C25C /* IoSeq_inline.h */,
+				62BE5F041211D2F70007C25C /* IoSeq_mutable.h */,
+				62BE5F051211D2F70007C25C /* IoSeq_vector.h */,
+				62BE5F061211D2F70007C25C /* IoState.h */,
+				62BE5F071211D2F70007C25C /* IoState_callbacks.h */,
+				62BE5F081211D2F70007C25C /* IoState_coros.h */,
+				62BE5F091211D2F70007C25C /* IoState_debug.h */,
+				62BE5F0A1211D2F70007C25C /* IoState_eval.h */,
+				62BE5F0B1211D2F70007C25C /* IoState_exceptions.h */,
+				62BE5F0C1211D2F70007C25C /* IoState_inline.h */,
+				62BE5F0D1211D2F70007C25C /* IoState_symbols.h */,
+				62BE5F0E1211D2F70007C25C /* IoSystem.h */,
+				62BE5F0F1211D2F70007C25C /* IoTag.h */,
+				62BE5F101211D2F70007C25C /* IoTag_inline.h */,
+				62BE5F111211D2F70007C25C /* IoToken.h */,
+				62BE5F121211D2F70007C25C /* IoVersion.h */,
+				62BE5F131211D2F70007C25C /* IoVM.h */,
+				62BE5F141211D2F70007C25C /* IoVMApi.h */,
+				62BE5F151211D2F70007C25C /* IoWeakLink.h */,
+				62BE5F161211D2F70007C25C /* List.h */,
+				62BE5F171211D2F70007C25C /* List_inline.h */,
+				62BE5F181211D2F70007C25C /* MainArgs.h */,
+				62BE5F191211D2F70007C25C /* PHash.h */,
+				62BE5F1A1211D2F70007C25C /* PHash_inline.h */,
+				62BE5F1B1211D2F70007C25C /* PHash_struct.h */,
+				62BE5F1C1211D2F70007C25C /* PointerHash.h */,
+				62BE5F1D1211D2F70007C25C /* PointerHash_inline.h */,
+				62BE5F1E1211D2F70007C25C /* PointerHash_struct.h */,
+				62BE5F1F1211D2F70007C25C /* PortableGettimeofday.h */,
+				62BE5F201211D2F70007C25C /* PortableSorting.h */,
+				62BE5F211211D2F70007C25C /* PortableStdint.h */,
+				62BE5F221211D2F70007C25C /* PortableStrlcpy.h */,
+				62BE5F231211D2F70007C25C /* PortableStrptime.h */,
+				62BE5F241211D2F70007C25C /* PortableTruncate.h */,
+				62BE5F251211D2F70007C25C /* PortableUsleep.h */,
+				62BE5F261211D2F70007C25C /* power-ucontext.h */,
+				62BE5F271211D2F70007C25C /* RandomGen.h */,
+				62BE5F281211D2F70007C25C /* Stack.h */,
+				62BE5F291211D2F70007C25C /* Stack_inline.h */,
+				62BE5F2A1211D2F70007C25C /* taskimpl.h */,
+				62BE5F2B1211D2F70007C25C /* UArray.h */,
+				62BE5F2C1211D2F70007C25C /* UArray_character.h */,
+				62BE5F2D1211D2F70007C25C /* UArray_format.h */,
+				62BE5F2E1211D2F70007C25C /* UArray_math.h */,
+				62BE5F2F1211D2F70007C25C /* UArray_path.h */,
+				62BE5F301211D2F70007C25C /* UArray_stream.h */,
+				62BE5F311211D2F70007C25C /* UArray_string.h */,
+				62BE5F321211D2F70007C25C /* UArray_utf.h */,
+				62BE5F331211D2F70007C25C /* utf8.h */,
+				62BE5F341211D2F70007C25C /* utf8internal.h */,
+				62BE5F351211D2F70007C25C /* utf_convert.h */,
 			);
-			name = bundled_libs;
-			sourceTree = "<group>";
-		};
-		6246C4BE12109A13002FEF43 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				6246C4BF12109A13002FEF43 /* 386-ucontext.h */,
-				6246C4C012109A13002FEF43 /* amd64-ucontext.h */,
-				6246C4C112109A13002FEF43 /* Base.h */,
-				6246C4C212109A13002FEF43 /* BStream.h */,
-				6246C4C312109A13002FEF43 /* BStreamTag.h */,
-				6246C4C412109A13002FEF43 /* cdecode.h */,
-				6246C4C512109A13002FEF43 /* cencode.h */,
-				6246C4C612109A13002FEF43 /* CHash.h */,
-				6246C4C712109A13002FEF43 /* CHash_inline.h */,
-				6246C4C812109A13002FEF43 /* Collector.h */,
-				6246C4C912109A13002FEF43 /* Collector_inline.h */,
-				6246C4CA12109A13002FEF43 /* CollectorMarker.h */,
-				6246C4CB12109A13002FEF43 /* CollectorMarker_inline.h */,
-				6246C4CC12109A13002FEF43 /* Common.h */,
-				6246C4CD12109A13002FEF43 /* Common_inline.h */,
-				6246C4CE12109A13002FEF43 /* Coro.h */,
-				6246C4CF12109A13002FEF43 /* Date.h */,
-				6246C4D012109A13002FEF43 /* Duration.h */,
-				6246C4D112109A13002FEF43 /* DynLib.h */,
-				6246C4D212109A13002FEF43 /* Hash_fnv.h */,
-				6246C4D312109A13002FEF43 /* Hash_murmur.h */,
-				6246C4D412109A13002FEF43 /* Hash_superfast.h */,
-				6246C4D512109A13002FEF43 /* IoBlock.h */,
-				6246C4D612109A13002FEF43 /* IoCall.h */,
-				6246C4D712109A13002FEF43 /* IoCFunction.h */,
-				6246C4D812109A13002FEF43 /* IoCollector.h */,
-				6246C4D912109A13002FEF43 /* IoCompiler.h */,
-				6246C4DA12109A13002FEF43 /* IoConfig.h */,
-				6246C4DB12109A13002FEF43 /* IoContext.h */,
-				6246C4DC12109A13002FEF43 /* IoCoroutine.h */,
-				6246C4DD12109A13002FEF43 /* IoDate.h */,
-				6246C4DE12109A13002FEF43 /* IoDebugger.h */,
-				6246C4DF12109A13002FEF43 /* IoDirectory.h */,
-				6246C4E012109A13002FEF43 /* IoDuration.h */,
-				6246C4E112109A13002FEF43 /* IoDynLib.h */,
-				6246C4E212109A13002FEF43 /* IoError.h */,
-				6246C4E312109A13002FEF43 /* IoFile.h */,
-				6246C4E412109A13002FEF43 /* IoFile_stat.h */,
-				6246C4E512109A13002FEF43 /* IoLexer.h */,
-				6246C4E612109A13002FEF43 /* IoList.h */,
-				6246C4E712109A13002FEF43 /* IoMap.h */,
-				6246C4E812109A13002FEF43 /* IoMessage.h */,
-				6246C4E912109A13002FEF43 /* IoMessage_inline.h */,
-				6246C4EA12109A13002FEF43 /* IoMessage_opShuffle.h */,
-				6246C4EB12109A13002FEF43 /* IoMessage_parser.h */,
-				6246C4EC12109A13002FEF43 /* IoNumber.h */,
-				6246C4ED12109A13002FEF43 /* IoObject.h */,
-				6246C4EE12109A13002FEF43 /* IoObject_flow.h */,
-				6246C4EF12109A13002FEF43 /* IoObject_inline.h */,
-				6246C4F012109A13002FEF43 /* IoObject_struct.h */,
-				6246C4F112109A13002FEF43 /* IoSandbox.h */,
-				6246C4F212109A13002FEF43 /* IoSeq.h */,
-				6246C4F312109A13002FEF43 /* IoSeq_immutable.h */,
-				6246C4F412109A13002FEF43 /* IoSeq_inline.h */,
-				6246C4F512109A13002FEF43 /* IoSeq_mutable.h */,
-				6246C4F612109A13002FEF43 /* IoSeq_vector.h */,
-				6246C4F712109A13002FEF43 /* IoState.h */,
-				6246C4F812109A13002FEF43 /* IoState_callbacks.h */,
-				6246C4F912109A13002FEF43 /* IoState_coros.h */,
-				6246C4FA12109A13002FEF43 /* IoState_debug.h */,
-				6246C4FB12109A13002FEF43 /* IoState_eval.h */,
-				6246C4FC12109A13002FEF43 /* IoState_exceptions.h */,
-				6246C4FD12109A13002FEF43 /* IoState_inline.h */,
-				6246C4FE12109A13002FEF43 /* IoState_symbols.h */,
-				6246C4FF12109A13002FEF43 /* IoSystem.h */,
-				6246C50012109A13002FEF43 /* IoTag.h */,
-				6246C50112109A13002FEF43 /* IoTag_inline.h */,
-				6246C50212109A13002FEF43 /* IoToken.h */,
-				6246C50312109A13002FEF43 /* IoVersion.h */,
-				6246C50412109A13002FEF43 /* IoVM.h */,
-				6246C50512109A13002FEF43 /* IoVMApi.h */,
-				6246C50612109A13002FEF43 /* IoWeakLink.h */,
-				6246C50812109A13002FEF43 /* List.h */,
-				6246C50912109A13002FEF43 /* List_inline.h */,
-				6246C50A12109A13002FEF43 /* MainArgs.h */,
-				6246C50B12109A13002FEF43 /* PHash.h */,
-				6246C50C12109A13002FEF43 /* PHash_inline.h */,
-				6246C50D12109A13002FEF43 /* PHash_struct.h */,
-				6246C50E12109A13002FEF43 /* PointerHash.h */,
-				6246C50F12109A13002FEF43 /* PointerHash_inline.h */,
-				6246C51012109A13002FEF43 /* PointerHash_struct.h */,
-				6246C51112109A13002FEF43 /* PortableGettimeofday.h */,
-				6246C51212109A13002FEF43 /* PortableSorting.h */,
-				6246C51312109A13002FEF43 /* PortableStdint.h */,
-				6246C51412109A13002FEF43 /* PortableStrlcpy.h */,
-				6246C51512109A13002FEF43 /* PortableStrptime.h */,
-				6246C51612109A13002FEF43 /* PortableTruncate.h */,
-				6246C51712109A13002FEF43 /* PortableUsleep.h */,
-				6246C51812109A13002FEF43 /* power-ucontext.h */,
-				6246C51912109A13002FEF43 /* RandomGen.h */,
-				6246C51A12109A13002FEF43 /* Stack.h */,
-				6246C51B12109A13002FEF43 /* Stack_inline.h */,
-				6246C51C12109A13002FEF43 /* taskimpl.h */,
-				6246C51D12109A13002FEF43 /* UArray.h */,
-				6246C51E12109A13002FEF43 /* UArray_character.h */,
-				6246C51F12109A13002FEF43 /* UArray_format.h */,
-				6246C52012109A13002FEF43 /* UArray_math.h */,
-				6246C52112109A13002FEF43 /* UArray_path.h */,
-				6246C52212109A13002FEF43 /* UArray_stream.h */,
-				6246C52312109A13002FEF43 /* UArray_string.h */,
-				6246C52412109A13002FEF43 /* UArray_utf.h */,
-				6246C52512109A13002FEF43 /* utf8.h */,
-				6246C52612109A13002FEF43 /* utf8internal.h */,
-				6246C52712109A13002FEF43 /* utf_convert.h */,
-			);
-			name = osx;
-			path = lib/libiovmall/osx;
-			sourceTree = "<group>";
+			name = io;
+			path = /opt/local/include/io;
+			sourceTree = "<absolute>";
 		};
 		62D791BF12077BC800DED8D3 /* English.lproj */ = {
 			isa = PBXGroup;

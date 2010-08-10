@@ -6,3 +6,4 @@
 sank-into.xcodeproj/*.mode2v3
 sank-into.xcodeproj/*.pbxuser
 
+sconsign.*
