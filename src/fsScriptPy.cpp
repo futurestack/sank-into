@@ -9,31 +9,20 @@
 
 
 #include "fsScriptPy.h"
-#ifdef __FS_SCRIPT_PY__
+
+#ifdef SCRIPT_USE_PYTHON
 
 
 //debug
 #include <iostream>
 static const bool fsDebug_fsScriptPy = false;
 
-fsScriptPy* fsScriptPy::pInstance = NULL;
-
-fsScriptPy* fsScriptPy::Instance()
-{
-	if ( pInstance == NULL )
-	{
-		pInstance = new fsScriptPy();
-	}
-	return pInstance;
-	
-	
-}
 
 fsScriptPy::fsScriptPy()
 {
 	Py_Initialize();
 	
-	if ( fsDebug_fsScriptPy ) runTest( "pants = 102" );
+	if ( fsDebug_fsScriptPy ) runTest();
 }
 
 fsScriptPy::~fsScriptPy()
@@ -42,7 +31,7 @@ fsScriptPy::~fsScriptPy()
 
 }
 
-void fsScriptPy::doScript( std::string s )
+void fsScriptPy::doString( std::string s )
 {
 	
 	if ( fsDebug_fsScriptPy ) std::cout << ">>>" << s << "\n";
@@ -61,32 +50,26 @@ void fsScriptPy::doFile( std::string s )
 
 }
 
-void fsScriptPy::runTest( std::string s )
+void fsScriptPy::runTest()
 {
-	std::cout << "//pythontests:---------------------------\n";
-	
-    std::cout << "//-testing a file--------------------------\n";
-	doFile("/forge/fsCore_v02/src/fsScript/py/hello.py");
-	
-    std::cout << "//-testing a string--------------------------\n";
-    doScript("print 'hello again'");
-	
-    std::cout << "//-putting some vars--------------------------\n";
-    doScript("someInt = 5");
-    doScript("someFloat = 8.1234123");
-    doScript("someString = 'ffffffffffffffffff'");
-    std::cout << "//-getting some vars--------------------------\n";
-	
+    std::cout << "fsScriptPy::runTest";
+    
+    std::cout << "//-testing a file\n";
+	doFile("scripts/hello.lua");
+    
+    std::cout << "//-testing a string\n";
+    doString("io.write ('hello again\\n')");
+    
+    std::cout << "//-putting some vars\n";
+    doString("someInt = 5");
+    doString("someFloat = 8.1234123");
+    doString("someString = 'ffffffffffffffffff'");
+    
+    std::cout << "//-getting some vars\n";
     std::cout << "someInt:" << getInt("someInt") << std::endl;
     std::cout << "someFloat:" << getFloat("someFloat") << std::endl;
     std::cout << "someString:" << getString("someString") << std::endl;
-	
-	std::cout << "someInt:" << getInt("fileFooInt") << std::endl;
-    std::cout << "someFloat:" << getFloat("fileFooFloat") << std::endl;
-    std::cout << "someString:" << getString("fileFooString") << std::endl;
-	
-	std::cout << "//---------------------------\n";
-
+    
 }
 
 int fsScriptPy::getInt( std::string s )

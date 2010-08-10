@@ -8,95 +8,80 @@
  */
 
 #include "scriptInterpreter.h"
+
 #include <iostream>
-
-#include "lua.hpp"
-#include "lauxlib.h"
-
 #include <stdio.h>
 
+#include "config.h"
+
+#include "fsScript.h"
+
+#ifdef SCRIPT_USE_LUA
+#include "fsScriptLua.h"
+#endif
+
+#ifdef SCRIPT_USE_PYTHON
+    #include "fsScriptPy.h"
+#endif
+
+#ifdef SCRIPT_USE_IO
+    #include "fsScriptIO.h"
+#endif
 
 scriptInterpreter::scriptInterpreter()
+:
+m_pScript(NULL)
 {
-	L = lua_open();
-    luaL_openlibs(L);
+#ifdef SCRIPT_USE_LUA
+    m_pScript = new fsScriptLua;
+#endif
+    
+#ifdef SCRIPT_USE_PYTHON    
+    m_pScript = new fsScriptPy();
+#endif
+    
+#ifdef SCRIPT_USE_IO
+    m_pScript = new fsScriptIO;
+#endif
+    
 }
 
 scriptInterpreter::~scriptInterpreter()
 {
-	lua_close(L);
+    delete m_pScript;
+    
 }
-
-
 void scriptInterpreter::doString( std::string s )
 {
-    int error = luaL_dostring(L, s.c_str());
-    if (error) {
-        std::cout << lua_tostring(L, -1) << std::endl;
-        lua_pop(L, 1);
-    }
-    ++error;
+	
+    m_pScript->doString(s);
 }
 
 void scriptInterpreter::doFile( std::string s )
 {
-    
-    int error = luaL_dofile(L, s.c_str());
-    if (error) {
-        std::cout << lua_tostring(L, -1) << std::endl;
-        lua_pop(L, 1);
-    }
-    ++error;
+    m_pScript->doFile(s);
 }
 
-void scriptInterpreter::runTest( )
+void scriptInterpreter::runTest()
 {
-    
-    std::cout << "//-testing a file\n";
-	doFile("scripts/hello.lua");
-    
-    std::cout << "//-testing a string\n";
-    doString("io.write ('hello again\\n')");
-    
-    std::cout << "//-putting some vars\n";
-    doString("someInt = 5");
-    doString("someFloat = 8.1234123");
-    doString("someString = 'ffffffffffffffffff'");
-    
-    std::cout << "//-getting some vars\n";
-    std::cout << "someInt:" << getInt("someInt") << std::endl;
-    std::cout << "someFloat:" << getFloat("someFloat") << std::endl;
-    std::cout << "someString:" << getString("someString") << std::endl;
-    
-    
+    assert(m_pScript);
+    m_pScript->runTest();
 }
 
 int scriptInterpreter::getInt( std::string s )
 {
-	lua_pushstring(L, s.c_str() );
-    lua_gettable(L,LUA_GLOBALSINDEX);
-    lua_Number result = lua_tonumber(L, -1 );
-    lua_pop(L, 1 );
-    return result;
+    return m_pScript->getInt( s );
+
 }
 
 float scriptInterpreter::getFloat( std::string s )
 {
-    lua_pushstring(L, s.c_str() );
-    lua_gettable(L,LUA_GLOBALSINDEX);
-    lua_Number result = lua_tonumber(L, -1 );
-    lua_pop(L, 1 );
-    
-	return result;
+    return m_pScript->getFloat( s );
+
 }
 
 std::string scriptInterpreter::getString( std::string s )
 {
-	lua_pushstring(L, s.c_str() );
-    lua_gettable(L,LUA_GLOBALSINDEX);
-    std::string result = lua_tostring(L, -1 );
-    lua_pop(L, 1 );
-    
-	return result;
+	
+	return m_pScript->getString( s );
 }
-

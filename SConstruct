@@ -7,10 +7,26 @@ print sys.platform
 
 flags = '-Wall -pedantic -g '
 ldflags = '-lSDL -lLua '
-use_lua_framework = True;
+
+#scriptlanguage.  options are python, io, lua
+scriptlanguage = 'io'
+
+
+use_lua_framework = False;
 
 #os specific stuff
 
+if scriptlanguage == 'python':
+    print 'python.'
+    flags += " -DSCRIPT_USE_PYTHON"
+
+if scriptlanguage == 'lua':
+    print 'lua.'
+    flags += " -DSCRIPT_USE_LUA"
+
+if scriptlanguage == 'io':
+    print 'io'
+    flags += " -DSCRIPT_USE_IO"
 
 if sys.platform == 'win32':         #win
     Tool('mingw')(env)
@@ -19,12 +35,19 @@ if sys.platform == 'win32':         #win
 if sys.platform == 'darwin':        #mac
     env['FRAMEWORKS'] = ['OpenGL', 'Cocoa', 'SDL']
     env.Append(CPPPATH = ['/opt/local/include/'])
-    if use_lua_framework == 'true': 
-        flags += " -DUSE_FRAMEWORK"
-        env.Append(FRAMEWORKS = ['Lua'])
-    else:
-        env.Append(LIBS = ['Lua']);
-
+    
+    if scriptlanguage == 'lua':
+        if use_lua_framework == 'true': 
+            flags += " -DUSE_FRAMEWORK"
+            env.Append(FRAMEWORKS = ['Lua'])
+        else:
+            env.Append(LIBS = ['Lua']);
+    if scriptlanguage == 'io':
+        env.Append(LIBS = ['iovmall.a']);
+        env.Append(CPPPATH=['/opt/local/include/io'])
+    if scriptlanguage == 'python':
+        env.Append(LIBS = ['Python']);
+            
 if sys.platform == 'linux2':        #linux
     env.Append(LIBS = ['SDL','GL', 'GLU', 'lua5.1'])
     env.Append(CPPPATH = ['/usr/include/'])

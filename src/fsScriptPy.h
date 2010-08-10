@@ -7,8 +7,10 @@
  *
  */
 
+#include "config.h"
 
-#ifdef __FS_SCRIPT_PY__
+#ifdef SCRIPT_USE_PYTHON
+
 #ifndef FS_SCRIPT_PY_H_
 #define FS_SCRIPT_PY_H_
 
@@ -16,33 +18,27 @@
 
 #include <Python/Python.h>
 
-class fsObject;
-
 class fsScriptPy: public fsScript
 {
 public:
-	
-	static fsScriptPy* Instance();
-	void doScript(	std::string s );
-	void doFile(	std::string s );
-	void runTest( std::string s );
-	
-	int getInt( std::string s );
-	std::string getString( std::string s );
-	float getFloat( std::string s );
-	
-	//fsObject* getObj( std::string s );
-	
-	PyObject* m_pObject;
-	
+    
+    fsScriptPy();
+    ~fsScriptPy();
+    
+    void runTest();
+    void doString(	std::string s );
+    void doFile(	std::string s );
+    
+    int         getInt( std::string s );
+    std::string getString( std::string s );
+    float       getFloat( std::string s );
+    
 private:
-	
-	static fsScriptPy* pInstance;
-	
-	fsScriptPy();
-	~fsScriptPy();
+    
+	PyObject* m_pObject;
+
 	
 };
 
 #endif // end header def
-#endif // end __FS_SCRIPT_PY__
+#endif // end SCRIPT_USE_PYTHON
