@@ -23,8 +23,6 @@ public:
     /// Constructs a quadtree with a width and height of 2^layers.
     QuadTree(size_t layers=0);
     virtual ~QuadTree();
-
-    virtual void clear();
     
     /// Gets the number of layers this tree has.
     virtual size_t layers() const { return m_layers; }
@@ -166,22 +164,12 @@ QuadTree<T>::QuadTree(QuadTree<T> *parent, size_t layers)
 template <typename T>
 QuadTree<T>::~QuadTree()
 {
-    clear();
-}
-
-template <typename T>
-void QuadTree<T>::clear()
-{
     if (m_layers > 0 && m_owner)
     {
         delete m_topLeft;
-        m_topLeft = NULL;
         delete m_topRight;
-        m_topRight = NULL;
         delete m_botLeft;
-        m_botLeft = NULL;
         delete m_botRight;
-        m_botRight = NULL;
     }
 }
 
@@ -271,7 +259,6 @@ QuadTree<T> &QuadTree<T>::operator =(const QuadTree<T> &qt)
 {
     if (this != &qt)
     {
-        clear();
         m_layers = qt.m_layers;
         m_curLayer = qt.m_curLayer;
         m_parent = qt.m_parent;
