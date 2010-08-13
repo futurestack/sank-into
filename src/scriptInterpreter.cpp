@@ -9,10 +9,13 @@
 
 #include "scriptInterpreter.h"
 
+//debug
+#include <cassert>
+
 #include <iostream>
 #include <stdio.h>
 
-#include "config.h"
+#include "general.h"
 
 #include "fsScript.h"
 

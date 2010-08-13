@@ -7,8 +7,9 @@
  *
  */
 
-#include "config.h"
+#include "general.h"
 
+#define USE_FRAMEWORK
 #ifdef SCRIPT_USE_LUA
 
 #ifndef FS_SCRIPT_LUA_H_

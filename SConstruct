@@ -9,10 +9,10 @@ flags = '-Wall -pedantic -g '
 ldflags = '-lSDL -lLua '
 
 #scriptlanguage.  options are python, io, lua
-scriptlanguage = 'io'
+scriptlanguage = 'lua'
 
 
-use_lua_framework = False;
+use_lua_framework = True;
 
 #os specific stuff
 

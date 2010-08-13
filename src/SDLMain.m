@@ -5,10 +5,10 @@
     Feel free to customize this file to suit your needs
 */
 
-#import <SDL/SDL.h>
-#import "SDLMain.h"
-#import <sys/param.h> /* for MAXPATHLEN */
-#import <unistd.h>
+#include "SDL.h"
+#include "SDLMain.h"
+#include <sys/param.h> /* for MAXPATHLEN */
+#include <unistd.h>
 
 /* For some reaon, Apple removed setAppleMenu from the headers in 10.4,
  but the method still is there and works. To avoid warnings, we declare
@@ -18,21 +18,21 @@
 @end
 
 /* Use this flag to determine whether we use SDLMain.nib or not */
-#define        SDL_USE_NIB_FILE    0
+#define		SDL_USE_NIB_FILE	0
 
 /* Use this flag to determine whether we use CPS (docking) or not */
-#define        SDL_USE_CPS        1
+#define		SDL_USE_CPS		1
 #ifdef SDL_USE_CPS
 /* Portions of CPS.h */
 typedef struct CPSProcessSerNum
 {
-    UInt32        lo;
-    UInt32        hi;
+	UInt32		lo;
+	UInt32		hi;
 } CPSProcessSerNum;
 
-extern OSErr    CPSGetCurrentProcess( CPSProcessSerNum *psn);
-extern OSErr     CPSEnableForegroundOperation( CPSProcessSerNum *psn, UInt32 _arg2, UInt32 _arg3, UInt32 _arg4, UInt32 _arg5);
-extern OSErr    CPSSetFrontProcess( CPSProcessSerNum *psn);
+extern OSErr	CPSGetCurrentProcess( CPSProcessSerNum *psn);
+extern OSErr 	CPSEnableForegroundOperation( CPSProcessSerNum *psn, UInt32 _arg2, UInt32 _arg3, UInt32 _arg4, UInt32 _arg5);
+extern OSErr	CPSSetFrontProcess( CPSProcessSerNum *psn);
 
 #endif /* SDL_USE_CPS */
 
@@ -43,11 +43,11 @@ static BOOL   gCalledAppMainline = FALSE;
 
 static NSString *getApplicationName(void)
 {
-    NSDictionary *dict;
+    const NSDictionary *dict;
     NSString *appName = 0;
 
     /* Determine the application name */
-    dict = (NSDictionary *)CFBundleGetInfoDictionary(CFBundleGetMainBundle());
+    dict = (const NSDictionary *)CFBundleGetInfoDictionary(CFBundleGetMainBundle());
     if (dict)
         appName = [dict objectForKey: @"CFBundleName"];
     
@@ -89,13 +89,12 @@ static NSString *getApplicationName(void)
         char parentdir[MAXPATHLEN];
         CFURLRef url = CFBundleCopyBundleURL(CFBundleGetMainBundle());
         CFURLRef url2 = CFURLCreateCopyDeletingLastPathComponent(0, url);
-        if (CFURLGetFileSystemRepresentation(url2, true, (UInt8 *)parentdir, MAXPATHLEN)) {
-            assert ( chdir (parentdir) == 0 );   /* chdir to the binary app's parent */
+        if (CFURLGetFileSystemRepresentation(url2, 1, (UInt8 *)parentdir, MAXPATHLEN)) {
+            chdir(parentdir);   /* chdir to the binary app's parent */
         }
         CFRelease(url);
         CFRelease(url2);
     }
-
 }
 
 #if SDL_USE_NIB_FILE
@@ -199,8 +198,8 @@ static void setupWindowMenu(void)
 /* Replacement for NSApplicationMain */
 static void CustomApplicationMain (int argc, char **argv)
 {
-    NSAutoreleasePool    *pool = [[NSAutoreleasePool alloc] init];
-    SDLMain                *sdlMain;
+    NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
+    SDLMain				*sdlMain;
 
     /* Ensure the application object is initialised */
     [SDLApplication sharedApplication];
@@ -319,7 +318,7 @@ static void CustomApplicationMain (int argc, char **argv)
     NSString *result;
 
     bufferSize = selfLen + aStringLen - aRange.length;
-    buffer = NSAllocateMemoryPages(bufferSize*sizeof(unichar));
+    buffer = (unichar *)NSAllocateMemoryPages(bufferSize*sizeof(unichar));
     
     /* Get first part into buffer */
     localRange.location = 0;
@@ -381,3 +380,4 @@ int main (int argc, char **argv)
 #endif
     return 0;
 }
+

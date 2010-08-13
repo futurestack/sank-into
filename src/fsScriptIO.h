@@ -2,14 +2,15 @@
  *  fsScriptIO.h
  *  sank-into
  *
- *  Created by ndrw on 8/8/10.
+ *  Created by futurestack on 8/8/10.
  *  Copyright 2010 st4tic_software. All rights reserved.
  *
  */
 
-#include "config.h"
+#include "general.h"
 
 #ifdef SCRIPT_USE_IO
+
 #ifndef FS_SCRIPT_IO_H_
 #define FS_SCRIPT_IO_H_
 

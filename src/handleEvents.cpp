@@ -46,8 +46,22 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
 { 
     // function to handle key press events
     static const float keyVel = 5.0f;
+    fsPoint2i p =  pController->mouseLoc.loc;
+
     switch (keysym->sym) 
     {
+        case SDLK_c:
+        {
+            pController->m_level.m_map.setAllObjects(false);
+            std::cout << "Resetting.\n";
+            break;  
+        }
+        case SDLK_s:
+        {
+            pController->m_level.m_map.BreakUp(p.x , p.y);
+            std::cout << "Splitting.\n";
+            break;              
+        }
         case SDLK_ESCAPE:
         // ESC key was pressed
             Quit(0);
@@ -75,6 +89,7 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             toggleFullscreen();
             break;
         default:
+            pController->m_level.m_map.Key(keysym->sym - '0', p.x,p.y);
             break;
       }
       
@@ -89,7 +104,11 @@ void eventHandler::handleMouseUp( int x, int y)
 
 void eventHandler::handleMouseDown( int x, int y)
 {
+    pController->m_level.m_map.Click(x,y);
 
+                               
+                               
+                               
 }
 
 void eventHandler::handleMouseMotion( int x, int y)

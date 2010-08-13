@@ -11,7 +11,8 @@
 
 gameController* gameController::pInstance = 0;
 
-gameController::gameController()
+gameController::gameController():
+m_level()
 {
     
 }
@@ -35,7 +36,13 @@ void gameController::update()
 {
     player.update();
     mouseLoc.update();
-
+    m_level.update();
 
 }
 
+void gameController::draw()
+{
+
+
+
+}

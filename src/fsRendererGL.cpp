@@ -275,6 +275,44 @@ void fsRendererGL::renderSquare( const int rad) const
     glVertexPointer(2,GL_FLOAT, 0, line);
     glDrawArrays(GL_LINE_LOOP, 0, 4 );
 }
+void fsRendererGL::renderRect(const fsPoint2i& p1, const fsPoint2i& p2) const
+{
+    GLfloat line[] =
+    {
+        p1.x, p1.y,
+        p2.x, p1.y,
+        p2.x, p2.y,
+        p1.x, p2.y
+    
+    };
+    glVertexPointer(2,GL_FLOAT, 0, line);
+    glDrawArrays(GL_LINE_LOOP, 0, 4 );
+}
+
+void fsRendererGL::renderRect( int x1, int y1, int x2, int y2 ) const
+{
+    GLfloat line[] =
+    {
+        x1,y1,
+        x2,y1,
+        x2,y2,
+        x1,y2
+    };
+    glVertexPointer(2,GL_FLOAT, 0, line);
+    glDrawArrays(GL_LINE_LOOP, 0, 4 );
+}
+void fsRendererGL::renderRectFill( int x1, int y1, int x2, int y2 ) const
+{
+    GLfloat line[] =
+    {
+        x1,y1,
+        x2,y1,
+        x2,y2,
+        x1,y2
+    };
+    glVertexPointer(2,GL_FLOAT, 0, line);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, 4 );
+}
 
 void fsRendererGL::renderText( const std::string& str ) const
 {

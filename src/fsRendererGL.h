@@ -54,6 +54,9 @@ class fsRendererGL
         
         void renderSquare(const int rad ) const;
         void renderSquare(const fsPoint2i& p, const int rad ) const;
+        void renderRect( int x1, int y1, int x2, int y2 ) const;
+        void renderRectFill( int x1, int y1, int x2, int y2 ) const;
+        void renderRect( const fsPoint2i& p1, const fsPoint2i& p2 ) const;
         void renderText( const std::string& str ) const;
         void renderText( const fsPoint2i& p, const std::string& str ) const;
 

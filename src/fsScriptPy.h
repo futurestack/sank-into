@@ -7,7 +7,7 @@
  *
  */
 
-#include "config.h"
+#include "general.h"
 
 #ifdef SCRIPT_USE_PYTHON
 

@@ -142,6 +142,7 @@ void glContext::render()
     renderer.clear(1.0,1.0,1.0,1.0);
     
     renderer.setColor(0.0,0.0,0.0,1.0);
+    pController->m_level.draw(renderer);
     renderObject( pController->mouseLoc );
     renderObject( pController->player) ;
     

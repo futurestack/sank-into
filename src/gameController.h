@@ -13,8 +13,7 @@
 #include "gameObject.h"
 #include "gameEntity.h"
 
-#include "quadtree.h"
-
+#include "gameLevel.h"
 
 class gameController
     {
@@ -25,7 +24,8 @@ class gameController
         
         gameEntity player;
         gameObject mouseLoc;
-        
+        gameLevel m_level;
+
         
         static gameController* Instance();
     private:
@@ -33,7 +33,6 @@ class gameController
         ~gameController();
         
         static gameController* pInstance;
-        
         
     };
 
