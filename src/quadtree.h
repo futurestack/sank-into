@@ -41,7 +41,7 @@ class QuadTree
         
         /// Returns the parent. Segfaults if this tree doesn't have one. :(
         virtual QuadTree<T> &parent() { return *m_parent; }
-        
+
         /// Sets this tree's object, and EVERY child's object to this.
         virtual void setAllObjects(T to);
         

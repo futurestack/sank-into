@@ -46,8 +46,8 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
 { 
     // function to handle key press events
     static const float keyVel = 5.0f;
-    fsPoint2i p =  pController->mouseLoc.loc;
-
+    fsPoint2i p =  pController->m_oMouseLocWorld.loc;
+    
     switch (keysym->sym) 
     {
         case SDLK_c:
@@ -56,12 +56,25 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             std::cout << "Resetting.\n";
             break;  
         }
-        case SDLK_s:
+        case SDLK_v:
         {
             pController->m_level.m_map.BreakUp(p.x , p.y);
             std::cout << "Splitting.\n";
             break;              
         }
+        case SDLK_a:
+            pController->m_oGameCamera.vel.x -= keyVel;  break;
+        case SDLK_d:
+            pController->m_oGameCamera.vel.x += keyVel;  break;
+        case SDLK_w:
+            pController->m_oGameCamera.vel.y -= keyVel;  break;
+        case SDLK_s:
+            pController->m_oGameCamera.vel.y += keyVel;  break;
+        case SDLK_q:
+            pController->m_oGameCamera.vel = fsPoint2f(0,0);  
+            pController->m_oGameCamera.loc = fsPoint2f(0,0);  
+            break;
+            
         case SDLK_ESCAPE:
         // ESC key was pressed
             Quit(0);
@@ -74,16 +87,16 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             toggleFullscreen();
             break;
         case SDLK_LEFT:
-            pController->player.vel.x -= keyVel;
+            pController->m_ePlayer.vel.x -= keyVel;
             break;
         case SDLK_RIGHT:
-            pController->player.vel.x += keyVel;
+            pController->m_ePlayer.vel.x += keyVel;
             break;
         case SDLK_UP:
-            pController->player.vel.y -= keyVel;
+            pController->m_ePlayer.vel.y -= keyVel;
             break;
         case SDLK_DOWN:
-            pController->player.vel.y += keyVel;
+            pController->m_ePlayer.vel.y += keyVel;
             break;
         case SDLK_TAB:
             toggleFullscreen();
@@ -98,7 +111,7 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
 
 void eventHandler::handleMouseUp( int x, int y)
 {
-    pController->player.loc = pController->mouseLoc.loc;
+    pController->m_ePlayer.loc = pController->m_oMouseLocWorld.loc;
 
 }
 
@@ -113,7 +126,7 @@ void eventHandler::handleMouseDown( int x, int y)
 
 void eventHandler::handleMouseMotion( int x, int y)
 {
-    pController->mouseLoc.loc = fsPoint2f(x,y);
+    pController->m_oMouseLocScreen.loc = fsPoint2f(x,y);
 }
 
 

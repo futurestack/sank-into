@@ -79,11 +79,9 @@ std::string fsScriptIO::getString( std::string s )
 
 #endif
 
-
 /*
 
- 
- include "fsScriptIo.h"
+#include "fsScriptIo.h"
 
 #ifdef SCRIPT_USE_IO
 

@@ -10,6 +10,10 @@
 #include "gameObject.h"
 
 gameObject::gameObject()
+:
+loc(0,0),
+vel(0,0),
+m_sName("gameObject")
 {
 
 

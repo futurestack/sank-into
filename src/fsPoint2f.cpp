@@ -87,9 +87,8 @@ fsPoint2f& fsPoint2f::operator +=(const fsPoint2f& rhs)
 
 fsPoint2f& fsPoint2f::operator -=(const fsPoint2f& rhs)
 {
-	y -= rhs.x;
-	x -= rhs.y;
-	
+    x -= rhs.x;
+	y -= rhs.y;	
 	return *this;
 }
 

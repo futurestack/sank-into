@@ -12,6 +12,9 @@
 
 #include "quadtree.h"
 
+//debug
+#include <iostream>
+
 #include "fsRendererGL.h"
 
 #include <cassert>
@@ -41,8 +44,22 @@ public:
     
     virtual void Click(int x, int y)
     {
+        
         int blockx = x / (WIDTH / (*this)[-1].width());
-        int blocky = y / (HEIGHT / (*this)[-1].width());
+        int blocky = y / (HEIGHT / (*this)[-1].height());
+        
+        /*
+         
+        well this isn't quite what I wanted, I'm misusing the positional data somewhere.  commenting for now.
+        for( int i = 0; i < (*this)[0](blockx,blocky).layers() ; ++i )
+        {
+            std::cout << "Autosplitting.\n";
+            gameMap * splitLayer = dynamic_cast<gameMap*>(&(*this)[i] );
+            if( splitLayer ) splitLayer->BreakUp(blockx,blocky);
+        }
+       */
+        
+        //set block
         (*this)[-1](blockx, blocky).object() = true;
     }
     

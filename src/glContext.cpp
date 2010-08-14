@@ -142,53 +142,27 @@ void glContext::render()
     renderer.clear(1.0,1.0,1.0,1.0);
     
     renderer.setColor(0.0,0.0,0.0,1.0);
+    
+    fsPoint2i p = pController->m_oGameCamera.loc;
+    
+    renderer.pushMatrix();
+    
+    //invert camera for convenience.
+    p.x *= -1;
+    p.y *= -1;
+    renderer.translate(p);
+    
     pController->m_level.draw(renderer);
-    renderObject( pController->mouseLoc );
-    renderObject( pController->player) ;
+    renderObject( pController->m_ePlayer) ;
+    renderer.popMatrix();
+      
     
+    renderObject( pController->m_oMouseLocScreen );
+   /*
+    renderer.setColor(0.0,0.0,0.0,1.0);
+    renderObject( pController->m_oMouseLocWorld );
     
-    /*
-  float lineWidth = 0.5;
-
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glLoadIdentity();
-  gluLookAt(0.0, 10.0, 0.1, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-
-  float line;
-  for(line = 0.0; line < 7.0; line += 0.5) {
-    glLineWidth(lineWidth);
-
-    glBegin(GL_LINES);
-      glVertex3f(-5.0, 0.0,line - 3.0f);
-      glVertex3f(-1.0, 0.0, line - 3.0f);
-    glEnd();
-
-    lineWidth += 1.0;
-  }
-
-  lineWidth = 0.5;
-
-  glEnable(GL_LINE_STIPPLE);
-
-  // 0xAAAA = 1010 1010 1010 1010
-  short stipplePattern = 0xAAAA;
-
-  glLineStipple(2, stipplePattern);
-
-  for(line = 0.0; line < 7.0; line += 0.5) {
-    glLineWidth(lineWidth);
-
-    glBegin(GL_LINES);
-      glVertex3f(1.0f, 0.0f, line - 3.0f);
-      glVertex3f(5.0f, 0.0f, line - 3.0f);
-    glEnd();
-    
-    lineWidth += 1.0;
-  }
-  glDisable(GL_LINE_STIPPLE);
-     */
-    
-    
-    
+    renderer.renderLine( pController->m_oMouseLocWorld.loc, pController->m_oMouseLocScreen.loc );
+*/
 }
 

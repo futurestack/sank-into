@@ -32,6 +32,9 @@
 		226851A71215D98B0077D025 /* SConstruct in Resources */ = {isa = PBXBuildFile; fileRef = 226851A61215D98B0077D025 /* SConstruct */; };
 		226851AB1215D9BE0077D025 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226851AA1215D9BE0077D025 /* Lua.framework */; };
 		226852251215E67E0077D025 /* gameMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226852241215E67E0077D025 /* gameMap.cpp */; };
+		226856A512160BE10077D025 /* resource in Resources */ = {isa = PBXBuildFile; fileRef = 226856A312160BE10077D025 /* resource */; };
+		2268571612160FF90077D025 /* resource in CopyFiles */ = {isa = PBXBuildFile; fileRef = 226856A312160BE10077D025 /* resource */; };
+		226859EB12161B6F0077D025 /* resourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226859E912161B6F0077D025 /* resourceManager.cpp */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,16 @@
 				002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */,
 			);
 			name = "Copy Frameworks into .app bundle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2268572312160FFF0077D025 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				2268571612160FF90077D025 /* resource in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -99,6 +112,9 @@
 		226852231215E67E0077D025 /* gameMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameMap.h; sourceTree = "<group>"; };
 		226852241215E67E0077D025 /* gameMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameMap.cpp; sourceTree = "<group>"; };
 		226852F11215EE880077D025 /* messaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messaging.h; sourceTree = "<group>"; };
+		226856A312160BE10077D025 /* resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resource; sourceTree = "<group>"; };
+		226859E912161B6F0077D025 /* resourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resourceManager.cpp; sourceTree = "<group>"; };
+		226859EA12161B6F0077D025 /* resourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resourceManager.h; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +186,8 @@
 				226851771215D94E0077D025 /* fsScriptLua.h */,
 				226851781215D94E0077D025 /* fsScriptPy.cpp */,
 				226851791215D94E0077D025 /* fsScriptPy.h */,
+				226859E912161B6F0077D025 /* resourceManager.cpp */,
+				226859EA12161B6F0077D025 /* resourceManager.h */,
 				2268517A1215D94E0077D025 /* gameController.cpp */,
 				2268517B1215D94E0077D025 /* gameController.h */,
 				2268517C1215D94E0077D025 /* gameEntity.cpp */,
@@ -200,6 +218,7 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
+				226856A312160BE10077D025 /* resource */,
 				226851A61215D98B0077D025 /* SConstruct */,
 				226851AA1215D9BE0077D025 /* Lua.framework */,
 				226851681215D94E0077D025 /* src */,
@@ -239,6 +258,7 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				002F39FD09D0883400EBEB88 /* Copy Frameworks into .app bundle */,
+				2268572312160FFF0077D025 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -274,6 +294,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				226851A71215D98B0077D025 /* SConstruct in Resources */,
+				226856A512160BE10077D025 /* resource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +324,7 @@
 				2268519F1215D94E0077D025 /* scriptInterpreter.cpp in Sources */,
 				226851A01215D94E0077D025 /* SDLMain.m in Sources */,
 				226852251215E67E0077D025 /* gameMap.cpp in Sources */,
+				226859EB12161B6F0077D025 /* resourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +359,11 @@
 				GCC_PREFIX_HEADER = sank_into_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/opt/local/var/macports/software/Io/2009-11-04_0/opt/local/lib\"";
 				PRODUCT_NAME = "sank-into";
 				WRAPPER_EXTENSION = app;
 			};
@@ -360,6 +387,11 @@
 				GCC_PREFIX_HEADER = sank_into_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/opt/local/var/macports/software/Io/2009-11-04_0/opt/local/lib\"";
 				PRODUCT_NAME = "sank-into";
 				WRAPPER_EXTENSION = app;
 			};

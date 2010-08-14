@@ -12,6 +12,8 @@
 
 #include "fsPoint2f.h"
 
+#include <string>
+
 class gameObject
     {
     public:  
@@ -23,7 +25,17 @@ class gameObject
         
         fsPoint2f loc;        
         fsPoint2f vel;
-
+        
+        void setName(const std::string name)
+        {
+            m_sName = name;   
+        };
+        std::string getName() const
+        {
+            return m_sName;
+        }
+    protected:
+        std::string m_sName;
         
     };
 

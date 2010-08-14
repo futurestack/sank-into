@@ -20,7 +20,8 @@
 
 extern "C"
 {
-#include "IoState.h"
+#include "IoVM.h"
+
 }
 
 class fsScriptIO : public fsScript
@@ -49,137 +50,65 @@ class fsScriptIO : public fsScript
 #endif //endif USE_SCRIPT_IO
 
 
-/* derrida version
  
-#include "fsScriptIo.h"
+
+
+/*
+ derrida version
+
+
+#include "config.h"
 
 #ifdef SCRIPT_USE_IO
+#ifndef FS_SCRIPT_IO_H_
+#define FS_SCRIPT_IO_H_
 
-//debug
-#include <iostream>
+#include "fsScript.h"
 
+#include <stdlib.h>
 
-fsScriptIo::fsScriptIo() {
-    m_pState = IoState_new();
-    IoState_init(m_pState);
-}
-
-fsScriptIo::~fsScriptIo() {
-    IoState_free(m_pState);
-}
-
-
-IoTag *fsScriptIo::tag(IoState* state, const char* name)
+extern "C"
 {
-    IoTag* tag = IoTag_newWithName_(name);
-    tag->state = state;
-    tag->cloneFunc = (TagCloneFunc*) rawClone;
-    tag->markFunc = (TagMarkFunc*) mark;
-    tag->freeFunc = (TagFreeFunc*) free;
-    
-    return tag;
+#include "IoVM.h"
 }
 
-IoObject *fsScriptIo::proto(IoState* state)
-{
-    IoMethodTable methods[] = {
-        {"GetNum", GetNum},
-        {"SetNum", SetNum},
-        {"CompareWith", CompareWith},
-        {NULL, NULL}
-    };
-    IoObject* self = IoObject_new(state);
-    self->tag = tag(state, "fsScriptIo");
-    self->data = 0;
-    IoObject_addMethodTable_(self, methods);
-    return self;
-}
-
-void fsScriptIo::addBinding(IoState* state)
-{
-    IoObject* self = proto(state);
-    IoState_registerProtoWithFunc_(state, self, (IoStateProtoFunc*)proto);
-    IoObject_setSlot_to_(state->lobby, IOSYMBOL("fsScriptIo"), self);
-}
-
-IoObject *fsScriptIo::rawClone(IoObject *self)
-{
-    IoObject *clone = IoObject_rawClonePrimitive(self);
-    if (self->data)
-        clone->data = new fsScriptIo(reinterpret_cast<fsScriptIo*>(self->data));
-    else
-        clone->data = new fsScriptIo;
-    return clone;
-}
-
-IoObject *fsScriptIo::mark(IoObject *self)
-{
-    return self;
-}
-
-IoObject *fsScriptIo::free(IoObject *self)
-{
-    if (self->data)
+class fsScriptIo : public fsScript
     {
-        fsScriptIo* obj = reinterpret_cast<fsScriptIo*>(self->data);
-        delete obj;
-        self->data = NULL;
-    }
-    return self;
-}
+    public:	    	
+        static IoObject* GetNum(IoObject *self, IoObject *locals, IoMessage *m);
+        static IoObject* SetNum(IoObject *self, IoObject *locals, IoMessage *m);
+        
+        static IoObject* CompareWith(IoObject *self, IoObject *locals, IoMessage *m);
+        
+        static IoObject* proto(IoState* state);
+        
+        static IoTag* tag(IoState* state, const char* name);
+        
+        static IoObject* rawClone(IoObject* self);
+        static IoObject* mark(IoObject* self);
+        static IoObject* free(IoObject* self);
+        
+        static void addBinding(IoState* state);
+    };
 
-IoObject* fsScriptIo::GetNum(IoObject *self, IoObject *locals, IoMessage *m)
-{
-    IOASSERT(self->data, "No C++ object");
-    fsScriptIo* obj = reinterpret_cast<fsScriptIo*>(self->data);
-    
-    return IoNumber_newWithDouble_(self->state, obj->GetNum());
-    
-};
+#endif //endif FS_SCRIPT_Io_H_
+#endif //endif USE_SCRIPT_Io
+
+//fsScriptIo();
+//fsScriptIo(int n);
+//fsScriptIo(fsScriptIo* ptr);
+//~fsScriptIo();
+
+//int GetNum(void) { return num; }
+//int SetNum(int n) { num = n; }
+
+//void runTest();
+//void doString(std::string s);
+//void doFile(std::string s);	  	    
+
+//private:
+//	int num;		
+//	IoState * m_pState;		        
 
 
-IoObject* fsScriptIo::SetNum(IoObject *self, IoObject *locals, IoMessage *m)
-{
-    IOASSERT(self->data, "No C++ object");
-    fsScriptIo* obj = reinterpret_cast<fsScriptIo*>(self->data);
-    
-    IOASSERT(IoMessage_argCount(m) == 1, "Wrong number of arguments");
-    
-    IoObject *arg1 = IoMessage_locals_numberArgAt_(m, locals, 0);
-    
-    obj->SetNum(IoNumber_asInt(arg1));
-    
-    return self;
-    
-};
-
-IoObject* fsScriptIo::CompareWith(IoObject *self, IoObject *locals, IoMessage *m)
-{
-    IOASSERT(self->data, "No C++ object");
-    fsScriptIo* obj = reinterpret_cast<fsScriptIo*>(self->data);
-    
-    IOASSERT(IoMessage_argCount(m) == 1, "Wrong number of arguments");
-    
-    IoObject *arg1 = IoMessage_locals_valueArgAt_(m, locals, 0);
-    
-    // make sure the object is tagged  
-    IOASSERT(arg1->tag, "No tag in arg");
-    
-    // check the tag to make sure it is the right object class
-    IOASSERT(strcmp(arg1->tag->name, "fsScriptIo") == 0, "arg not fsScriptIo object");
-    
-    // check for the actual existence of the C++ object
-    IOASSERT(arg1->data, "No C++ object in arg");
-    
-    fsScriptIo* arg1obj = reinterpret_cast<fsScriptIo*>(arg1->data);
-    
-    // bool is simulated by returning self or nil
-    if (obj->CompareWith(arg1obj))
-        return self;
-    else
-        return IONIL(self);
-};
-
-#endif
- 
- */
+*/

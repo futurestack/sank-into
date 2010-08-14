@@ -14,6 +14,7 @@
 #include "gameEntity.h"
 
 #include "gameLevel.h"
+#include <vector>
 
 class gameController
     {
@@ -22,10 +23,13 @@ class gameController
         void update();
         void draw();
         
-        gameEntity player;
-        gameObject mouseLoc;
+        gameEntity m_ePlayer;
+        gameObject m_oMouseLocScreen;
+        gameObject m_oMouseLocWorld;
         gameLevel m_level;
-
+        gameObject m_oGameCamera;
+        
+        std::vector<gameObject*> m_vObjects;
         
         static gameController* Instance();
     private:
