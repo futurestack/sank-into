@@ -52,14 +52,19 @@ void gameController::update()
     m_oMouseLocWorld.loc += m_oGameCamera.loc;
     
     m_ePlayer.update();
-
+    
+    for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
+        (*it)->update();
+    
     m_level.update();
 
 }
 
 void gameController::draw()
 {
+    //m_ePlayer.draw();
 
-
-
+    for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
+        (*it)->draw();
+    
 }

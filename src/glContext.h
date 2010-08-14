@@ -52,9 +52,10 @@ public:
 
     void update(float dt);
     void render();
-    void renderObject(const gameObject& obj );
+    void renderObject(gameObject& obj );
     
     gameController* pController;
+    
 };
 
 #endif

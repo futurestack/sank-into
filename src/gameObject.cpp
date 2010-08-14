@@ -13,7 +13,8 @@ gameObject::gameObject()
 :
 loc(0,0),
 vel(0,0),
-m_sName("gameObject")
+m_sName("gameObject"),
+m_dChunk()
 {
 
 
@@ -23,6 +24,11 @@ gameObject::~gameObject()
 {
 
 
+}
+
+void gameObject::draw()
+{
+    m_dChunk.draw();
 }
 
 void gameObject::update()

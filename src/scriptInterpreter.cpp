@@ -88,3 +88,26 @@ std::string scriptInterpreter::getString( std::string s )
 	
 	return m_pScript->getString( s );
 }
+
+
+void scriptInterpreter::getInts( std::string s , std::vector<int>& vec )
+{
+    m_pScript->getInts( s, vec);
+    
+}
+
+
+void scriptInterpreter::getFloats( std::string s , std::vector<float>& vec )
+{
+    m_pScript->getFloats( s, vec);
+
+}
+
+void scriptInterpreter::getStrings( std::string s , std::vector<std::string>& vec )
+{
+    m_pScript->getStrings( s, vec);
+
+}
+
+
+

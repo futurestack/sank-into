@@ -2,7 +2,7 @@
  *  gameMap.h
  *  sank-into
  *
- *  Created by ndrw on 8/13/10.
+ *  Created by futurestack on 8/13/10.
  *  Copyright 2010 st4tic_software. All rights reserved.
  *
  */
@@ -117,7 +117,8 @@ protected:
             r.w = w - 1;
             r.h = h - 1;
             SDL_FillRect(SDL_GetVideoSurface(), &r, 0x00CCAA77);
-            renderer.setColor(0.,0.,0.,.5);
+
+            renderer.setColor(0.,0.,0.,.2);
             renderer.renderRect(x,y,x+w,y+h);
             renderer.setColor(0.,0.,0.,.2);
             renderer.renderRectFill(x,y,x+w,y+h);

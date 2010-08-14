@@ -13,6 +13,7 @@
 #include "fsPoint2f.h"
 
 #include <string>
+#include "drawChunk.h"
 
 class gameObject
     {
@@ -34,8 +35,11 @@ class gameObject
         {
             return m_sName;
         }
+        drawChunk m_dChunk;
+
     protected:
         std::string m_sName;
+        
         
     };
 

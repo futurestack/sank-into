@@ -125,7 +125,7 @@ void glContext::update(float dt)
 {
 }
 
-void glContext::renderObject(const gameObject& obj )
+void glContext::renderObject(gameObject& obj )
 {
     
     
@@ -133,7 +133,8 @@ void glContext::renderObject(const gameObject& obj )
     
     renderer.pushMatrix();
     renderer.translate(p.x,p.y,0);
-    renderer.renderSquare (20 );
+    renderer.renderSquare (30 );
+    obj.draw();
     renderer.popMatrix();
 }
 
@@ -151,7 +152,7 @@ void glContext::render()
     p.x *= -1;
     p.y *= -1;
     renderer.translate(p);
-    
+    pController->draw();
     pController->m_level.draw(renderer);
     renderObject( pController->m_ePlayer) ;
     renderer.popMatrix();

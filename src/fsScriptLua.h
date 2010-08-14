@@ -59,6 +59,10 @@ class fsScriptLua: public fsScript
 		std::string getString( std::string s );
 		float       getFloat( std::string s );
     
+        void        getInts(    std::string s , std::vector<int>& vec);
+		void        getStrings( std::string s ,std::vector<std::string>& vec );
+		void        getFloats(  std::string s , std::vector<float>& vec );  
+        
         fsScriptLua();
 		~fsScriptLua();
         

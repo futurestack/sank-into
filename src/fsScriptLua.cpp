@@ -91,12 +91,42 @@ float fsScriptLua::getFloat( std::string s )
 
 std::string fsScriptLua::getString( std::string s )
 {
-	lua_pushstring(L, s.c_str() );
+    std::string result = "";
+    std::cout << "fsScriptLua::getString:" << s << std::endl;
+
+
+    lua_pushstring(L, s.c_str() );
     lua_gettable(L,LUA_GLOBALSINDEX);
-    std::string result = lua_tostring(L, -1 );
+    result = lua_tostring(L, -1 );
     lua_pop(L, 1 );
-    
+
 	return result;
 }
+
+void fsScriptLua::getInts(  std::string s  ,std::vector<int>& vec)
+{
+    std::cout << "getting some ints." << s << "\n";
+    lua_getglobal(L, s.c_str() );    
+    lua_pushnil(L);
+
+    //int index = 0;
+    while (lua_next(L, -2)) // -2 is the table
+    {
+        vec.push_back( (int)lua_tonumber(L, -1 ));
+      //  index++;
+        lua_pop(L, 1 );
+    }
+    lua_pop(L, 1 );
+}
+
+void fsScriptLua::getStrings(  std::string s ,std::vector<std::string>& vec )
+{
+    
+}
+void fsScriptLua::getFloats(  std::string s , std::vector<float>& vec )
+{
+    
+}
+
 
 #endif
