@@ -69,9 +69,10 @@ void drawChunk::update()
 
 void drawChunk::draw()
 {
-    //std::cout << ".";
-    static fsRendererGL renderer;
 
+    static fsRendererGL renderer;
+    static fsRan myRan(0);
+    
     renderer.pushMatrix();
     if (parent)
         renderer.translate( parent->loc );
@@ -83,9 +84,18 @@ void drawChunk::draw()
     //lop one off the top
     if( numPoints % 2 != 0 ) numPoints--;
     
+    float jitterMax = 2;
+    
     for( int i = 0; i < numPoints - 1 ; ++i )
     {
-        renderer.renderLine( m_vPoints[i], m_vPoints[i+1] );   
+        fsPoint2f pointA = m_vPoints[i];
+        fsPoint2f pointB = m_vPoints[i+1];
+        pointA.x += myRan.doub() * jitterMax;
+        pointA.y += myRan.doub() * jitterMax;
+        pointB.x += myRan.doub() * jitterMax;
+        pointB.y += myRan.doub() * jitterMax;
+        
+        renderer.renderLine( pointA , pointB );   
         
     }
     
