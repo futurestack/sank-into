@@ -15,6 +15,8 @@
 
 #include "gameObject.h"
 
+#include "assistants.h"
+
 typedef std::vector<fsPoint2i> polyLine;
 
 drawChunk::drawChunk():
@@ -42,9 +44,13 @@ script()
     for(polyLine::iterator it = m_vPoints.begin(); it != m_vPoints.end() ;++it )
     {
         fsPoint2i p = (*it);
-        printf("Point:%d,%d\n", p.x, p.y ); 
+        //printf("Point:%d,%d\n", p.x, p.y ); 
         
     }
+    
+    
+    m_vPoints = normalizePoints(m_vPoints);
+    
     
 }
 

@@ -115,6 +115,7 @@
 		226859EA12161B6F0077D025 /* resourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resourceManager.h; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		62124E6E1218A19700BECC57 /* assistants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assistants.h; sourceTree = "<group>"; };
 		6288BE0E12171FFB008472F8 /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = /Library/Frameworks/Lua.framework; sourceTree = "<absolute>"; };
 		6288BE9D121732E6008472F8 /* drawChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawChunk.h; sourceTree = "<group>"; };
 		6288BE9E121732E6008472F8 /* drawChunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawChunk.cpp; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 				226859EA12161B6F0077D025 /* resourceManager.h */,
 				2268517A1215D94E0077D025 /* gameController.cpp */,
 				2268517B1215D94E0077D025 /* gameController.h */,
+				62124E6E1218A19700BECC57 /* assistants.h */,
 				2268517C1215D94E0077D025 /* gameEntity.cpp */,
 				2268517D1215D94E0077D025 /* gameEntity.h */,
 				2268517E1215D94E0077D025 /* gameLevel.cpp */,
