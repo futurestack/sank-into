@@ -11,14 +11,16 @@
 #define RESOURCE_MANAGER_H_
 
 #include <string>
-#include "gameObject.h"
+
+class gameObject;
+class gameLevel;
 
 class resourceManager
     {
     public:
         
-        gameObject* loadObject( std::string str );
-        
+        gameObject* loadObject( std::string path );
+        gameLevel* loadLevel( std::string path );
         
     };
 

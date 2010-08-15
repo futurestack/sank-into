@@ -136,17 +136,20 @@ void eventHandler::handleEvents()
 
     while(SDL_PollEvent(&event)) 
     {
+        fsPoint2f p = pController->m_oMouseLocWorld.loc;
+
         switch(event.type) 
         {
-                
+
             case SDL_MOUSEMOTION:
                 handleMouseMotion(event.button.x,event.button.y);
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                handleMouseDown(event.button.x,event.button.y);
+                handleMouseDown(p.x,p.y );
+                
                 break;           
             case SDL_MOUSEBUTTONUP:
-                handleMouseUp(event.button.x,event.button.y);
+                handleMouseUp(p.x,p.y );
                 break;
                 
             case SDL_ACTIVEEVENT:

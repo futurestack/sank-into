@@ -30,8 +30,11 @@ class gameController
         gameObject m_oGameCamera;
         
         std::vector<gameObject*> m_vObjects;
+        std::vector<gameLevel*> m_vLevels;
+        
         
         static gameController* Instance();
+    
     private:
         gameController();
         ~gameController();

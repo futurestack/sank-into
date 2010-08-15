@@ -10,16 +10,18 @@
 #include "resourceManager.h"
 #include "scriptInterpreter.h"
 #include "drawChunk.h"
-#include "gameObject.h"
 
-gameObject* resourceManager::loadObject(std::string str )
+#include "gameObject.h"
+#include "gameLevel.h"
+
+gameObject* resourceManager::loadObject(std::string path )
 {
     gameObject* obj = new gameObject;
     obj->setName("someObj");
 
     static scriptInterpreter script;
     
-    script.doFile( str );
+    script.doFile( path );
     
     obj->setName( script.getString("name") );
     
@@ -34,4 +36,14 @@ gameObject* resourceManager::loadObject(std::string str )
     return obj;
     
     
+}
+
+
+
+gameLevel* resourceManager::loadLevel( std::string path )
+{
+    gameLevel* level = new gameLevel;
+
+
+    return level;
 }
