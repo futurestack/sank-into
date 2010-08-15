@@ -17,6 +17,12 @@ class fsPoint2i;
 class fsPoint2f;
 #include "fsColor.h"
 
+#ifdef __APPLE__
+#include <SDL_ttf/SDL_ttf.h>
+#else
+#include "SDL/SDL_ttf.h"
+#endif
+
 class fsRendererGL
     {
     public:

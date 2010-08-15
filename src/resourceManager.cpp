@@ -13,19 +13,29 @@
 
 #include "gameObject.h"
 #include "gameLevel.h"
+#include "scriptInterpreter.h"
 
+resourceManager::resourceManager():
+m_pScript(NULL)
+{
+    m_pScript = new scriptInterpreter;
+}
+
+resourceManager::~resourceManager()
+{
+    delete m_pScript;
+    
+}
 gameObject* resourceManager::loadObject(std::string path )
 {
     gameObject* obj = new gameObject;
     obj->setName("someObj");
 
-    static scriptInterpreter script;
+    m_pScript->doFile( path );
     
-    script.doFile( path );
+    obj->setName( m_pScript->getString("name") );
     
-    obj->setName( script.getString("name") );
-    
-    std::string drawFile = script.getString("drawFile");
+    std::string drawFile = m_pScript->getString("drawFile");
     obj->m_dChunk = drawChunk( drawFile );
     
     //hacky but I'm tired of Everything having to draw itself.
@@ -44,6 +54,9 @@ gameLevel* resourceManager::loadLevel( std::string path )
 {
     gameLevel* level = new gameLevel;
 
+    
+    
+    
 
     return level;
 }

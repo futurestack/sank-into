@@ -5,7 +5,7 @@ env = Environment(ENV = {'PATH' : os.environ['PATH']})
 env = Environment(CPPPATH='src')
 print sys.platform
 
-flags = '-Wall -pedantic -g '
+flags = '-Wall -pedantic -g -Wno-long-long'
 ldflags = '-lSDL -lLua '
 
 #scriptlanguage.  options are python, io, lua
@@ -33,9 +33,10 @@ if sys.platform == 'win32':         #win
     env.Append(LIBS = ['mingw32','SDLmain', 'SDL', 'OpenGL32', 'GLU32', 'Python'])
     
 if sys.platform == 'darwin':        #mac
-    env['FRAMEWORKS'] = ['OpenGL', 'Cocoa', 'SDL']
+    env['FRAMEWORKS'] = ['OpenGL', 'Cocoa']
     env.Append(CPPPATH = ['/opt/local/include/'])
-    
+    env['LIBS'] = ['SDL','SDL_ttf']
+
     if scriptlanguage == 'lua':
         if use_lua_framework == 'true': 
             flags += " -DUSE_FRAMEWORK"

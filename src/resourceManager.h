@@ -14,14 +14,17 @@
 
 class gameObject;
 class gameLevel;
+class scriptInterpreter;
 
 class resourceManager
     {
     public:
-        
+        resourceManager();
+        ~resourceManager();
         gameObject* loadObject( std::string path );
         gameLevel* loadLevel( std::string path );
-        
+    protected:
+        scriptInterpreter* m_pScript;
     };
 
 #endif
