@@ -84,7 +84,7 @@ void drawChunk::draw()
     //lop one off the top
     if( numPoints % 2 != 0 ) numPoints--;
     
-    float jitterMax = 2;
+    float jitterMax = myRan.doub()* 5;
     
     for( int i = 0; i < numPoints - 1 ; ++i )
     {
@@ -94,7 +94,8 @@ void drawChunk::draw()
         pointA.y += myRan.doub() * jitterMax;
         pointB.x += myRan.doub() * jitterMax;
         pointB.y += myRan.doub() * jitterMax;
-        
+        pointA -= jitterMax/2;
+        pointB -= jitterMax/2;
         renderer.renderLine( pointA , pointB );   
         
     }

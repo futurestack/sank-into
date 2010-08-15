@@ -30,6 +30,7 @@ public:
 	fsPoint2f& operator =(const fsPoint2f& rhs);
 	fsPoint2f& operator+=(const fsPoint2f& rhs);
 	fsPoint2f& operator-=(const fsPoint2f& rhs);
+	fsPoint2f& operator-=(const float val);
 	fsPoint2f& operator*=(const fsPoint2f& rhs);
 	fsPoint2f& operator/=(const fsPoint2f& rhs);
 	fsPoint2f& operator/=(const float val);
