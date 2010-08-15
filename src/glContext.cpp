@@ -149,8 +149,8 @@ void glContext::render()
     renderer.pushMatrix();
     
     //invert camera for convenience.
-    p.x *= -1;
-    p.y *= -1;
+    //p.x *= -1;
+    //p.y *= -1;
     renderer.translate(p);
     pController->draw();
     pController->m_level.draw(renderer);

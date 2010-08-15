@@ -63,13 +63,13 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             break;              
         }
         case SDLK_a:
-            pController->m_oGameCamera.vel.x -= keyVel;  break;
-        case SDLK_d:
             pController->m_oGameCamera.vel.x += keyVel;  break;
+        case SDLK_d:
+            pController->m_oGameCamera.vel.x -= keyVel;  break;
         case SDLK_w:
-            pController->m_oGameCamera.vel.y -= keyVel;  break;
-        case SDLK_s:
             pController->m_oGameCamera.vel.y += keyVel;  break;
+        case SDLK_s:
+            pController->m_oGameCamera.vel.y -= keyVel;  break;
         case SDLK_q:
             pController->m_oGameCamera.vel = fsPoint2f(0,0);  
             pController->m_oGameCamera.loc = fsPoint2f(0,0);  

@@ -50,7 +50,7 @@ void gameController::update()
     m_oGameCamera.update();
     m_oMouseLocScreen.update();
     m_oMouseLocWorld.loc = m_oMouseLocScreen.loc;
-    m_oMouseLocWorld.loc += m_oGameCamera.loc;
+    m_oMouseLocWorld.loc -= m_oGameCamera.loc;
     
     m_ePlayer.update();
     

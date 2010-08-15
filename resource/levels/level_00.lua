@@ -1,4 +1,4 @@
-sizex = 2048
+it'ssizex = 2048
 sizey = 4096
 objects = 
 {
