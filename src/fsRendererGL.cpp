@@ -30,13 +30,15 @@ fsRendererGL::fsRendererGL():
 lastColor(0,0,0,0)
 {
     TTF_Init();
-
+    TTF_OpenFont("resource/fonts/akz_light.ttf", 12);
+    
 }
 
 fsRendererGL::~fsRendererGL()
 {
+    
     TTF_Quit();
-
+    TTF_CloseFont(m_pFont);
 }
 
 //state operations

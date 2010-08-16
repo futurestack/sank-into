@@ -70,6 +70,8 @@ class fsRendererGL
         fsRendererGL();
         ~fsRendererGL();
         
+        TTF_Font *m_pFont;
+
         fsColor lastColor;
 
     };
