@@ -29,12 +29,14 @@ static const int res=300;
 fsRendererGL::fsRendererGL():
 lastColor(0,0,0,0)
 {
+    TTF_Init();
 
 }
 
 fsRendererGL::~fsRendererGL()
 {
-    
+    TTF_Quit();
+
 }
 
 //state operations

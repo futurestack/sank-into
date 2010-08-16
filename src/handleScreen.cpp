@@ -24,6 +24,17 @@
 
 #include "handleScreen.h"
 
+
+
+#ifdef __APPLE__
+#include <SDL/SDL_opengl.h>
+#include <OpenGL/OpenGL.h>
+#else
+#include <GL/gl.h>
+#include <SDL/SDL_opengl.h>
+#endif
+
+
 SDL_Surface *surface;
 const SDL_VideoInfo *videoInfo;
 
@@ -99,7 +110,7 @@ void initGeneral() {
      // Fetch the video info
     videoInfo = SDL_GetVideoInfo();
     
-#ifdef __FS_ENABLE_VSYNC__
+#ifdef __APPLE__
 	GLint swap = 1;
 	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
 #endif

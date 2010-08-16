@@ -30,6 +30,14 @@
 #include "gameObject.h"
 #include "gameEntity.h"
 
+#ifdef __APPLE__
+#include <SDL/SDL_opengl.h>
+#include <OpenGL/OpenGL.h>
+#else
+#include <GL/gl.h>
+#include <SDL/SDL_opengl.h>
+#endif
+
 glContext::glContext()
 {
     pController = gameController::Instance();
@@ -55,7 +63,10 @@ bool glContext::initGL()
     glDepthFunc(GL_LEQUAL);
     
     
-    
+#ifdef __APPLE__
+	GLint swap = 1;
+	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
+#endif
     
 	//proper transparency setting
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
