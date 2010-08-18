@@ -50,7 +50,7 @@ if sys.platform == 'darwin':        #mac
         env.Append(LIBS = ['Python']);
             
 if sys.platform == 'linux2':        #linux
-    env.Append(LIBS = ['SDL','GL', 'GLU', 'lua5.1'])
+    env.Append(LIBS = ['SDL','GL', 'GLU', 'lua5.1', 'SDL_ttf'])
     env.Append(CPPPATH = ['/usr/include/'])
     env.Append(CPPPATH = ['/usr/include/lua5.1'])
 
