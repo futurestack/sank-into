@@ -62,12 +62,12 @@ bool glContext::initGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     
-    
+/*
 #ifdef __APPLE__
 	GLint swap = 1;
 	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
 #endif
-    
+  */  
 	//proper transparency setting
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 	

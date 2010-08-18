@@ -104,7 +104,7 @@ void init()
   
 }
 
-int main(int argc, char **argv) 
+int main (int argc, char **argv) 
 {
   Uint32 before, after, diff, wait, overWait = 0, updatePeriod = 0;
 

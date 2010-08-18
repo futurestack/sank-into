@@ -25,7 +25,6 @@
 		2268519D1215D94E0077D025 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851871215D94E0077D025 /* handleScreen.cpp */; };
 		2268519E1215D94E0077D025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851891215D94E0077D025 /* main.cpp */; };
 		2268519F1215D94E0077D025 /* scriptInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268518B1215D94E0077D025 /* scriptInterpreter.cpp */; };
-		226851A01215D94E0077D025 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2268518E1215D94E0077D025 /* SDLMain.m */; };
 		226851A71215D98B0077D025 /* SConstruct in Resources */ = {isa = PBXBuildFile; fileRef = 226851A61215D98B0077D025 /* SConstruct */; };
 		226852251215E67E0077D025 /* gameMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226852241215E67E0077D025 /* gameMap.cpp */; };
 		226856A512160BE10077D025 /* resource in Resources */ = {isa = PBXBuildFile; fileRef = 226856A312160BE10077D025 /* resource */; };
@@ -102,8 +101,6 @@
 		2268518A1215D94E0077D025 /* quadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quadtree.h; sourceTree = "<group>"; };
 		2268518B1215D94E0077D025 /* scriptInterpreter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scriptInterpreter.cpp; sourceTree = "<group>"; };
 		2268518C1215D94E0077D025 /* scriptInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scriptInterpreter.h; sourceTree = "<group>"; };
-		2268518D1215D94E0077D025 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
-		2268518E1215D94E0077D025 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		226851A61215D98B0077D025 /* SConstruct */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
 		226852231215E67E0077D025 /* gameMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameMap.h; sourceTree = "<group>"; };
 		226852241215E67E0077D025 /* gameMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameMap.cpp; sourceTree = "<group>"; };
@@ -235,8 +232,6 @@
 				2268518A1215D94E0077D025 /* quadtree.h */,
 				226852231215E67E0077D025 /* gameMap.h */,
 				226852241215E67E0077D025 /* gameMap.cpp */,
-				2268518D1215D94E0077D025 /* SDLMain.h */,
-				2268518E1215D94E0077D025 /* SDLMain.m */,
 				2268518C1215D94E0077D025 /* scriptInterpreter.h */,
 				2268518B1215D94E0077D025 /* scriptInterpreter.cpp */,
 				226851721215D94E0077D025 /* fsScript.cpp */,
@@ -410,7 +405,6 @@
 				2268519D1215D94E0077D025 /* handleScreen.cpp in Sources */,
 				2268519E1215D94E0077D025 /* main.cpp in Sources */,
 				2268519F1215D94E0077D025 /* scriptInterpreter.cpp in Sources */,
-				226851A01215D94E0077D025 /* SDLMain.m in Sources */,
 				226852251215E67E0077D025 /* gameMap.cpp in Sources */,
 				226859EB12161B6F0077D025 /* resourceManager.cpp in Sources */,
 				6288BE9F121732E6008472F8 /* drawChunk.cpp in Sources */,
@@ -501,6 +495,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/**",
 					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
 					/Library/Frameworks/SDL.framework/Headers,
 					"$(HEADER_SEARCH_PATHS)",
@@ -530,6 +525,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/**",
 					"$(HOME)/Library/Frameworks/SDL.framework/Headers",
 					/Library/Frameworks/SDL.framework/Headers,
 					"$(HEADER_SEARCH_PATHS)",
