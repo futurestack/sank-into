@@ -17,33 +17,12 @@
 
 #include "fsScript.h"
 
-
-//#define USE_FRAMEWORK
-#ifdef __APPLE__
 extern "C" 
 {
-    
-#ifdef USE_FRAMEWORK
-    //framework
-#include <Lua/lua.hpp>
-#include <Lua/lauxlib.h>
-#include <Lua/lualib.h>
-#else
-    //lib
-#include <lua.hpp>
-#include <lauxlib.h>
-#include <lualib.h>
-#endif
-    
-}
-#else
-extern "C" 
-{
-#include "lua.hpp"
+#include "lua.h"
 #include "lauxlib.h"
 #include "lualib.h"
 }
-#endif
 
 class fsObject;
 

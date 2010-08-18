@@ -32,8 +32,8 @@
 		226859EB12161B6F0077D025 /* resourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226859E912161B6F0077D025 /* resourceManager.cpp */; };
 		62124FB51218B1D200BECC57 /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62124FB41218B1D200BECC57 /* libSDL.a */; };
 		62124FB81218B1DA00BECC57 /* libSDL_ttf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62124FB71218B1DA00BECC57 /* libSDL_ttf.a */; };
-		6288BE0F12171FFB008472F8 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6288BE0E12171FFB008472F8 /* Lua.framework */; };
 		6288BE9F121732E6008472F8 /* drawChunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6288BE9E121732E6008472F8 /* drawChunk.cpp */; };
+		62BAAFC0121B751700BC728F /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BAAFBF121B751700BC728F /* liblua.a */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -146,9 +146,9 @@
 		62124FDB1218B1EC00BECC57 /* SDL_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_types.h; path = /opt/local/include/SDL/SDL_types.h; sourceTree = "<absolute>"; };
 		62124FDC1218B1EC00BECC57 /* SDL_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_version.h; path = /opt/local/include/SDL/SDL_version.h; sourceTree = "<absolute>"; };
 		62124FDD1218B1EC00BECC57 /* SDL_video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_video.h; path = /opt/local/include/SDL/SDL_video.h; sourceTree = "<absolute>"; };
-		6288BE0E12171FFB008472F8 /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = /Library/Frameworks/Lua.framework; sourceTree = "<absolute>"; };
 		6288BE9D121732E6008472F8 /* drawChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawChunk.h; sourceTree = "<group>"; };
 		6288BE9E121732E6008472F8 /* drawChunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawChunk.cpp; sourceTree = "<group>"; };
+		62BAAFBF121B751700BC728F /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = /opt/local/lib/liblua.a; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,9 +160,9 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */,
-				6288BE0F12171FFB008472F8 /* Lua.framework in Frameworks */,
 				62124FB51218B1D200BECC57 /* libSDL.a in Frameworks */,
 				62124FB81218B1DA00BECC57 /* libSDL_ttf.a in Frameworks */,
+				62BAAFC0121B751700BC728F /* liblua.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,6 @@
 		29B97314FDCFA39411CA2CEA /* sank-into */ = {
 			isa = PBXGroup;
 			children = (
-				6288BE0E12171FFB008472F8 /* Lua.framework */,
 				226856A312160BE10077D025 /* resource */,
 				226851A61215D98B0077D025 /* SConstruct */,
 				226851681215D94E0077D025 /* src */,
@@ -283,6 +282,7 @@
 		62124F981218B1BE00BECC57 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				62BAAFBF121B751700BC728F /* liblua.a */,
 				62124FB41218B1D200BECC57 /* libSDL.a */,
 				62124FB71218B1DA00BECC57 /* libSDL_ttf.a */,
 			);
