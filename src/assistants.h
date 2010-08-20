@@ -2,7 +2,7 @@
  *  assistants.h
  *  sank-into
  *
- *  Created by hornet on 8/15/10.
+ *  Created by futurestack on 8/15/10.
  *  Copyright 2010 __MyCompanyName__. All rights reserved.
  *
  */
@@ -11,6 +11,7 @@
 #define ASSISTANTS_H_
 
 #include "fsPoint2i.h"
+#include "fsPoint2f.h"
 #include <vector>
 #include <math.h>
 

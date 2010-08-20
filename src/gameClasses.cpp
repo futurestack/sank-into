@@ -2,7 +2,7 @@
  *  gameClasses.cpp
  *  sank-into
  *
- *  Created by ndrw on 8/20/10.
+ *  Created by futurestack on 8/20/10.
  *  Copyright 2010 st4tic_software. All rights reserved.
  *
  */
@@ -72,10 +72,10 @@ m_fFiringRadius(100),
 m_fCurrentAngle(0)
 {
     gameWeapon* firstGun = new gameWeapon;
-    firstGun->setName("someThing");
+    firstGun->setName("a");
     
     gameObject* someObject = new gameObject;
-    someObject->setName("someOtherThing");
+    someObject->setName("b");
     
     m_pInventory.addObject(firstGun);
     

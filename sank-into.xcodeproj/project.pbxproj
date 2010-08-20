@@ -11,6 +11,7 @@
 		2255EA07121E7A6D007DAAB4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2255EA06121E7A6D007DAAB4 /* Lua.framework */; };
 		2255EA0B121E7A93007DAAB4 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255EA0A121E7A93007DAAB4 /* SDLMain.m */; };
 		2255EA13121E7B6C007DAAB4 /* gameClasses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */; };
+		2255F460121EB054007DAAB4 /* drawFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2255F45F121EB054007DAAB4 /* drawFunc.cpp */; };
 		2268518F1215D94E0077D025 /* fsColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268516A1215D94E0077D025 /* fsColor.cpp */; };
 		226851901215D94E0077D025 /* fsPoint2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268516C1215D94E0077D025 /* fsPoint2f.cpp */; };
 		226851911215D94E0077D025 /* fsPoint2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268516E1215D94E0077D025 /* fsPoint2i.cpp */; };
@@ -72,6 +73,8 @@
 		2255EA0A121E7A93007DAAB4 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		2255EA11121E7B6C007DAAB4 /* gameClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameClasses.h; sourceTree = "<group>"; };
 		2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameClasses.cpp; sourceTree = "<group>"; };
+		2255F45E121EB054007DAAB4 /* drawFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawFunc.h; sourceTree = "<group>"; };
+		2255F45F121EB054007DAAB4 /* drawFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawFunc.cpp; sourceTree = "<group>"; };
 		226851691215D94E0077D025 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		2268516A1215D94E0077D025 /* fsColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsColor.cpp; sourceTree = "<group>"; };
 		2268516B1215D94E0077D025 /* fsColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsColor.h; sourceTree = "<group>"; };
@@ -201,6 +204,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2255F463121EB060007DAAB4 /* fslib_used */ = {
+			isa = PBXGroup;
+			children = (
+				226851721215D94E0077D025 /* fsScript.cpp */,
+				226851731215D94E0077D025 /* fsScript.h */,
+				226851741215D94E0077D025 /* fsScriptIO.cpp */,
+				226851751215D94E0077D025 /* fsScriptIO.h */,
+				226851761215D94E0077D025 /* fsScriptLua.cpp */,
+				226851771215D94E0077D025 /* fsScriptLua.h */,
+				226851781215D94E0077D025 /* fsScriptPy.cpp */,
+				226851791215D94E0077D025 /* fsScriptPy.h */,
+				2255EA09121E7A93007DAAB4 /* SDLMain.h */,
+				2255EA0A121E7A93007DAAB4 /* SDLMain.m */,
+				2268516A1215D94E0077D025 /* fsColor.cpp */,
+				2268516B1215D94E0077D025 /* fsColor.h */,
+				2268516C1215D94E0077D025 /* fsPoint2f.cpp */,
+				2268516D1215D94E0077D025 /* fsPoint2f.h */,
+				2268516E1215D94E0077D025 /* fsPoint2i.cpp */,
+				2268516F1215D94E0077D025 /* fsPoint2i.h */,
+				226851701215D94E0077D025 /* fsRendererGL.cpp */,
+				226851711215D94E0077D025 /* fsRendererGL.h */,
+			);
+			name = fslib_used;
+			sourceTree = "<group>";
+		};
 		226851681215D94E0077D025 /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,14 +239,8 @@
 				226851821215D94E0077D025 /* general.h */,
 				6288BE9D121732E6008472F8 /* drawChunk.h */,
 				6288BE9E121732E6008472F8 /* drawChunk.cpp */,
-				2268516A1215D94E0077D025 /* fsColor.cpp */,
-				2268516B1215D94E0077D025 /* fsColor.h */,
-				2268516C1215D94E0077D025 /* fsPoint2f.cpp */,
-				2268516D1215D94E0077D025 /* fsPoint2f.h */,
-				2268516E1215D94E0077D025 /* fsPoint2i.cpp */,
-				2268516F1215D94E0077D025 /* fsPoint2i.h */,
-				226851701215D94E0077D025 /* fsRendererGL.cpp */,
-				226851711215D94E0077D025 /* fsRendererGL.h */,
+				2255F45E121EB054007DAAB4 /* drawFunc.h */,
+				2255F45F121EB054007DAAB4 /* drawFunc.cpp */,
 				226859E912161B6F0077D025 /* resourceManager.cpp */,
 				226859EA12161B6F0077D025 /* resourceManager.h */,
 				2268517A1215D94E0077D025 /* gameController.cpp */,
@@ -240,18 +262,9 @@
 				226852241215E67E0077D025 /* gameMap.cpp */,
 				2268518C1215D94E0077D025 /* scriptInterpreter.h */,
 				2268518B1215D94E0077D025 /* scriptInterpreter.cpp */,
-				226851721215D94E0077D025 /* fsScript.cpp */,
-				226851731215D94E0077D025 /* fsScript.h */,
-				226851741215D94E0077D025 /* fsScriptIO.cpp */,
-				226851751215D94E0077D025 /* fsScriptIO.h */,
-				226851761215D94E0077D025 /* fsScriptLua.cpp */,
-				226851771215D94E0077D025 /* fsScriptLua.h */,
-				226851781215D94E0077D025 /* fsScriptPy.cpp */,
-				226851791215D94E0077D025 /* fsScriptPy.h */,
-				2255EA09121E7A93007DAAB4 /* SDLMain.h */,
-				2255EA0A121E7A93007DAAB4 /* SDLMain.m */,
 				2255EA11121E7B6C007DAAB4 /* gameClasses.h */,
 				2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */,
+				2255F463121EB060007DAAB4 /* fslib_used */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -420,6 +433,7 @@
 				6288BE9F121732E6008472F8 /* drawChunk.cpp in Sources */,
 				2255EA0B121E7A93007DAAB4 /* SDLMain.m in Sources */,
 				2255EA13121E7B6C007DAAB4 /* gameClasses.cpp in Sources */,
+				2255F460121EB054007DAAB4 /* drawFunc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

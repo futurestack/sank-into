@@ -30,6 +30,8 @@
 #include "gameObject.h"
 #include "gameEntity.h"
 
+#include "drawFunc.h"
+
 #ifdef __APPLE__
 #include <SDL/SDL_opengl.h>
 #include <OpenGL/OpenGL.h>
@@ -37,6 +39,9 @@
 #include <GL/gl.h>
 #include <SDL/SDL_opengl.h>
 #endif
+
+//debug
+#include <sstream>
 
 glContext::glContext()
 {
@@ -171,9 +176,20 @@ void glContext::render()
     
     renderer.pushMatrix();
     renderer.translate( pController->m_oMouseLocScreen.loc );
-    renderer.renderText( pController->m_oMouseLocScreen.loc, "screenloc");
+    std::stringstream s;
+    p = pController->m_oMouseLocWorld.loc;
+    s << p.x << "/" << p.y ;
+    renderer.renderText( pController->m_oMouseLocScreen.loc, s.str() );
     renderer.popMatrix();
     
+    renderer.pushMatrix();
+    s.clear();
+    s.str("");
+    p = pController->m_ePlayer.loc;
+    s << "player:";
+    s << p.x << "/" << p.y ;
+    renderer.renderText( fsPoint2f( 20, 200) , s.str() );
+    renderer.popMatrix();
     
     
     renderObject( pController->m_oMouseLocScreen );
@@ -201,7 +217,9 @@ void glContext::render()
         renderer.renderSquare(renderPos, boxOffset*2 );
         renderPos.x += boxOffset*2 + boxOffset;
     }
-    
+    renderer.setColor(0.0,0.0,0.0,1.0);
+    drawBlits();
+    drawDiags();
     
 }
 

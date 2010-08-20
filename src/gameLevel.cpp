@@ -31,11 +31,11 @@ gameLevel::~gameLevel()
 
 void gameLevel::update()
 {
-    m_map.Update();
+    //m_map.Update();
 }
 
 void gameLevel::draw(const fsRendererGL& renderer)
 {
-    m_map.Draw(renderer);
+    //m_map.Draw(renderer);
 
 }
