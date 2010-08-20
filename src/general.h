@@ -46,6 +46,8 @@
 #define TRUE  1
 #define FALSE 0
 
+#define JITTER_MAX 0
+
 void Quit(int returnCode);
 
 extern glContext *renderer;

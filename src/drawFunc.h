@@ -10,6 +10,10 @@
 #ifndef DRAW_FUNC_H_
 #define DRAW_FUNC_H_
 
+//debug
+#include <iostream>
+static bool debug_drawFunc = false;
+
 #include "fsRendererGL.h"
 #include "assistants.h"
 #include "general.h"
@@ -20,7 +24,7 @@ static void drawBlits()
 {
     
     static int rad = 5;
-    for( int i = 0; i < 50; i++ )
+    for( int i = 0; i < JITTER_MAX; i++ )
     {
         float x = myRan.doub() * SCREEN_WIDTH;
         float y = myRan.doub() * SCREEN_HEIGHT;
@@ -41,17 +45,37 @@ static void drawBlits()
 
 static void drawDiags()
 {
-    static int blockSize = 64;
+    if( JITTER_MAX <1 ) 
+        return;
+    int blockSize = 2;
+    int numB = floor(myRan.doub()* 5) + 2;
+    if (debug_drawFunc) std::cout << "numB:" << numB << std::endl;
+    for( int i = 0; i < numB; ++i )
+    {
+        blockSize *= 2;
+    }
+     if (debug_drawFunc) std::cout << "blockSize:" << blockSize << std::endl;
     
-    for ( int y = 0; y < SCREEN_HEIGHT; y += blockSize )
-        for ( int x = 0; x < SCREEN_WIDTH; x += blockSize )
+    int x = (SCREEN_WIDTH / blockSize) * myRan.doub() * blockSize;
+    int y = (SCREEN_HEIGHT / blockSize) * myRan.doub() * blockSize;
+     if (debug_drawFunc) std::cout << "x:" << x << std::endl;
+     if (debug_drawFunc) std::cout << "y:" << y << std::endl;
+
+    if( myRan.doub() * 10 < 5 )
+    {
+        int skip = blockSize;
+        skip -= myRan.doub()* blockSize;
+        if (skip < 2 ) skip = 2;
+         if (debug_drawFunc) std::cout << "Skip:" << skip << std::endl;
+        
+        for( int i = 0; i < blockSize; i+= skip )
         {
-            if( myRan.doub() * 10000 < 5 )
-            for( int i = 0; i < blockSize; i+=2 )
-                pRenderer.renderLine( x+i, y, x+i, y+i );
             
-            
+            pRenderer.renderLine( x+i, y, x+i, y+i );
         }
+    }
+    
+    
     
 }
 

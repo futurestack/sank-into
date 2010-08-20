@@ -37,6 +37,8 @@ class gameController
         
         static gameController* Instance();
     
+        int m_iGlobalJitter;
+        
     private:
         gameController();
         ~gameController();

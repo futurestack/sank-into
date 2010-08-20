@@ -21,7 +21,8 @@
 gameController* gameController::pInstance = 0;
 
 gameController::gameController():
-m_level()
+m_level(),
+m_iGlobalJitter(0)
 {
     resourceManager rm;
     
@@ -29,8 +30,8 @@ m_level()
     m_vObjects.push_back( rm.loadObject("resource/objects/guy.lua"));
     m_vObjects.push_back( rm.loadObject("resource/objects/rock.lua"));
 
-    for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
-        std::cout << "Obj loaded:" << (*it)->getName() << "\n";
+    //for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
+    //    std::cout << "Obj loaded:" << (*it)->getName() << "\n";
     
     m_vLevels.push_back( rm.loadLevel("resource/levels/level_00.lua") );
     m_vLevels.push_back( rm.loadLevel("resource/levels/level_01.lua") );

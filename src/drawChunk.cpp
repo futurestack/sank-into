@@ -16,6 +16,7 @@
 #include "gameObject.h"
 
 #include "assistants.h"
+#include "general.h"
 
 typedef std::vector<fsPoint2i> polyLine;
 
@@ -61,8 +62,9 @@ drawChunk::~drawChunk()
 }
 void drawChunk::update()
 {
+  // static gameController* control = gameController::Instance();
     
-    
+//    m_iJitter = control->m_iGlobalJitter;
     
 }
 
@@ -84,7 +86,7 @@ void drawChunk::draw()
     //lop one off the top
     if( numPoints % 2 != 0 ) numPoints--;
     
-    float jitterMax = myRan.doub()* 5;
+    float jitterMax = myRan.doub()* JITTER_MAX;
     
     for( int i = 0; i < numPoints - 1 ; ++i )
     {

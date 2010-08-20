@@ -30,7 +30,7 @@ fsRendererGL::fsRendererGL():
 lastColor(0,0,0,0)
 {
     TTF_Init();
-    m_pFont = TTF_OpenFont("resource/font/akz_light.ttf", 16);
+    m_pFont = TTF_OpenFont("resource/font/mono.ttf", 16);
     assert( m_pFont );
     SDL_EnableUNICODE(1);
 

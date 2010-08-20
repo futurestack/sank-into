@@ -111,7 +111,7 @@ int main (int argc, char **argv)
 
 
     scriptInterpreter interpreter;
-    interpreter.runTest();
+    //interpreter.runTest();
     
     eventHandler handler;
 

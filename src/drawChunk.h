@@ -32,6 +32,8 @@ class drawChunk
         
         std::vector<fsPoint2i> m_vPoints;
         gameObject* parent;
+        
+        int m_iJitter;
     };
 
 #endif

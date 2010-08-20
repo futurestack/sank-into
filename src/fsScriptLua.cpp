@@ -13,7 +13,7 @@
 
 //debug
 #include <iostream>
-
+static const bool debug_fsScriptLua = false;
 fsScriptLua::fsScriptLua()
 {
 	L = lua_open();
@@ -92,7 +92,7 @@ float fsScriptLua::getFloat( std::string s )
 std::string fsScriptLua::getString( std::string s )
 {
     std::string result = "";
-    std::cout << "fsScriptLua::getString:" << s << std::endl;
+    if (debug_fsScriptLua) std::cout << "fsScriptLua::getString:" << s << std::endl;
 
 
     lua_pushstring(L, s.c_str() );
@@ -105,7 +105,7 @@ std::string fsScriptLua::getString( std::string s )
 
 void fsScriptLua::getInts(  std::string s  ,std::vector<int>& vec)
 {
-    std::cout << "getting some ints." << s << "\n";
+    if(debug_fsScriptLua) std::cout << "getting some ints." << s << "\n";
     lua_getglobal(L, s.c_str() );    
     lua_pushnil(L);
 
