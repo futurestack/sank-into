@@ -15,7 +15,7 @@
 #include <iostream>
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL.h>
-
+#include <cassert>
 
 //debug ffs - should be we defining pi here?   PROBABLY NOT.
 static const double pi = 3.14159265;
@@ -30,8 +30,18 @@ fsRendererGL::fsRendererGL():
 lastColor(0,0,0,0)
 {
     TTF_Init();
-    TTF_OpenFont("resource/fonts/akz_light.ttf", 12);
-    
+    m_pFont = TTF_OpenFont("resource/font/akz_light.ttf", 16);
+    assert( m_pFont );
+    SDL_EnableUNICODE(1);
+
+}
+
+void fsRendererGL::setFont( std::string path, int size )
+{
+    if( m_pFont )
+        TTF_CloseFont(m_pFont);
+    m_pFont = TTF_OpenFont(path.c_str(), size);
+    assert( m_pFont );
 }
 
 fsRendererGL::~fsRendererGL()
@@ -80,12 +90,14 @@ void fsRendererGL::popMatrix() const
 void fsRendererGL::setColor( fsColor c ) const
 {
     glColor4f(c.r,c.g,c.b,c.a);
+    lastColor = c;
 }
 
 void fsRendererGL::setColor( float r, float g, float b, float a ) const
 {
 
     glColor4f(r,g,b,a);
+    lastColor = fsColor(r,g,b,a);
 }
 void fsRendererGL::translate(float x, float y, float z) const
 {
@@ -318,22 +330,83 @@ void fsRendererGL::renderRectFill( int x1, int y1, int x2, int y2 ) const
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4 );
 }
 
-void fsRendererGL::renderText( const std::string& str ) const
+void fsRendererGL::renderText( fsPoint2f p, const std::string& str ) const
 {
-/*
-    //FIX THIS.  Need to get off uglyfont
-    pushMatrix();
-    
-    translate(0,-5,0);
-    scale(10,-10,0);
-#ifndef __FS_MINIMAL__
-
-    YsDrawUglyFont( str.c_str() ,0 );
-#else
-    throw fsException("Minimal configuration doesn't allow uglyfont.");
-#endif
-    popMatrix();
+    setTextureMode();
+	/*
+    renderCircle(500);
+    this->setpTextureMode();
+    renderCircle(400);
 */
+    int X = p.x;
+    int Y = p.y;
+    int Z = 0;
+    
+	SDL_Color Color = {lastColor.r, lastColor.g, lastColor.b};
+	SDL_Surface *pMessage = TTF_RenderText_Blended( m_pFont, str.c_str(), Color);
+	GLuint pTexture = 0;
+    
+	glGenTextures(1, &pTexture);
+	glBindTexture(GL_TEXTURE_2D, pTexture);
+    
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, pMessage->w, pMessage->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, pMessage->pixels);
+    
+	glBegin(GL_QUADS);
+    glTexCoord2d(0, 0); glVertex3d(X, Y, Z);
+    glTexCoord2d(1, 0); glVertex3d(X+pMessage->w, Y, Z);
+    glTexCoord2d(1, 1); glVertex3d(X+pMessage->w, Y+pMessage->h, Z);
+    glTexCoord2d(0, 1); glVertex3d(X, Y+pMessage->h, Z);
+	glEnd();
+    
+	glDeleteTextures(1, &pTexture);
+	SDL_FreeSurface(pMessage);
+    setLineMode();
+}
+
+void fsRendererGL::setTextureMode() const
+{
+    //glBlendFunc( GL_ONE, GL_ONE_MINUS_SRC_ALPHA );
+
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_BLEND);
+    
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    glLoadIdentity();
+}
+
+void fsRendererGL::setLineMode() const
+{
+
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+    
+	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+	
+	// no good : text setting glBlendFunc( GL_ONE, GL_ONE_MINUS_SRC_ALPHA );
+	glAlphaFunc(GL_GREATER,0.1f);
+	glEnable(GL_ALPHA_TEST);
+	
+	glEnable( GL_BLEND );
+
+	glDisable( GL_DEPTH_TEST );
+	glDisable( GL_LINE_SMOOTH );				// Initially Disable Line Smoothing
+    
+	glEnable(GL_TEXTURE_2D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, 
+					GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, 
+					GL_NEAREST);
+	
+	glEnableClientState( GL_VERTEX_ARRAY );
+    
+    
+
+    
 }
 
 void fsRendererGL::renderText( const fsPoint2i& p, const std::string& str ) const

@@ -29,6 +29,10 @@ class fsRendererGL
     {
     public:
         
+        void setTextureMode() const;
+        void setLineMode() const ;
+        
+        void setFont( std::string path , int size );
         //state operations
         void clear();
         void clear(float r, float g, float b, float a);
@@ -65,7 +69,7 @@ class fsRendererGL
         void renderRect( int x1, int y1, int x2, int y2 ) const;
         void renderRectFill( int x1, int y1, int x2, int y2 ) const;
         void renderRect( const fsPoint2i& p1, const fsPoint2i& p2 ) const;
-        void renderText( const std::string& str ) const;
+        void renderText( fsPoint2f p , const std::string& str ) const;
         void renderText( const fsPoint2i& p, const std::string& str ) const;
 
 
@@ -74,7 +78,7 @@ class fsRendererGL
         
         TTF_Font *m_pFont;
 
-        fsColor lastColor;
+        mutable fsColor lastColor;
 
     };
 

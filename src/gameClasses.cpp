@@ -49,21 +49,37 @@ void gameInventory::addObject( gameObject* obj )
 
 void gameInventory::removeObject( gameObject* obj )
 {
-    
     assert(0);
+}
+
+gameObject* gameInventory::getObject( gameObject* obj )
+{
+    assert(0);
+}
+
+gameObject* gameInventory::getObject( int index )
+{
+    if( index < m_vObjects.size() )
+    {
+        return m_vObjects[index];
+    }else{
+        return NULL;
+    }
 }
 
 gamePlayer::gamePlayer():
 m_fFiringRadius(100),
-m_fCurrentAngle(0),
-m_pInventory(NULL)
+m_fCurrentAngle(0)
 {
-    m_pInventory = new gameInventory;
     gameWeapon* firstGun = new gameWeapon;
+    firstGun->setName("someThing");
     
-    m_pInventory->addObject(firstGun);
+    gameObject* someObject = new gameObject;
+    someObject->setName("someOtherThing");
     
-
+    m_pInventory.addObject(firstGun);
+    
+    m_pInventory.addObject(someObject);
 }
 
 

@@ -83,8 +83,8 @@ bool glContext::initGL()
 	glOrtho( 0.0,(double)viewport[2],(double)viewport[3],0.0,-1*zSpace,zSpace );
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glDisable(GL_DEPTH_TEST);
-	glDisable (GL_LINE_SMOOTH);				// Initially Disable Line Smoothing
+	glDisable( GL_DEPTH_TEST );
+	glDisable( GL_LINE_SMOOTH );				// Initially Disable Line Smoothing
     
 	glEnable(GL_TEXTURE_2D);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, 
@@ -169,12 +169,39 @@ void glContext::render()
     renderer.popMatrix();
       
     
-    renderObject( pController->m_oMouseLocScreen );
-   /*
-    renderer.setColor(0.0,0.0,0.0,1.0);
-    renderObject( pController->m_oMouseLocWorld );
+    renderer.pushMatrix();
+    renderer.translate( pController->m_oMouseLocScreen.loc );
+    renderer.renderText( pController->m_oMouseLocScreen.loc, "screenloc");
+    renderer.popMatrix();
     
-    renderer.renderLine( pController->m_oMouseLocWorld.loc, pController->m_oMouseLocScreen.loc );
-*/
+    
+    
+    renderObject( pController->m_oMouseLocScreen );
+    
+    //render the inventory
+    renderer.setColor( 0.0, 0.0, 0.0, 1.0);
+    fsPoint2f renderPos;
+    static int boxOffset = 20;
+    renderPos = boxOffset*2;
+    int numInventory = 6;
+    for( int i = 0; i < numInventory; ++i )
+    {
+        gameObject* obj;
+        obj = pController->m_ePlayer.m_pInventory.getObject( i );
+        if( obj != NULL )
+        {
+            renderer.setColor(0.0,0.0,0.0,1.0);
+
+            renderer.setTextureMode();
+            //fsPoint2f renderTextPos = renderPos - boxOffset;
+            renderer.renderText( fsPoint2f(renderPos.x - boxOffset, renderPos.y + 12 ) , obj->getName() );
+            renderer.setLineMode();
+        }
+        renderer.setColor(0.0,0.0,0.0,0.2);
+        renderer.renderSquare(renderPos, boxOffset*2 );
+        renderPos.x += boxOffset*2 + boxOffset;
+    }
+    
+    
 }
 

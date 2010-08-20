@@ -55,7 +55,12 @@ fsPoint2f& fsPoint2f::operator -(const fsPoint2f& rhs)
 	y -= rhs.y;
 	return *this;
 }
-
+fsPoint2f& fsPoint2f::operator -(const float val)
+{
+	x -= val;
+	y -= val;
+	return *this;
+}
 fsPoint2f& fsPoint2f::operator +(const fsPoint2f& rhs)
 {
 	x += rhs.x;
@@ -74,6 +79,13 @@ fsPoint2f& fsPoint2f::operator =(const fsPoint2f& rhs)
 {
 	fsPoint2f temp(rhs);
 	swap(temp);
+	return *this;
+}
+
+fsPoint2f& fsPoint2f::operator =(const float val)
+{
+    x = val;
+    y = val;
 	return *this;
 }
 

@@ -33,16 +33,7 @@ void gameObject::draw()
 
 void gameObject::update()
 {
-   /*
-    static float clamp = .00005;
-    if( vel.x < clamp )
-        vel.x = 0;
-    if( vel.y < clamp )
-        vel.y = 0;
-    */
-
-        loc += vel;
-        static float dampen = .9;
-        vel *= dampen;
-    
+    loc += vel;
+    static float dampen = .9;
+    vel *= dampen;
 }

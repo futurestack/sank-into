@@ -29,6 +29,9 @@ class gameInventory: public gameObject
         gameInventory();
         ~gameInventory();
         void addObject(gameObject* obj );
+        gameObject* getObject(gameObject* obj );
+        gameObject* getObject( int index );
+        
         void removeObject(gameObject* obj );
         
         std::vector<gameObject*> m_vObjects;
@@ -46,7 +49,7 @@ class gamePlayer: public gameEntity
         float m_fFiringRadius;
         float m_fCurrentAngle;
         
-        gameInventory* m_pInventory;
+        gameInventory m_pInventory;
     };
 
 #endif

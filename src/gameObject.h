@@ -35,6 +35,7 @@ class gameObject
         {
             return m_sName;
         }
+        
         drawChunk m_dChunk;
 
     protected:

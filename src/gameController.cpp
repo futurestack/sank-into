@@ -91,10 +91,12 @@ void gameController::update()
 
 void gameController::draw()
 {
+    
     m_ePlayer.draw();
 
     m_oGameCamera.draw();
     for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
         (*it)->draw();
+    
     
 }
