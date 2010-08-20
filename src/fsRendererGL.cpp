@@ -170,7 +170,7 @@ void fsRendererGL::renderPolyLine(std::vector<fsPoint2i> line ) const
     glVertexPointer(2, GL_FLOAT, 0, renderLine);
     glDrawArrays(GL_LINE_STRIP, 0, linesize );    
 }
-
+*/
 void fsRendererGL::renderCircle(const int rad  ) const
 {
 
@@ -187,7 +187,7 @@ void fsRendererGL::renderCircle(const int rad  ) const
     glVertexPointer(2, GL_FLOAT, 0, circleArray);
     glDrawArrays(GL_LINE_LOOP, 0, res );
 }
-*/
+
 void fsRendererGL::renderCircle(const fsPoint2i& p, const int rad  ) const
 {
     static float deg2rad( pi/res );

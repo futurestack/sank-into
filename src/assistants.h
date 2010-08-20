@@ -89,4 +89,23 @@ class fsRan
 };
 
 
+static inline float dist2d( float x1, float y1, float x2, float y2)
+{
+	return sqrt( (fabs( x1 - x2)) * (fabs( x1 - x2)) + 
+				(fabs( y1 - y2)) * (fabs( y1 - y2)) );
+}
+
+static inline float dist2d( fsPoint2i p1, fsPoint2i p2)
+{
+	return sqrt( (fabs( p1.x - p2.x)) * (fabs( p1.x - p2.x)) + 
+				(fabs( p1.y - p2.y)) * (fabs( p1.y - p2.y)) );
+}
+
+static inline float dist2d( fsPoint2f p1, fsPoint2f p2 )
+{
+	return sqrt( (fabs( p1.x - p2.x)) * (fabs( p1.x - p2.x)) + 
+				(fabs( p1.y - p2.y)) * (fabs( p1.y - p2.y)) );
+}
+
+
 #endif

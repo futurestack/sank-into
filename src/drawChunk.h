@@ -22,10 +22,12 @@ class drawChunk
     public:
         drawChunk();
         drawChunk(std::string path);
-        void setParent(gameObject* par) { parent = par; };
         ~drawChunk();
+
+        void setParent(gameObject* par) { parent = par; };
         void draw();
         void update();
+        
         scriptInterpreter script;
         
         std::vector<fsPoint2i> m_vPoints;

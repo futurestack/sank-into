@@ -12,6 +12,7 @@
 
 #include "gameObject.h"
 #include "gameEntity.h"
+#include "gameClasses.h"
 
 #include "gameLevel.h"
 #include <vector>
@@ -23,7 +24,8 @@ class gameController
         void update();
         void draw();
         
-        gameEntity m_ePlayer;
+        gamePlayer m_ePlayer;
+        
         gameObject m_oMouseLocScreen;
         gameObject m_oMouseLocWorld;
         gameLevel m_level;

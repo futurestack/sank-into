@@ -75,9 +75,10 @@ int update(Uint32 updatePeriod) {
 
 
 int render() { // Here goes our drawing code
-  renderer->render();
-  SDL_GL_SwapBuffers();
-    controller->draw();
+    renderer->render();
+    //controller->draw();
+    SDL_GL_SwapBuffers();
+
   return(TRUE);
 }
 
@@ -119,8 +120,10 @@ int main (int argc, char **argv)
     gameStart = SDL_GetTicks();
   before = gameStart;
 
-  while(!done) { 
-    if(isActive) {
+  while(!done) 
+  { 
+    if(isActive) 
+    {
       getStats(updatePeriod);
       update(updatePeriod);
       render();

@@ -20,8 +20,8 @@
 typedef std::vector<fsPoint2i> polyLine;
 
 drawChunk::drawChunk():
-parent(NULL),
-script()
+script(),
+parent(NULL)
 {
 
 }

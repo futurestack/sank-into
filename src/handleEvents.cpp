@@ -151,16 +151,17 @@ void eventHandler::handleEvents()
             case SDL_MOUSEBUTTONUP:
                 handleMouseUp(p.x,p.y );
                 break;
-                
-            case SDL_ACTIVEEVENT:
-                /* Something's happend with our focus
-                 * If we lost focus or we are iconified, we
-                 * shouldn't draw the screen
-                 */
+                /*
+                 //case SDL_ACTIVEEVENT:
+                //Something's happend with our focus
+                 //If we lost focus or we are iconified, we
+                 //shouldn't draw the screen
+            
             if (event.active.gain == 0)
                 isActive = false;
             else
                 isActive = true;
+                */
             break;
         case SDL_VIDEORESIZE:
             resizeWindow(event.resize.w, event.resize.h);

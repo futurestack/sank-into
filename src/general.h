@@ -40,6 +40,8 @@
 #define SCREEN_WIDTH  800  
 #define SCREEN_HEIGHT 335
 #define SCREEN_BPP     32
+#define CAM_OFFSET_X 400
+#define CAM_OFFSET_Y 200
 
 #define TRUE  1
 #define FALSE 0
