@@ -106,18 +106,22 @@ void gameController::update()
     m_pCurrentLevel->update();
     
     //make camera follow player
-    x = m_pCamera.loc.x + CAM_OFFSET_X - m_pPlayer->loc.x ; 
-    y = m_pCamera.loc.y + CAM_OFFSET_Y - m_pPlayer->loc.y; 
+    x = m_pCamera.loc.x - m_pPlayer->loc.x ; 
+    y = m_pCamera.loc.y - m_pPlayer->loc.y; 
     static float camSpeed = .02;
 
     m_pCamera.loc.x += x*-camSpeed;
     m_pCamera.loc.y += y*-camSpeed;
 
+    //todo: still put in camera predicting player velocity to offer a wider look-ahead
     
 }
 
 void gameController::draw(fsRendererGL& renderer)
 {
+    //transform camera space just a lil
+    renderer.pushMatrix();
+    renderer.translate( CAM_OFFSET_X,CAM_OFFSET_Y,0 );
     renderer.setColor( c_black );
     m_pCurrentLevel->draw(renderer);
     renderer.setColor( c_black );
@@ -130,5 +134,7 @@ void gameController::draw(fsRendererGL& renderer)
     for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
         (*it)->draw(renderer);
     
+    //end cameraspace
+    renderer.pushMatrix();
     
 }
