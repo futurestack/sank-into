@@ -16,6 +16,8 @@
 
 #include "fsRendererGL.h"
 
+static const bool updateQuads = true;
+
 gameLevel::gameLevel():
 m_pOrigin(),
 m_pBound()
@@ -43,12 +45,12 @@ gameLevel::~gameLevel()
 
 void gameLevel::update()
 {
-    m_map.Update();
+    if ( updateQuads ) m_map.Update();
 }
 
 void gameLevel::draw(const fsRendererGL& renderer)
 {
-    m_map.Draw(renderer);
+    if ( updateQuads ) m_map.Draw(renderer);
     renderer.renderCircle(m_pOrigin,20);
     renderer.renderCircle(m_pBound,20);
     renderer.renderRect(m_pOrigin,m_pBound);

@@ -20,14 +20,14 @@
 #include <cassert>
 #include <SDL/SDL.h>
 
-const int WIDTH = 1024;
+const int WIDTH = 2048;
 const int HEIGHT = WIDTH;
 
 class gameMap : public QuadTree<bool>
 {
 public:
     gameMap() :
-    QuadTree<bool>(QuadTree<bool>::SIZE_256x256)
+    QuadTree<bool>(QuadTree<bool>::SIZE_64x64 )
     {
     };
     virtual ~gameMap() { };

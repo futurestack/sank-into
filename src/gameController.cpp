@@ -88,13 +88,13 @@ void gameController::update()
     m_pCamera.update();
     m_oMouseLocScreen.update();
    // m_oMouseLocWorld.loc = m_oMouseLocScreen.loc;
-    m_oMouseLocWorld.loc.x = m_oMouseLocScreen.loc.x + m_pCamera.loc.x;
-    m_oMouseLocWorld.loc.y = m_oMouseLocScreen.loc.y + m_pCamera.loc.y;
+    m_oMouseLocWorld.loc.x = m_oMouseLocScreen.loc.x + m_pCamera.loc.x - CAM_OFFSET_X;
+    m_oMouseLocWorld.loc.y = m_oMouseLocScreen.loc.y + m_pCamera.loc.y - CAM_OFFSET_Y;
     
     
     //figure out the current angle of aim, update the player
-    float x =  m_pPlayer->loc.x - m_oMouseLocWorld.loc.x;
-    float y =  m_pPlayer->loc.y - m_oMouseLocWorld.loc.y;
+    float x =  m_pPlayer->loc.x - m_oMouseLocWorld.loc.x ;//+ m_pCamera.loc.x;
+    float y =  m_pPlayer->loc.y - m_oMouseLocWorld.loc.y ;//+ m_pCamera.loc.y;
     m_pPlayer->m_fCurrentAngle = -1* atan2( y,x ) - HALF_PI;
     m_pPlayer->update();
     

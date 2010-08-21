@@ -179,9 +179,18 @@ void glContext::render()
     renderer.pushMatrix();
     renderer.translate( pController->m_oMouseLocScreen.loc );
     std::stringstream s;
-    p = pController->m_oMouseLocWorld.loc;
-    s << p.x << "/" << p.y ;
+    p = pController->m_oMouseLocScreen.loc;
+    s << "mouseScreen" << p.x << "/" << p.y ;
     renderer.renderText( pController->m_oMouseLocScreen.loc, s.str() );
+    renderer.popMatrix();
+    
+    //some debugging data onscreen
+    renderer.pushMatrix();
+    renderer.translate( pController->m_oMouseLocWorld.loc );
+    s.str("");
+    p = pController->m_oMouseLocWorld.loc;
+    s << "mouseWorld" << p.x << "/" << p.y ;
+    renderer.renderText( pController->m_oMouseLocWorld.loc, s.str() );
     renderer.popMatrix();
     
     renderer.pushMatrix();
