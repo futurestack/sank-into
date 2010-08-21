@@ -17,18 +17,21 @@
 #include "gameLevel.h"
 #include <vector>
 
+class fsRendererGL;
+
 class gameController
     {
     public:
         
         void update();
-        void draw();
+        void draw( fsRendererGL& renderer );
         
         gamePlayer m_ePlayer;
         
         gameObject m_oMouseLocScreen;
         gameObject m_oMouseLocWorld;
-        gameLevel m_level;
+        //gameLevel m_level;
+        gameLevel* m_pCurrentLevel;
         gameObject m_oGameCamera;
         
         std::vector<gameObject*> m_vObjects;

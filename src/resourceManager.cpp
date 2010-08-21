@@ -52,7 +52,9 @@ gameObject* resourceManager::loadObject(std::string path )
 
 gameLevel* resourceManager::loadLevel( std::string path )
 {
-    gameLevel* level = new gameLevel;
+    fsPoint2i origin = fsPoint2i(0,0);
+    fsPoint2i bound = fsPoint2i(2048,2048);
+    gameLevel* level = new gameLevel(origin,bound);
 
     
     

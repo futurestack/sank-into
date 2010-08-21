@@ -52,13 +52,13 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
     {
         case SDLK_c:
         {
-            pController->m_level.m_map.setAllObjects(false);
+            pController->m_pCurrentLevel->m_map.setAllObjects(false);
             std::cout << "Resetting.\n";
             break;  
         }
         case SDLK_v:
         {
-            pController->m_level.m_map.BreakUp(p.x , p.y);
+            pController->m_pCurrentLevel->m_map.BreakUp(p.x , p.y);
             std::cout << "Splitting.\n";
             break;              
         }
@@ -102,7 +102,7 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             toggleFullscreen();
             break;
         default:
-            pController->m_level.m_map.Key(keysym->sym - '0', p.x,p.y);
+            pController->m_pCurrentLevel->m_map.Key(keysym->sym - '0', p.x,p.y);
             break;
       }
       
@@ -111,13 +111,13 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
 
 void eventHandler::handleMouseUp( int x, int y)
 {
-    pController->m_ePlayer.loc = pController->m_oMouseLocWorld.loc;
+    //pController->m_ePlayer.loc = pController->m_oMouseLocWorld.loc;
 
 }
 
 void eventHandler::handleMouseDown( int x, int y)
 {
-    pController->m_level.m_map.Click(x,y);
+    pController->m_pCurrentLevel->m_map.Click(x,y);
 
                                
                                

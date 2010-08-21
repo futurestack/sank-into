@@ -23,6 +23,7 @@ class gameLevel
     {
     public:
         gameLevel();
+        gameLevel(fsPoint2i origin, fsPoint2i bound);
         ~gameLevel();
         
         void update();
@@ -31,7 +32,9 @@ class gameLevel
         void updateMap();
         
         std::vector<gameObject*> m_pObjects;
-        int width, height;
+        
+        fsPoint2i m_pOrigin;
+        fsPoint2i m_pBound;
         
     //private:
         gameMap m_map;

@@ -15,6 +15,8 @@
 #include <string>
 #include "drawChunk.h"
 
+class gameLevel;
+
 class gameObject
     {
     public:  
@@ -36,11 +38,14 @@ class gameObject
             return m_sName;
         }
         
+        void setLevel( gameLevel* level );
+        gameLevel* getLevel();
+        
         drawChunk m_dChunk;
 
     protected:
         std::string m_sName;
-        
+        gameLevel* m_pLevel;
         
     };
 

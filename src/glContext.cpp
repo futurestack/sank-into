@@ -168,8 +168,8 @@ void glContext::render()
     p.x *= -1;
     p.y *= -1;
     renderer.translate(p);
-    pController->draw();
-    pController->m_level.draw(renderer);
+    pController->draw(renderer);
+    pController->m_pCurrentLevel->draw(renderer);
     renderObject( pController->m_ePlayer) ;
     renderer.popMatrix();
       

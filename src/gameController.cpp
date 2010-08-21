@@ -21,7 +21,7 @@
 gameController* gameController::pInstance = 0;
 
 gameController::gameController():
-m_level(),
+m_pCurrentLevel(NULL),
 m_iGlobalJitter(0)
 {
     resourceManager rm;
@@ -36,6 +36,11 @@ m_iGlobalJitter(0)
     m_vLevels.push_back( rm.loadLevel("resource/levels/level_00.lua") );
     m_vLevels.push_back( rm.loadLevel("resource/levels/level_01.lua") );
     m_vLevels.push_back( rm.loadLevel("resource/levels/level_02.lua") );
+    m_pCurrentLevel = m_vLevels[0];
+    assert(m_pCurrentLevel);
+    
+    for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
+        (*it)->setLevel(m_pCurrentLevel);
     
     //hack!
     m_ePlayer.loc.y = 300;
@@ -77,7 +82,7 @@ void gameController::update()
         (*it)->update();
     
     //not sure why we're updating this yet, but ...
-    m_level.update();
+    m_pCurrentLevel->update();
     
     //make camera follow player
     x = m_oGameCamera.loc.x + CAM_OFFSET_X - m_ePlayer.loc.x ; 
@@ -90,9 +95,10 @@ void gameController::update()
     
 }
 
-void gameController::draw()
+void gameController::draw(fsRendererGL& renderer)
 {
     
+    m_pCurrentLevel->draw(renderer);
     m_ePlayer.draw();
 
     m_oGameCamera.draw();
