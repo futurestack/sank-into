@@ -59,7 +59,7 @@ gameObject* gameInventory::getObject( gameObject* obj )
 
 gameObject* gameInventory::getObject( int index )
 {
-    if( index < m_vObjects.size() )
+    if( index < (int)m_vObjects.size() )
     {
         return m_vObjects[index];
     }else{

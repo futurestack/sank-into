@@ -39,7 +39,7 @@ class gameController
         
         
         static gameController* Instance();
-    
+        bool m_bJitter;
         int m_iGlobalJitter;
         
     private:

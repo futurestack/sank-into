@@ -226,8 +226,8 @@ void glContext::render()
         renderPos.x += boxOffset*2 + boxOffset;
     }
     renderer.setColor( c_black );
-    drawBlits();
-    drawDiags();
+    drawBlits( pController->m_iGlobalJitter );
+    drawDiags( pController->m_iGlobalJitter );
     
 }
 

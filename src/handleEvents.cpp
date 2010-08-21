@@ -45,7 +45,7 @@ eventHandler::~eventHandler()
 void eventHandler::handleKeyPress(SDL_keysym *keysym) 
 { 
     // function to handle key press events
-    static const float keyVel = 5.0f;
+    static const float keyVel = 10.0f;
     fsPoint2i p =  pController->m_oMouseLocWorld.loc;
     
     switch (keysym->sym) 
@@ -70,7 +70,14 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             pController->m_pPlayer->vel.y -= keyVel;  break;
         case SDLK_s:
             pController->m_pPlayer->vel.y += keyVel;  break;
+        case SDLK_t:
+        {
+            std::cout << "Toggling jitter.\n";
+            pController->m_bJitter = !pController->m_bJitter;  
+            break;
+        }
         case SDLK_q:
+            
             pController->m_pCamera.vel = fsPoint2f(0,0);  
             pController->m_pCamera.loc = fsPoint2f(0,0);  
             break;

@@ -15,6 +15,9 @@
 #include "gameLevel.h"
 #include "scriptInterpreter.h"
 
+//debug temp
+#include "assistants.h"
+
 resourceManager::resourceManager():
 m_pScript(NULL)
 {
@@ -28,6 +31,7 @@ resourceManager::~resourceManager()
 }
 gameObject* resourceManager::loadObject(std::string path )
 {
+    static fsRan myRan(0);
     gameObject* obj = new gameObject;
     obj->setName("someObj");
 
@@ -40,8 +44,8 @@ gameObject* resourceManager::loadObject(std::string path )
     
     //hacky but I'm tired of Everything having to draw itself.
     obj->m_dChunk.setParent(obj);
-    obj->loc.x = 200;
-    obj->loc.y = 150;
+    obj->loc.x = myRan.doub() * 2048;
+    obj->loc.y = myRan.doub() * 1024;
     
     return obj;
     

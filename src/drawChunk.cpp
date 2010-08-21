@@ -18,6 +18,8 @@
 #include "assistants.h"
 #include "general.h"
 
+#include "gameController.h"
+
 typedef std::vector<fsPoint2i> polyLine;
 
 drawChunk::drawChunk():
@@ -62,9 +64,8 @@ drawChunk::~drawChunk()
 }
 void drawChunk::update()
 {
-  // static gameController* control = gameController::Instance();
-    
-//    m_iJitter = control->m_iGlobalJitter;
+    static gameController* control = gameController::Instance();
+    m_iJitter = control->m_iGlobalJitter;
     
 }
 
@@ -86,7 +87,7 @@ void drawChunk::draw(fsRendererGL& renderer)
     //lop one off the top
     if( numPoints % 2 != 0 ) numPoints--;
     
-    float jitterMax = myRan.doub()* JITTER_MAX;
+    float jitterMax = myRan.doub()* m_iJitter;
     
     for( int i = 0; i < numPoints - 1 ; ++i )
     {

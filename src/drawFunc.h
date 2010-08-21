@@ -20,11 +20,11 @@ static bool debug_drawFunc = false;
 static fsRan myRan(0);
 
 static fsRendererGL pRenderer;
-static void drawBlits()
+static void drawBlits(int jitter )
 {
     
     static int rad = 5;
-    for( int i = 0; i < JITTER_MAX; i++ )
+    for( int i = 0; i < jitter; i++ )
     {
         float x = myRan.doub() * SCREEN_WIDTH;
         float y = myRan.doub() * SCREEN_HEIGHT;
@@ -43,9 +43,9 @@ static void drawBlits()
     
 }
 
-static void drawDiags()
+static void drawDiags(int jitter )
 {
-    if( JITTER_MAX <1 ) 
+    if( jitter <1 ) 
         return;
     int blockSize = 2;
     int numB = floor(myRan.doub()* 5) + 2;

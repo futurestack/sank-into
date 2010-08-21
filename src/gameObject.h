@@ -30,6 +30,9 @@ class gameObject
         fsPoint2f loc;        
         fsPoint2f vel;
         
+        fsPoint2f m_pOrigin;
+        fsPoint2f m_pBound;
+        
         void setName(const std::string name)
         {
             m_sName = name;   
@@ -43,7 +46,7 @@ class gameObject
         gameLevel* getLevel();
         
         drawChunk m_dChunk;
-
+        bool m_bGravity;
     protected:
         std::string m_sName;
         gameLevel* m_pLevel;

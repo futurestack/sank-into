@@ -23,6 +23,7 @@ gameController* gameController::pInstance = 0;
 gameController::gameController():
 m_pPlayer(NULL),
 m_pCurrentLevel(NULL),
+m_bJitter(false),
 m_iGlobalJitter(0)
 {
     resourceManager rm;
@@ -41,12 +42,17 @@ m_iGlobalJitter(0)
     assert(m_pCurrentLevel);
     
     for( std::vector<gameObject*>::iterator it = m_vObjects.begin(); it != m_vObjects.end(); ++it)
+    {
         (*it)->setLevel(m_pCurrentLevel);
-    
+        (*it)->m_bGravity = true;
+    }
     //hack!
     m_pPlayer = new gamePlayer;
     m_pPlayer->setLevel(m_pCurrentLevel);
-    m_pPlayer->loc.y = 300;
+    m_pPlayer->loc.y = 2048;
+    m_pPlayer->loc.x = 1024;
+    m_pPlayer->m_bGravity = true;
+    
     m_pCamera.loc = m_pPlayer->loc;
 }
 
@@ -75,6 +81,9 @@ gameController* gameController::Instance()
 
 void gameController::update()
 {
+    //set a testing jitter var
+    m_bJitter ? m_iGlobalJitter = 5 : m_iGlobalJitter = 0;
+    
     //update mouse and camera positions
     m_pCamera.update();
     m_oMouseLocScreen.update();

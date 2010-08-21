@@ -15,6 +15,7 @@ gameObject::gameObject()
 loc(0,0),
 vel(0,0),
 m_dChunk(),
+m_bGravity(false),
 m_sName("gameObject"),
 m_pLevel(NULL)
 {
@@ -35,12 +36,17 @@ void gameObject::draw(fsRendererGL& renderer)
 
 void gameObject::update()
 {
+    m_dChunk.update();
+    
     loc += vel;
     static float dampen = .9;
     vel *= dampen;
     
-    //bounds check against level edges
+    //quote gravity unquote
+    if(m_bGravity)
+        vel.y +=.3;
     
+    //bounds check against level edges
     if( m_pLevel )
     {
         fsPoint2i p1 = m_pLevel->m_pOrigin;
