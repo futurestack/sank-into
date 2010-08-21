@@ -69,10 +69,10 @@ void drawChunk::update()
 }
 
 
-void drawChunk::draw()
+void drawChunk::draw(fsRendererGL& renderer)
 {
 
-    static fsRendererGL renderer;
+//    static fsRendererGL renderer;
     static fsRan myRan(0);
     
     renderer.pushMatrix();

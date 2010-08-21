@@ -150,17 +150,17 @@ void glContext::renderObject(gameObject& obj )
     renderer.pushMatrix();
     renderer.translate(p.x,p.y,0);
     renderer.renderSquare (30 );
-    obj.draw();
+    obj.draw(renderer);
     renderer.popMatrix();
 }
 
 void glContext::render()
 {
-    renderer.clear(1.0,1.0,1.0,1.0);
+    renderer.clear( c_white );
     
-    renderer.setColor(0.0,0.0,0.0,1.0);
+    renderer.setColor( c_black );
     
-    fsPoint2i p = pController->m_oGameCamera.loc;
+    fsPoint2i p = pController->m_pCamera.loc;
     
     renderer.pushMatrix();
     
@@ -170,10 +170,12 @@ void glContext::render()
     renderer.translate(p);
     pController->draw(renderer);
     pController->m_pCurrentLevel->draw(renderer);
-    renderObject( pController->m_ePlayer) ;
+    renderObject( *(pController->m_pPlayer) ) ;
     renderer.popMatrix();
-      
     
+    renderer.setColor( c_black );
+
+    //some debugging data onscreen
     renderer.pushMatrix();
     renderer.translate( pController->m_oMouseLocScreen.loc );
     std::stringstream s;
@@ -185,17 +187,22 @@ void glContext::render()
     renderer.pushMatrix();
     s.clear();
     s.str("");
-    p = pController->m_ePlayer.loc;
+    p = pController->m_pPlayer->loc;
     s << "player:";
     s << p.x << "/" << p.y ;
     renderer.renderText( fsPoint2f( 20, 200) , s.str() );
     renderer.popMatrix();
     
+    s.str("");
+    p = pController->m_pCamera.loc;
+    s << "camera:";
+    s << p.x << "/" << p.y ;
+    renderer.renderText( fsPoint2f( 20, 220) , s.str() );
     
     renderObject( pController->m_oMouseLocScreen );
     
     //render the inventory
-    renderer.setColor( 0.0, 0.0, 0.0, 1.0);
+    renderer.setColor( c_black );
     fsPoint2f renderPos;
     static int boxOffset = 20;
     renderPos = boxOffset*2;
@@ -203,21 +210,22 @@ void glContext::render()
     for( int i = 0; i < numInventory; ++i )
     {
         gameObject* obj;
-        obj = pController->m_ePlayer.m_pInventory.getObject( i );
+        obj = pController->m_pPlayer->m_pInventory.getObject( i );
         if( obj != NULL )
         {
-            renderer.setColor(0.0,0.0,0.0,1.0);
+            renderer.setColor( c_black );
 
             renderer.setTextureMode();
             //fsPoint2f renderTextPos = renderPos - boxOffset;
             renderer.renderText( fsPoint2f(renderPos.x - boxOffset, renderPos.y + 12 ) , obj->getName() );
             renderer.setLineMode();
         }
-        renderer.setColor(0.0,0.0,0.0,0.2);
+        renderer.setColor(c_black);
+        renderer.setAlpha(.5);
         renderer.renderSquare(renderPos, boxOffset*2 );
         renderPos.x += boxOffset*2 + boxOffset;
     }
-    renderer.setColor(0.0,0.0,0.0,1.0);
+    renderer.setColor( c_black );
     drawBlits();
     drawDiags();
     

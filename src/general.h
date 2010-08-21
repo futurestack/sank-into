@@ -24,7 +24,7 @@
 
 
 #ifndef _GENERAL_H
-#define    _GENERAL_H
+#define _GENERAL_H
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -53,7 +53,6 @@ void Quit(int returnCode);
 extern glContext *renderer;
 extern bool done;
 extern bool isActive;
-
 
 #ifndef SANKINTO_CONFIG_H_
 #define SANKINTO_CONFIG_H_

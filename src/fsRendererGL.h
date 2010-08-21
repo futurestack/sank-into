@@ -16,6 +16,7 @@
 class fsPoint2i;
 class fsPoint2f;
 #include "fsColor.h"
+#include "colors.h"
 
 /*
 #ifdef __APPLE__
@@ -50,7 +51,8 @@ class fsRendererGL
         //color stuff
         void setColor( fsColor c ) const;
         void setColor( float r, float g, float b, float a ) const;
-
+        void setAlpha( float a ) const;
+        
         //some primitives to start
         void renderLine(const fsPoint2i& p1, const fsPoint2i& p2 ) const;
         void renderLine(const int x1, const int y1, const int x2, const int y2 ) const;

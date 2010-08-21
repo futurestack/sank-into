@@ -16,6 +16,7 @@
 #include "fsPoint2i.h"
 
 class gameObject;
+class fsRendererGL;
 
 class drawChunk
     {
@@ -25,7 +26,7 @@ class drawChunk
         ~drawChunk();
 
         void setParent(gameObject* par) { parent = par; };
-        void draw();
+        void draw(fsRendererGL& renderer);
         void update();
         
         scriptInterpreter script;

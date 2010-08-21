@@ -96,9 +96,9 @@ void gamePlayer::update()
     
 }
 
-void gamePlayer::draw()
+void gamePlayer::draw(fsRendererGL& renderer)
 {
-    gameObject::draw();
+    gameObject::draw(renderer);
     localRenderer.pushMatrix();
     localRenderer.translate( loc );
     localRenderer.renderCircle( m_fFiringRadius );

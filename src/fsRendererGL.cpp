@@ -99,6 +99,12 @@ void fsRendererGL::setColor( float r, float g, float b, float a ) const
     glColor4f(r,g,b,a);
     lastColor = fsColor(r,g,b,a);
 }
+
+void fsRendererGL::setAlpha( float a ) const
+{
+    glColor4f( lastColor.r, lastColor.g, lastColor.b, a );
+}
+
 void fsRendererGL::translate(float x, float y, float z) const
 {
     glTranslated( x , y , z );
@@ -291,6 +297,7 @@ void fsRendererGL::renderSquare( const int rad) const
     glVertexPointer(2,GL_FLOAT, 0, line);
     glDrawArrays(GL_LINE_LOOP, 0, 4 );
 }
+
 void fsRendererGL::renderRect(const fsPoint2i& p1, const fsPoint2i& p2) const
 {
     GLfloat line[] =
@@ -317,6 +324,7 @@ void fsRendererGL::renderRect( int x1, int y1, int x2, int y2 ) const
     glVertexPointer(2,GL_FLOAT, 0, line);
     glDrawArrays(GL_LINE_LOOP, 0, 4 );
 }
+
 void fsRendererGL::renderRectFill( int x1, int y1, int x2, int y2 ) const
 {
     GLfloat line[] =

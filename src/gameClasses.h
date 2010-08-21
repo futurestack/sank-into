@@ -15,6 +15,8 @@
 
 #include <vector>
 
+class fsRendererGL;
+
 class gameWeapon : public gameObject
     {
     public:   
@@ -44,7 +46,7 @@ class gamePlayer: public gameEntity
         ~gamePlayer();
         
         void update();
-        void draw();
+        void draw(fsRendererGL& renderer);
         
         float m_fFiringRadius;
         float m_fCurrentAngle;

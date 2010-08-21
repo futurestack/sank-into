@@ -63,16 +63,16 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             break;              
         }
         case SDLK_a:
-            pController->m_ePlayer.vel.x -= keyVel;  break;
+            pController->m_pPlayer->vel.x -= keyVel;  break;
         case SDLK_d:
-            pController->m_ePlayer.vel.x += keyVel;  break;
+            pController->m_pPlayer->vel.x += keyVel;  break;
         case SDLK_w:
-            pController->m_ePlayer.vel.y -= keyVel;  break;
+            pController->m_pPlayer->vel.y -= keyVel;  break;
         case SDLK_s:
-            pController->m_ePlayer.vel.y += keyVel;  break;
+            pController->m_pPlayer->vel.y += keyVel;  break;
         case SDLK_q:
-            pController->m_oGameCamera.vel = fsPoint2f(0,0);  
-            pController->m_oGameCamera.loc = fsPoint2f(0,0);  
+            pController->m_pCamera.vel = fsPoint2f(0,0);  
+            pController->m_pCamera.loc = fsPoint2f(0,0);  
             break;
             
         case SDLK_ESCAPE:
@@ -87,16 +87,16 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             toggleFullscreen();
             break;
         case SDLK_LEFT:
-            pController->m_ePlayer.vel.x -= keyVel;
+            pController->m_pPlayer->vel.x -= keyVel;
             break;
         case SDLK_RIGHT:
-            pController->m_ePlayer.vel.x += keyVel;
+            pController->m_pPlayer->vel.x += keyVel;
             break;
         case SDLK_UP:
-            pController->m_ePlayer.vel.y -= keyVel;
+            pController->m_pPlayer->vel.y -= keyVel;
             break;
         case SDLK_DOWN:
-            pController->m_ePlayer.vel.y += keyVel;
+            pController->m_pPlayer->vel.y += keyVel;
             break;
         case SDLK_TAB:
             toggleFullscreen();
@@ -111,7 +111,7 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
 
 void eventHandler::handleMouseUp( int x, int y)
 {
-    //pController->m_ePlayer.loc = pController->m_oMouseLocWorld.loc;
+    //pController->m_pPlayer->loc = pController->m_oMouseLocWorld.loc;
 
 }
 

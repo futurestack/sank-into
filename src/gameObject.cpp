@@ -28,9 +28,9 @@ gameObject::~gameObject()
 
 }
 
-void gameObject::draw()
+void gameObject::draw(fsRendererGL& renderer)
 {
-    m_dChunk.draw();
+    m_dChunk.draw(renderer);
 }
 
 void gameObject::update()
@@ -47,8 +47,8 @@ void gameObject::update()
         fsPoint2i p2 = m_pLevel->m_pBound;
         if( loc.x < p1.x ) loc.x = p1.x;
         if( loc.y < p1.y ) loc.y = p1.y;
-        if( loc.x < p2.x ) loc.x = p2.x;
-        if( loc.y < p2.y ) loc.y = p2.y;
+        if( loc.x > p2.x ) loc.x = p2.x;
+        if( loc.y > p2.y ) loc.y = p2.y;
     }
 }
 

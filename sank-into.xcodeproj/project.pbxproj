@@ -75,6 +75,7 @@
 		2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameClasses.cpp; sourceTree = "<group>"; };
 		2255F45E121EB054007DAAB4 /* drawFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawFunc.h; sourceTree = "<group>"; };
 		2255F45F121EB054007DAAB4 /* drawFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawFunc.cpp; sourceTree = "<group>"; };
+		22637F7412204031003FE071 /* colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colors.h; sourceTree = "<group>"; };
 		226851691215D94E0077D025 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		2268516A1215D94E0077D025 /* fsColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fsColor.cpp; sourceTree = "<group>"; };
 		2268516B1215D94E0077D025 /* fsColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsColor.h; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		226851681215D94E0077D025 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				22637F7412204031003FE071 /* colors.h */,
 				226851891215D94E0077D025 /* main.cpp */,
 				62124E6E1218A19700BECC57 /* assistants.h */,
 				226852F11215EE880077D025 /* messaging.h */,

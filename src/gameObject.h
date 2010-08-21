@@ -16,6 +16,7 @@
 #include "drawChunk.h"
 
 class gameLevel;
+class fsRendererGL;
 
 class gameObject
     {
@@ -24,7 +25,7 @@ class gameObject
         virtual ~gameObject();
         
         void update();
-        void draw();
+        void draw(fsRendererGL& renderer);
         
         fsPoint2f loc;        
         fsPoint2f vel;

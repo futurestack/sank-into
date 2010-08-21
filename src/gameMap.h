@@ -118,9 +118,10 @@ protected:
             r.h = h - 1;
             SDL_FillRect(SDL_GetVideoSurface(), &r, 0x00CCAA77);
 
-            renderer.setColor(0.,0.,0.,.2);
+            renderer.setColor( c_black );
+            renderer.setAlpha( .6 );
             renderer.renderRect(x,y,x+w,y+h);
-            renderer.setColor(0.,0.,0.,.2);
+            renderer.setAlpha( .2 );
             renderer.renderRectFill(x,y,x+w,y+h);
         }
     }

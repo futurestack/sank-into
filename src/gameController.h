@@ -26,13 +26,13 @@ class gameController
         void update();
         void draw( fsRendererGL& renderer );
         
-        gamePlayer m_ePlayer;
+        gamePlayer *m_pPlayer;
         
         gameObject m_oMouseLocScreen;
         gameObject m_oMouseLocWorld;
-        //gameLevel m_level;
+
         gameLevel* m_pCurrentLevel;
-        gameObject m_oGameCamera;
+        gameObject m_pCamera;
         
         std::vector<gameObject*> m_vObjects;
         std::vector<gameLevel*> m_vLevels;
