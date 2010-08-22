@@ -158,6 +158,7 @@
 		62B927D61221B9CA00D52096 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = /opt/local/lib/liblua.a; sourceTree = "<absolute>"; };
 		62CFB3151221DC5600637988 /* gameEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameEditor.h; sourceTree = "<group>"; };
 		62CFB3161221DC5600637988 /* gameEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameEditor.cpp; sourceTree = "<group>"; };
+		62CFB6D11221EBF600637988 /* interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interfaces.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* sank-into.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sank-into.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -231,6 +232,7 @@
 		226851681215D94E0077D025 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				62CFB6D11221EBF600637988 /* interfaces.h */,
 				22637F7412204031003FE071 /* colors.h */,
 				226851891215D94E0077D025 /* main.cpp */,
 				62124E6E1218A19700BECC57 /* assistants.h */,

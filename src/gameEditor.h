@@ -13,13 +13,14 @@
 #include <vector>
 #include "fsPoint2f.h"
 
+#include "interfaces.h"
 
 class gameLevel;
 class gameMap;
 class gameObject;
 class fsRendererGL;
 
-class gameEditor
+class gameEditor : public eventHandler
     {
     public:
         gameEditor();
@@ -28,6 +29,9 @@ class gameEditor
         void mouseUp( int x, int y, int mod );
         void mouseDown( int x, int y, int mod );
         void mouseMove( int x, int y, int mod );
+        void keyRelease( SDL_keysym * keysm );
+        void keyPress( SDL_keysym *keysym );
+        
         
         void update();
         void draw( const fsRendererGL& renderer );

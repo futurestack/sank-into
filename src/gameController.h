@@ -17,11 +17,13 @@
 #include "gameLevel.h"
 #include <vector>
 #include "handleScreen.h"
+#include "interfaces.h"
+
 
 class fsRendererGL;
 class gameEditor;
 
-class gameController
+class gameController : public eventHandler
     {
     public:
         
@@ -33,10 +35,12 @@ class gameController
         void updateGame();
         void draw( const fsRendererGL& renderer );
         
-        void handleKeyPress( SDL_keysym *keysym );
-        void handleMouseMotion( int x, int y );
-        void handleMouseUp( int x, int y  );
-        void handleMouseDown( int x, int y );
+        void mouseUp( int x, int y, int mod );
+        void mouseDown( int x, int y, int mod );
+        void mouseMove( int x, int y, int mod );
+        void keyRelease( SDL_keysym * keysm );
+        void keyPress( SDL_keysym *keysym );
+        
         void handleEvents();
         
         gamePlayer *m_pPlayer;

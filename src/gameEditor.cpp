@@ -42,3 +42,31 @@ void gameEditor::draw(const fsRendererGL& renderer)
 {
 
 }
+
+
+void gameEditor::mouseUp( int x, int y, int mod )
+{
+    
+}
+
+void gameEditor::mouseDown( int x, int y, int mod )
+{
+    
+}
+
+void gameEditor::mouseMove( int x, int y, int mod )
+{
+    
+}
+
+void gameEditor::keyRelease( SDL_keysym * keysm )
+{
+    
+}
+
+void gameEditor::keyPress( SDL_keysym *keysym )
+{
+    
+}
+
+

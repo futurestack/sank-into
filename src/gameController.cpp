@@ -201,9 +201,12 @@ bool gameController::toggleEditMode()
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.                               *
  ****************************************************************************/
 
+void gameController::keyRelease(SDL_keysym *keysym) 
+{ 
 
+}
 
-void gameController::handleKeyPress(SDL_keysym *keysym) 
+void gameController::keyPress(SDL_keysym *keysym) 
 { 
     // function to handle key press events
     static const float keyVel = 10.0f;
@@ -279,17 +282,17 @@ void gameController::handleKeyPress(SDL_keysym *keysym)
     return;
 }
 
-void gameController::handleMouseUp( int x, int y)
+void gameController::mouseUp( int x, int y, int mod )
 {
     //if( pController.m_bEditMode)
 }
 
-void gameController::handleMouseDown( int x, int y)
+void gameController::mouseDown( int x, int y, int mod )
 {
     m_pCurrentLevel->m_map.Click(x,y);      
 }
 
-void gameController::handleMouseMotion( int x, int y)
+void gameController::mouseMove( int x, int y, int mod )
 {
     m_oMouseLocScreen.loc = fsPoint2f(x,y);
 }
@@ -307,14 +310,14 @@ void gameController::handleEvents()
         {
                 
             case SDL_MOUSEMOTION:
-                handleMouseMotion(event.button.x,event.button.y);
+                mouseMove(event.button.x,event.button.y, 0);
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                handleMouseDown(p.x,p.y );
+                mouseDown(p.x,p.y ,0);
                 
                 break;           
             case SDL_MOUSEBUTTONUP:
-                handleMouseUp(p.x,p.y );
+                mouseUp(p.x,p.y ,0);
                 break;
                 /*
                  //case SDL_ACTIVEEVENT:
@@ -333,7 +336,7 @@ void gameController::handleEvents()
                 break;
             case SDL_KEYDOWN:
                 // handle key presses
-                handleKeyPress(&event.key.keysym);
+                keyPress(&event.key.keysym);
                 break;
             case SDL_QUIT:
                 // handle quit requests
