@@ -15,9 +15,11 @@
 #include "quadtree.h"
 
 #include "fsRendererGL.h"
+#include "fsPoint2f.h"
 
 static const bool updateQuads = true;
 
+/*
 gameLevel::gameLevel():
 m_pOrigin(),
 m_pBound()
@@ -25,11 +27,16 @@ m_pBound()
     m_map.setAllObjects(false);
     
 }
+*/
 
-gameLevel::gameLevel(fsPoint2i origin , fsPoint2i bound):
-m_pOrigin(origin.x,origin.y),
-m_pBound(bound.x,bound.y)
+gameLevel::gameLevel(const fsPoint2f &origin , const fsPoint2f& bound):
+m_pOrigin(origin),
+m_pBound(bound),
+m_map(origin, bound)
 {
+    printf( "gameLevel::gameLevel():Input params are %f, %f / %f, %f\n", origin.x,origin.y,bound.x,bound.y);
+
+    
     std::cout << "Creating level:";
     printf( "%d, %d / %d, %d\n", m_pOrigin.x,m_pOrigin.y,m_pBound.x,m_pBound.y);
     m_map.setAllObjects(false);

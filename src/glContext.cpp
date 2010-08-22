@@ -184,14 +184,7 @@ void glContext::render()
     renderer.renderText( pController->m_oMouseLocScreen.loc, s.str() );
     renderer.popMatrix();
     
-    //some debugging data onscreen
-    renderer.pushMatrix();
-    renderer.translate( pController->m_oMouseLocWorld.loc );
-    s.str("");
-    p = pController->m_oMouseLocWorld.loc;
-    s << "mouseWorld" << p.x << "/" << p.y ;
-    renderer.renderText( pController->m_oMouseLocWorld.loc, s.str() );
-    renderer.popMatrix();
+
     
     renderer.pushMatrix();
     s.clear();
@@ -237,6 +230,17 @@ void glContext::render()
     renderer.setColor( c_black );
     drawBlits( pController->m_iGlobalJitter );
     drawDiags( pController->m_iGlobalJitter );
+    
+    
+    //some debugging data onscreen
+    renderer.pushMatrix();
+    renderer.translate( pController->m_oMouseLocWorld.loc );
+    s.str("");
+    p = pController->m_oMouseLocWorld.loc;
+    s << "mouseWorld" << p.x << "/" << p.y ;
+    renderer.renderText( pController->m_oMouseLocWorld.loc, s.str() );
+    renderer.popMatrix();
+    
     
 }
 

@@ -49,8 +49,8 @@ m_iGlobalJitter(0)
     //hack!
     m_pPlayer = new gamePlayer;
     m_pPlayer->setLevel(m_pCurrentLevel);
-    m_pPlayer->loc.y = 2048;
-    m_pPlayer->loc.x = 1024;
+    m_pPlayer->loc.y = DEFAULT_LEVEL_SIZE;
+    m_pPlayer->loc.x = DEFAULT_LEVEL_SIZE / 2;
     m_pPlayer->m_bGravity = true;
     
     m_pCamera.loc = m_pPlayer->loc;

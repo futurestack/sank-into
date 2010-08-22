@@ -15,6 +15,8 @@
 #include "gameLevel.h"
 #include "scriptInterpreter.h"
 
+#include "general.h"
+
 //debug temp
 #include "assistants.h"
 
@@ -44,8 +46,8 @@ gameObject* resourceManager::loadObject(std::string path )
     
     //hacky but I'm tired of Everything having to draw itself.
     obj->m_dChunk.setParent(obj);
-    obj->loc.x = myRan.doub() * 2048;
-    obj->loc.y = myRan.doub() * 1024;
+    obj->loc.x = myRan.doub() * DEFAULT_LEVEL_SIZE;
+    obj->loc.y = myRan.doub() * DEFAULT_LEVEL_SIZE / 2;
     
     return obj;
     
@@ -57,7 +59,9 @@ gameObject* resourceManager::loadObject(std::string path )
 gameLevel* resourceManager::loadLevel( std::string path )
 {
     fsPoint2i origin = fsPoint2i(0,0);
-    fsPoint2i bound = fsPoint2i(2048,2048);
+    fsPoint2i bound = fsPoint2i(DEFAULT_LEVEL_SIZE , DEFAULT_LEVEL_SIZE );
+    printf( "resourceManager::loadLevel():Input params are %d, %d / %d, %d\n", origin.x,origin.y,bound.x,bound.y);
+
     gameLevel* level = new gameLevel(origin,bound);
 
     

@@ -22,8 +22,8 @@ class fsRendererGL;
 class gameLevel
     {
     public:
-        gameLevel();
-        gameLevel(fsPoint2i origin, fsPoint2i bound);
+        gameLevel(const fsPoint2f& origin, const fsPoint2f& bound);
+        
         ~gameLevel();
         
         void update();
@@ -38,6 +38,9 @@ class gameLevel
         
     //private:
         gameMap m_map;
+    private:
+        //gameLevel();
+
     };
 
 #endif

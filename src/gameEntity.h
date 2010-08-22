@@ -11,6 +11,7 @@
 #define GAME_ENTITY_H_
 
 #include "gameObject.h"
+
 class gameEntity : public gameObject
     {
     public:
