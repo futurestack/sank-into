@@ -9,3 +9,36 @@
 
 #include "gameEditor.h"
 
+#include <vector>
+#include "fsPoint2f.h"
+
+typedef std::vector<fsPoint2f> polyLine;
+
+//debug
+#include <iostream>
+
+
+
+gameEditor::gameEditor()
+{
+
+
+}
+
+gameEditor::~gameEditor()
+{
+
+
+}
+
+
+void gameEditor::update()
+{
+
+}
+
+
+void gameEditor::draw(const fsRendererGL& renderer)
+{
+
+}

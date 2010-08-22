@@ -13,6 +13,7 @@
 #include <math.h>
 
 #include "assistants.h"
+#include "gameEditor.h"
 
 #define PI 3.14159
 #define TWO_PI PI*2.0
@@ -29,6 +30,7 @@ m_iGlobalJitter(0),
 m_bEditMode(false)
 {
     resourceManager rm;
+    
     
     m_vObjects.push_back( rm.loadObject("resource/objects/tree.lua"));
     m_vObjects.push_back( rm.loadObject("resource/objects/guy.lua"));
@@ -56,6 +58,10 @@ m_bEditMode(false)
     m_pPlayer->m_bGravity = true;
     
     m_pCamera.loc = m_pPlayer->loc;
+    
+    m_pEditor = new gameEditor;
+
+    
 }
 
 gameController::~gameController()
@@ -69,7 +75,7 @@ gameController::~gameController()
     m_vLevels.clear();
     
     delete m_pPlayer;
-    
+    delete m_pEditor;
 }
 
 gameController* gameController::Instance()
@@ -159,6 +165,8 @@ void gameController::draw( const fsRendererGL& renderer)
     //end cameraspace
     renderer.pushMatrix();
     
+    if( m_pEditor ) 
+        m_pEditor->draw(renderer);
 }
 
 bool gameController::toggleEditMode()
@@ -167,3 +175,173 @@ bool gameController::toggleEditMode()
     m_bEditMode ? std::cout << "Turning edit mode on.\n" : std::cout << "Turning edit mode off.\n";
     return m_bEditMode;
 }
+
+
+// File:   handleEvents.cpp
+/****************************************************************************
+ * Copyright (c) 2008 Gareth Morgan.                                        *
+ *                                                                          *
+ * Permission is hereby granted, free of charge, to any person obtaining a  *
+ * copy of this software and associated documentation files (the            *
+ * "Software"), to deal in the Software without restriction, including      *
+ * without limitation the rights to use, copy, modify, merge, publish,      *
+ * distribute, distribute with modifications, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is    *
+ * furnished to do so, subject to the following conditions:                 *
+ *                                                                          *
+ * The above copyright notice and this permission notice shall be included  *
+ * in all copies or substantial portions of the Software.                   *
+ *                                                                          *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  *
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF               *
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.   *
+ * IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,   *
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR    *
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR    *
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.                               *
+ ****************************************************************************/
+
+
+
+void gameController::handleKeyPress(SDL_keysym *keysym) 
+{ 
+    // function to handle key press events
+    static const float keyVel = 10.0f;
+    fsPoint2i p =  m_oMouseLocWorld.loc;
+    
+    switch (keysym->sym) 
+    {
+        case SDLK_c:
+        {
+            m_pCurrentLevel->m_map.m_pQuadTree->setAllObjects(false);
+            std::cout << "Resetting.\n";
+            break;  
+        }
+        case SDLK_v:
+        {
+            m_pCurrentLevel->m_map.BreakUp(p.x , p.y);
+            std::cout << "Splitting.\n";
+            break;              
+        }
+        case SDLK_a:
+            m_pPlayer->vel.x -= keyVel;  break;
+        case SDLK_d:
+            m_pPlayer->vel.x += keyVel;  break;
+        case SDLK_w:
+            m_pPlayer->vel.y -= keyVel;  break;
+        case SDLK_s:
+            m_pPlayer->vel.y += keyVel;  break;
+        case SDLK_e:
+            toggleEditMode();  break;
+        case SDLK_t:
+        {
+            std::cout << "Toggling jitter.\n";
+            m_bJitter = !m_bJitter;  
+            break;
+        }
+        case SDLK_q:
+            
+            m_pCamera.vel = fsPoint2f(0,0);  
+            m_pCamera.loc = fsPoint2f(0,0);  
+            break;
+            
+        case SDLK_ESCAPE:
+            // ESC key was pressed
+            Quit(0);
+            break;
+            
+        case SDLK_F1:
+            /* F1 key was pressed
+             * this toggles fullscreen mode
+             */
+            toggleFullscreen();
+            break;
+        case SDLK_LEFT:
+            m_pPlayer->vel.x -= keyVel;
+            break;
+        case SDLK_RIGHT:
+            m_pPlayer->vel.x += keyVel;
+            break;
+        case SDLK_UP:
+            m_pPlayer->vel.y -= keyVel;
+            break;
+        case SDLK_DOWN:
+            m_pPlayer->vel.y += keyVel;
+            break;
+        case SDLK_TAB:
+            toggleFullscreen();
+            break;
+        default:
+            m_pCurrentLevel->m_map.Key(keysym->sym - '0', p.x,p.y);
+            break;
+    }
+    
+    return;
+}
+
+void gameController::handleMouseUp( int x, int y)
+{
+    //if( pController.m_bEditMode)
+}
+
+void gameController::handleMouseDown( int x, int y)
+{
+    m_pCurrentLevel->m_map.Click(x,y);      
+}
+
+void gameController::handleMouseMotion( int x, int y)
+{
+    m_oMouseLocScreen.loc = fsPoint2f(x,y);
+}
+
+
+void gameController::handleEvents() 
+{
+    static SDL_Event event;
+    
+    while(SDL_PollEvent(&event)) 
+    {
+        fsPoint2f p = m_oMouseLocWorld.loc;
+        
+        switch(event.type) 
+        {
+                
+            case SDL_MOUSEMOTION:
+                handleMouseMotion(event.button.x,event.button.y);
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                handleMouseDown(p.x,p.y );
+                
+                break;           
+            case SDL_MOUSEBUTTONUP:
+                handleMouseUp(p.x,p.y );
+                break;
+                /*
+                 //case SDL_ACTIVEEVENT:
+                 //Something's happend with our focus
+                 //If we lost focus or we are iconified, we
+                 //shouldn't draw the screen
+                 
+                 if (event.active.gain == 0)
+                 isActive = false;
+                 else
+                 isActive = true;
+                 */
+                break;
+            case SDL_VIDEORESIZE:
+                resizeWindow(event.resize.w, event.resize.h);
+                break;
+            case SDL_KEYDOWN:
+                // handle key presses
+                handleKeyPress(&event.key.keysym);
+                break;
+            case SDL_QUIT:
+                // handle quit requests
+                done = true;
+                break;
+            default:
+                break;
+        }
+    }
+}
+

@@ -26,7 +26,7 @@
 #include <cstdlib>
 #include "general.h"
 #include "handleScreen.h"
-#include "handleEvents.h"
+//#include "handleEvents.h"
 
 #include "scriptInterpreter.h"
 
@@ -109,11 +109,10 @@ int main (int argc, char **argv)
   Uint32 before, after, diff, wait, overWait = 0, updatePeriod = 0;
 
 
-    scriptInterpreter interpreter;
+    //scriptInterpreter interpreter;
     //interpreter.runTest();
     
-    eventHandler handler;
-
+    gameController* pController = gameController::Instance();
     init();
 
     gameStart = SDL_GetTicks();
@@ -127,7 +126,7 @@ int main (int argc, char **argv)
       update(updatePeriod);
       render();
     }
-    handler.handleEvents();
+    pController->handleEvents();
 
     after = SDL_GetTicks();
     diff = after - before + overWait;

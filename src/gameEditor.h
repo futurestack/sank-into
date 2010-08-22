@@ -11,6 +11,9 @@
 #define GAME_EDITOR_H_
 
 #include <vector>
+#include "fsPoint2f.h"
+
+
 class gameLevel;
 class gameMap;
 class gameObject;
@@ -22,10 +25,15 @@ class gameEditor
         gameEditor();
         ~gameEditor();
         
+        void mouseUp( int x, int y, int mod );
+        void mouseDown( int x, int y, int mod );
+        void mouseMove( int x, int y, int mod );
         
         void update();
         void draw( const fsRendererGL& renderer );
-        
+    private:
+        std::vector< std::vector<fsPoint2f> > m_vLines;
+        std::vector< fsPoint2f> currentLine ;
     };
 
 #endif

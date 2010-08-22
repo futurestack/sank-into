@@ -24,7 +24,6 @@
 		226851991215D94E0077D025 /* gameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268517E1215D94E0077D025 /* gameLevel.cpp */; };
 		2268519A1215D94E0077D025 /* gameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851801215D94E0077D025 /* gameObject.cpp */; };
 		2268519B1215D94E0077D025 /* glContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851831215D94E0077D025 /* glContext.cpp */; };
-		2268519C1215D94E0077D025 /* handleEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851851215D94E0077D025 /* handleEvents.cpp */; };
 		2268519D1215D94E0077D025 /* handleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851871215D94E0077D025 /* handleScreen.cpp */; };
 		2268519E1215D94E0077D025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226851891215D94E0077D025 /* main.cpp */; };
 		2268519F1215D94E0077D025 /* scriptInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268518B1215D94E0077D025 /* scriptInterpreter.cpp */; };
@@ -103,8 +102,6 @@
 		226851821215D94E0077D025 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
 		226851831215D94E0077D025 /* glContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glContext.cpp; sourceTree = "<group>"; };
 		226851841215D94E0077D025 /* glContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glContext.h; sourceTree = "<group>"; };
-		226851851215D94E0077D025 /* handleEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handleEvents.cpp; sourceTree = "<group>"; };
-		226851861215D94E0077D025 /* handleEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleEvents.h; sourceTree = "<group>"; };
 		226851871215D94E0077D025 /* handleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handleScreen.cpp; sourceTree = "<group>"; };
 		226851881215D94E0077D025 /* handleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleScreen.h; sourceTree = "<group>"; };
 		226851891215D94E0077D025 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -258,8 +255,6 @@
 				62CFB3161221DC5600637988 /* gameEditor.cpp */,
 				226851831215D94E0077D025 /* glContext.cpp */,
 				226851841215D94E0077D025 /* glContext.h */,
-				226851851215D94E0077D025 /* handleEvents.cpp */,
-				226851861215D94E0077D025 /* handleEvents.h */,
 				226851871215D94E0077D025 /* handleScreen.cpp */,
 				226851881215D94E0077D025 /* handleScreen.h */,
 				2268518A1215D94E0077D025 /* quadtree.h */,
@@ -430,7 +425,6 @@
 				226851991215D94E0077D025 /* gameLevel.cpp in Sources */,
 				2268519A1215D94E0077D025 /* gameObject.cpp in Sources */,
 				2268519B1215D94E0077D025 /* glContext.cpp in Sources */,
-				2268519C1215D94E0077D025 /* handleEvents.cpp in Sources */,
 				2268519D1215D94E0077D025 /* handleScreen.cpp in Sources */,
 				2268519E1215D94E0077D025 /* main.cpp in Sources */,
 				2268519F1215D94E0077D025 /* scriptInterpreter.cpp in Sources */,

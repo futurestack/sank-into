@@ -16,6 +16,7 @@
 
 #include "gameLevel.h"
 #include <vector>
+#include "handleScreen.h"
 
 class fsRendererGL;
 class gameEditor;
@@ -24,11 +25,19 @@ class gameController
     {
     public:
         
+        
+        
+        
         void update();
         void updateEdit();
         void updateGame();
-        
         void draw( const fsRendererGL& renderer );
+        
+        void handleKeyPress( SDL_keysym *keysym );
+        void handleMouseMotion( int x, int y );
+        void handleMouseUp( int x, int y  );
+        void handleMouseDown( int x, int y );
+        void handleEvents();
         
         gamePlayer *m_pPlayer;
         
@@ -48,7 +57,7 @@ class gameController
         bool m_bEditMode;
 
         bool toggleEditMode();
-        \
+        
     private:
         gameController();
         ~gameController();
