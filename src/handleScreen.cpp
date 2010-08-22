@@ -110,9 +110,10 @@ void initGeneral() {
     videoInfo = SDL_GetVideoInfo();
     
 #ifdef USE_VSYNC
-
+#ifdef __APPLE__
 	GLint swap = 1;
 	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
+#endif
 #endif
     
     
