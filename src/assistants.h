@@ -20,9 +20,9 @@ typedef unsigned int Uint;
 
 
 static fsPoint2i findCenter( const std::vector<fsPoint2i>& points);
-static std::vector<fsPoint2i> normalizePoints( const std::vector<fsPoint2i>& points );
+inline std::vector<fsPoint2i> normalizePoints( const std::vector<fsPoint2i>& points );
 
-static std::vector<fsPoint2i> normalizePoints( const std::vector<fsPoint2i>& points )
+std::vector<fsPoint2i> normalizePoints( const std::vector<fsPoint2i>& points )
 {
 	std::vector<fsPoint2i> newPoints;
 	fsPoint2i center = findCenter( points );

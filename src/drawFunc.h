@@ -20,7 +20,7 @@ static bool debug_drawFunc = false;
 static fsRan myRan(0);
 
 static fsRendererGL pRenderer;
-static void drawBlits(int jitter )
+inline void drawBlits(int jitter )
 {
     
     static int rad = 5;
@@ -43,7 +43,7 @@ static void drawBlits(int jitter )
     
 }
 
-static void drawDiags(int jitter )
+inline void drawDiags(int jitter )
 {
     if( jitter <1 ) 
         return;

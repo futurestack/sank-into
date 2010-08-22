@@ -17,10 +17,10 @@ QuadTree<bool>(QuadTree<bool>::SIZE_64x64 )
 }
 */
 
-gameMap::gameMap(fsPoint2f origin, fsPoint2f bound):
-QuadTree<bool>(QuadTree<bool>::SIZE_64x64 )
+gameMap::gameMap(fsPoint2f origin, fsPoint2f bound)
+//QuadTree<bool>(QuadTree<bool>::SIZE_64x64 )
 {
-    m_quadTree = new QuadTree<bool>(QuadTree<bool>::SIZE_64x64 );
+    m_pQuadTree = new QuadTree<bool>(QuadTree<bool>::SIZE_64x64 );
     m_iWidth = bound.x - origin.y;
     m_iHeight = bound.y - origin.y;
     printf("Creating dynamic quad tree with %f,%f x %f,%f\n", origin.x, origin.y, bound.x,bound.y);
@@ -36,7 +36,7 @@ gameMap::~gameMap()
 
 void gameMap::Draw( const fsRendererGL& renderer )
 {
-    Draw(*this, 0, 0, WIDTH, HEIGHT, renderer );
+    Draw(*m_pQuadTree, 0, 0, m_iWidth, m_iHeight, renderer );
 }
 
 void gameMap::Update()
@@ -47,40 +47,29 @@ void gameMap::Update()
 void gameMap::Click(int x, int y)
 {
     
-    int blockx = x / (WIDTH / (*this)[-1].width());
-    int blocky = y / (HEIGHT / (*this)[-1].height());
-    
-    /*
-     
-     well this isn't quite what I wanted, I'm misusing the positional data somewhere.  commenting for now.
-     for( int i = 0; i < (*this)[0](blockx,blocky).layers() ; ++i )
-     {
-     std::cout << "Autosplitting.\n";
-     gameMap * splitLayer = dynamic_cast<gameMap*>(&(*this)[i] );
-     if( splitLayer ) splitLayer->BreakUp(blockx,blocky);
-     }
-     */
+    int blockx = x / (m_iWidth / (*m_pQuadTree)[-1].width());
+    int blocky = y / (m_iHeight / (*m_pQuadTree)[-1].height());
     
     //set block
-    (*this)[-1](blockx, blocky).object() = true;
+    (*m_pQuadTree)[-1](blockx, blocky).object() = true;
 }
 
 
 void gameMap::Key( unsigned int num, int x, int y )
 {
-    if (num > layers())
+    if (num > (*m_pQuadTree).layers())
         return;
-    int blockx = x / (WIDTH / (*this)[num].width());
-    int blocky = y / (HEIGHT / (*this)[num].width());
-    (*this)[num](blockx, blocky).object() = true;
+    int blockx = x / (m_iWidth / (*m_pQuadTree)[num].width());
+    int blocky = y / (m_iHeight / (*m_pQuadTree)[num].width());
+    (*m_pQuadTree)[num](blockx, blocky).object() = true;
 }
 
 void gameMap::BreakUp(int x, int y)
 {
-    int blockx = x / (WIDTH / (*this)[-1].width());
-    int blocky = y / (HEIGHT / (*this)[-1].width());
+    int blockx = x / (m_iWidth / (*m_pQuadTree)[-1].width());
+    int blocky = y / (m_iHeight / (*m_pQuadTree)[-1].width());
     
-    QuadTree<bool> *qt = &(*this)[-1](blockx, blocky);
+    QuadTree<bool> *qt = &(*m_pQuadTree)[-1](blockx, blocky);
     
     while (true)
     {

@@ -52,7 +52,7 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
     {
         case SDLK_c:
         {
-            pController->m_pCurrentLevel->m_map.setAllObjects(false);
+            pController->m_pCurrentLevel->m_map.m_pQuadTree->setAllObjects(false);
             std::cout << "Resetting.\n";
             break;  
         }

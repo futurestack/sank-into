@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		002F3C0109D093BD00EBEB88 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F3C0009D093BD00EBEB88 /* OpenGL.framework */; };
 		2255EA07121E7A6D007DAAB4 /* Lua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2255EA06121E7A6D007DAAB4 /* Lua.framework */; };
-		2255EA0B121E7A93007DAAB4 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255EA0A121E7A93007DAAB4 /* SDLMain.m */; };
 		2255EA13121E7B6C007DAAB4 /* gameClasses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */; };
 		2255F460121EB054007DAAB4 /* drawFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2255F45F121EB054007DAAB4 /* drawFunc.cpp */; };
 		2268518F1215D94E0077D025 /* fsColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2268516A1215D94E0077D025 /* fsColor.cpp */; };
@@ -69,8 +68,6 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2255EA06121E7A6D007DAAB4 /* Lua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lua.framework; path = /Library/Frameworks/Lua.framework; sourceTree = "<absolute>"; };
-		2255EA09121E7A93007DAAB4 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
-		2255EA0A121E7A93007DAAB4 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		2255EA11121E7B6C007DAAB4 /* gameClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameClasses.h; sourceTree = "<group>"; };
 		2255EA12121E7B6C007DAAB4 /* gameClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameClasses.cpp; sourceTree = "<group>"; };
 		2255F45E121EB054007DAAB4 /* drawFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawFunc.h; sourceTree = "<group>"; };
@@ -216,8 +213,6 @@
 				226851771215D94E0077D025 /* fsScriptLua.h */,
 				226851781215D94E0077D025 /* fsScriptPy.cpp */,
 				226851791215D94E0077D025 /* fsScriptPy.h */,
-				2255EA09121E7A93007DAAB4 /* SDLMain.h */,
-				2255EA0A121E7A93007DAAB4 /* SDLMain.m */,
 				2268516A1215D94E0077D025 /* fsColor.cpp */,
 				2268516B1215D94E0077D025 /* fsColor.h */,
 				2268516C1215D94E0077D025 /* fsPoint2f.cpp */,
@@ -433,7 +428,6 @@
 				226852251215E67E0077D025 /* gameMap.cpp in Sources */,
 				226859EB12161B6F0077D025 /* resourceManager.cpp in Sources */,
 				6288BE9F121732E6008472F8 /* drawChunk.cpp in Sources */,
-				2255EA0B121E7A93007DAAB4 /* SDLMain.m in Sources */,
 				2255EA13121E7B6C007DAAB4 /* gameClasses.cpp in Sources */,
 				2255F460121EB054007DAAB4 /* drawFunc.cpp in Sources */,
 			);

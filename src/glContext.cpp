@@ -33,7 +33,7 @@
 #include "drawFunc.h"
 
 #ifdef __APPLE__
-#include <SDL/SDL_opengl.h>
+//#include <SDL/SDL_opengl.h>
 #include <OpenGL/OpenGL.h>
 #else
 #include <GL/gl.h>
@@ -67,12 +67,13 @@ bool glContext::initGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     
-/*
+#ifdef USE_VSYNC
 #ifdef __APPLE__
 	GLint swap = 1;
 	CGLSetParameter ( CGLGetCurrentContext(), kCGLCPSwapInterval, &swap);
 #endif
-  */  
+#endif
+    
 	//proper transparency setting
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 	

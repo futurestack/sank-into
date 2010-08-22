@@ -39,7 +39,7 @@ m_map(origin, bound)
     
     std::cout << "Creating level:";
     printf( "%d, %d / %d, %d\n", m_pOrigin.x,m_pOrigin.y,m_pBound.x,m_pBound.y);
-    m_map.setAllObjects(false);
+    m_map.m_pQuadTree->setAllObjects(false);
     
 }
 

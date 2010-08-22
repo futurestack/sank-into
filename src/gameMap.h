@@ -23,7 +23,7 @@
 const int WIDTH = 1024;
 const int HEIGHT = WIDTH;
 
-class gameMap : public QuadTree<bool>
+class gameMap// : public QuadTree<bool>
 {
 public:
     gameMap(fsPoint2f origin, fsPoint2f bound);
@@ -38,7 +38,7 @@ public:
     
     void BreakUp(int x, int y);
 
-    QuadTree<bool>* m_quadTree;
+    QuadTree<bool>* m_pQuadTree;
     int m_iWidth;
     int m_iHeight;
     
