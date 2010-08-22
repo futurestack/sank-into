@@ -70,6 +70,8 @@ void eventHandler::handleKeyPress(SDL_keysym *keysym)
             pController->m_pPlayer->vel.y -= keyVel;  break;
         case SDLK_s:
             pController->m_pPlayer->vel.y += keyVel;  break;
+        case SDLK_e:
+            pController->toggleEditMode();  break;
         case SDLK_t:
         {
             std::cout << "Toggling jitter.\n";

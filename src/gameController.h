@@ -25,6 +25,9 @@ class gameController
     public:
         
         void update();
+        void updateEdit();
+        void updateGame();
+        
         void draw( const fsRendererGL& renderer );
         
         gamePlayer *m_pPlayer;
@@ -42,7 +45,10 @@ class gameController
         static gameController* Instance();
         bool m_bJitter;
         int m_iGlobalJitter;
-        
+        bool m_bEditMode;
+
+        bool toggleEditMode();
+        \
     private:
         gameController();
         ~gameController();

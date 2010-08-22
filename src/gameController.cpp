@@ -25,7 +25,8 @@ m_pPlayer(NULL),
 m_pCurrentLevel(NULL),
 m_pEditor(NULL),
 m_bJitter(false),
-m_iGlobalJitter(0)
+m_iGlobalJitter(0),
+m_bEditMode(false)
 {
     resourceManager rm;
     
@@ -82,16 +83,36 @@ gameController* gameController::Instance()
 
 void gameController::update()
 {
+    
+    m_oMouseLocScreen.update();
+    m_oMouseLocWorld.loc.x = m_oMouseLocScreen.loc.x + m_pCamera.loc.x - CAM_OFFSET_X;
+    m_oMouseLocWorld.loc.y = m_oMouseLocScreen.loc.y + m_pCamera.loc.y - CAM_OFFSET_Y;
+    
+
+    
+    if ( m_bEditMode )
+    {
+        updateEdit();
+    }else{
+        updateGame();
+    }
+}
+void gameController::updateEdit()
+{
+    //do editing stuff here...
+        
+        
+}    
+
+    
+void gameController::updateGame()
+{
+    
     //set a testing jitter var
     m_bJitter ? m_iGlobalJitter = 5 : m_iGlobalJitter = 0;
     
     //update mouse and camera positions
     m_pCamera.update();
-    m_oMouseLocScreen.update();
-   // m_oMouseLocWorld.loc = m_oMouseLocScreen.loc;
-    m_oMouseLocWorld.loc.x = m_oMouseLocScreen.loc.x + m_pCamera.loc.x - CAM_OFFSET_X;
-    m_oMouseLocWorld.loc.y = m_oMouseLocScreen.loc.y + m_pCamera.loc.y - CAM_OFFSET_Y;
-    
     
     //figure out the current angle of aim, update the player
     float x =  m_pPlayer->loc.x - m_oMouseLocWorld.loc.x ;//+ m_pCamera.loc.x;
@@ -138,4 +159,11 @@ void gameController::draw( const fsRendererGL& renderer)
     //end cameraspace
     renderer.pushMatrix();
     
+}
+
+bool gameController::toggleEditMode()
+{
+    m_bEditMode = !m_bEditMode;
+    m_bEditMode ? std::cout << "Turning edit mode on.\n" : std::cout << "Turning edit mode off.\n";
+    return m_bEditMode;
 }
