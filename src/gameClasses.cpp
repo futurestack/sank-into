@@ -96,7 +96,7 @@ void gamePlayer::update()
     
 }
 
-void gamePlayer::draw(fsRendererGL& renderer)
+void gamePlayer::draw( const fsRendererGL& renderer)
 {
     gameObject::draw(renderer);
     localRenderer.pushMatrix();

@@ -26,7 +26,7 @@ class drawChunk
         ~drawChunk();
 
         void setParent(gameObject* par) { parent = par; };
-        void draw(fsRendererGL& renderer);
+        void draw( const fsRendererGL& renderer);
         void update();
         
         scriptInterpreter script;

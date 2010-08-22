@@ -25,7 +25,7 @@ class gameObject
         virtual ~gameObject();
         
         void update();
-        void draw(fsRendererGL& renderer);
+        void draw( const fsRendererGL& renderer);
         
         fsPoint2f loc;        
         fsPoint2f vel;

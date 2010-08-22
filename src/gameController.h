@@ -18,13 +18,14 @@
 #include <vector>
 
 class fsRendererGL;
+class gameEditor;
 
 class gameController
     {
     public:
         
         void update();
-        void draw( fsRendererGL& renderer );
+        void draw( const fsRendererGL& renderer );
         
         gamePlayer *m_pPlayer;
         
@@ -37,7 +38,7 @@ class gameController
         std::vector<gameObject*> m_vObjects;
         std::vector<gameLevel*> m_vLevels;
         
-        
+        gameEditor* m_pEditor;
         static gameController* Instance();
         bool m_bJitter;
         int m_iGlobalJitter;

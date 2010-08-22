@@ -29,7 +29,7 @@ gameObject::~gameObject()
 
 }
 
-void gameObject::draw(fsRendererGL& renderer)
+void gameObject::draw( const fsRendererGL& renderer)
 {
     m_dChunk.draw(renderer);
 }

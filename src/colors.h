@@ -2,7 +2,7 @@
  *  colors.h
  *  sank-into
  *
- *  Created by ndrw on 8/21/10.
+ *  Created by futurestack on 8/21/10.
  *  Copyright 2010 st4tic_software. All rights reserved.
  *
  */

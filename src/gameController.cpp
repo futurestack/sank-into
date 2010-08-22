@@ -23,6 +23,7 @@ gameController* gameController::pInstance = 0;
 gameController::gameController():
 m_pPlayer(NULL),
 m_pCurrentLevel(NULL),
+m_pEditor(NULL),
 m_bJitter(false),
 m_iGlobalJitter(0)
 {
@@ -117,7 +118,7 @@ void gameController::update()
     
 }
 
-void gameController::draw(fsRendererGL& renderer)
+void gameController::draw( const fsRendererGL& renderer)
 {
     //transform camera space just a lil
     renderer.pushMatrix();

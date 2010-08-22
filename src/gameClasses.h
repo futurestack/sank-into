@@ -46,7 +46,7 @@ class gamePlayer: public gameEntity
         ~gamePlayer();
         
         void update();
-        void draw(fsRendererGL& renderer);
+        void draw( const fsRendererGL& renderer);
         
         float m_fFiringRadius;
         float m_fCurrentAngle;

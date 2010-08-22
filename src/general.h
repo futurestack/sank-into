@@ -43,7 +43,8 @@
 #define CAM_OFFSET_X 400
 #define CAM_OFFSET_Y 200
 
-#define DEFAULT_LEVEL_SIZE 512
+#define DEFAULT_LEVEL_SIZE 1024
+
 #define TRUE  1
 #define FALSE 0
 

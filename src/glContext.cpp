@@ -118,24 +118,7 @@ void glContext::setupProjection(int width, int height)
 	glColorMask(true, true, true, true);        
 	glLoadIdentity();
 	init();
-    /*
-     
-    if (height == 0) {
-        height = 1;                 
-    }
 
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    gluPerspective(52.0f,(GLfloat)width/(GLfloat)height,1.0f,1000.0f);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    windowWidth = width;
-    windowHeight = height;
-    */
 }
 
 void glContext::update(float dt)
@@ -231,16 +214,6 @@ void glContext::render()
     renderer.setColor( c_black );
     drawBlits( pController->m_iGlobalJitter );
     drawDiags( pController->m_iGlobalJitter );
-    
-    
-    //some debugging data onscreen
-    renderer.pushMatrix();
-    renderer.translate( pController->m_oMouseLocWorld.loc );
-    s.str("");
-    p = pController->m_oMouseLocWorld.loc;
-    s << "mouseWorld" << p.x << "/" << p.y ;
-    renderer.renderText( pController->m_oMouseLocWorld.loc, s.str() );
-    renderer.popMatrix();
     
     
 }

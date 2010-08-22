@@ -76,7 +76,6 @@ int update(Uint32 updatePeriod) {
 
 int render() { // Here goes our drawing code
     renderer->render();
-    //controller->draw();
     SDL_GL_SwapBuffers();
 
   return(TRUE);

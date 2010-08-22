@@ -70,7 +70,7 @@ void drawChunk::update()
 }
 
 
-void drawChunk::draw(fsRendererGL& renderer)
+void drawChunk::draw( const fsRendererGL& renderer)
 {
 
 //    static fsRendererGL renderer;
